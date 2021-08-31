@@ -43,7 +43,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
         initComponents();
         var = v;
         Carga_componetes();
-
+        Componentes_SetEnable(false);
     }
 
     /**
@@ -89,13 +89,13 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jTextField1 = new javax.swing.JTextField();
-        jToggleButton3 = new javax.swing.JToggleButton();
-        jButton4 = new javax.swing.JButton();
+        filtra_sin_saldo = new javax.swing.JToggleButton();
+        Filra_los_que_cuaadran = new javax.swing.JToggleButton();
+        txt_consulta = new javax.swing.JTextField();
+        consulta = new javax.swing.JToggleButton();
+        recalcula = new javax.swing.JButton();
         jComboBox4 = new javax.swing.JComboBox<>();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        Igv = new javax.swing.JCheckBox();
         jPanel7 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -478,44 +478,54 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
 
         jLabel9.setText("jLabel9");
 
-        jToggleButton1.setText("filtra sin saldo");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        filtra_sin_saldo.setText("filtra sin saldo");
+        filtra_sin_saldo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                filtra_sin_saldoActionPerformed(evt);
             }
         });
 
-        jToggleButton2.setText("filtra los que cuadran");
-        jToggleButton2.addItemListener(new java.awt.event.ItemListener() {
+        Filra_los_que_cuaadran.setText("filtra los que cuadran");
+        Filra_los_que_cuaadran.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jToggleButton2ItemStateChanged(evt);
+                Filra_los_que_cuaadranItemStateChanged(evt);
+            }
+        });
+        Filra_los_que_cuaadran.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Filra_los_que_cuaadranActionPerformed(evt);
             }
         });
 
-        jTextField1.setText("jTextField1");
+        txt_consulta.setText("jTextField1");
 
-        jToggleButton3.setText("consulta");
-        jToggleButton3.addItemListener(new java.awt.event.ItemListener() {
+        consulta.setText("consulta");
+        consulta.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jToggleButton3ItemStateChanged(evt);
+                consultaItemStateChanged(evt);
             }
         });
-        jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
+        consulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton3ActionPerformed(evt);
+                consultaActionPerformed(evt);
             }
         });
 
-        jButton4.setText("re-calcula");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        recalcula.setText("re-calcula");
+        recalcula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                recalculaActionPerformed(evt);
             }
         });
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jCheckBox1.setText("IGV");
+        Igv.setText("IGV");
+        Igv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IgvActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -534,19 +544,19 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
                         .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(filtra_sin_saldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(recalcula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jToggleButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Filra_los_que_cuaadran, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1)
+                            .addComponent(txt_consulta)
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Igv, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jToggleButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addComponent(consulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -560,16 +570,16 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4)
+                    .addComponent(txt_consulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(recalcula)
                     .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jToggleButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(consulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jToggleButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jCheckBox1))
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(Filra_los_que_cuaadran, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Igv))
+                    .addComponent(filtra_sin_saldo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(21, 21, 21))
         );
 
@@ -701,6 +711,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         DecimalFormat formatea = var.MyFormatter();
+        Componentes_SetEnable(true);
         var.setFecha_recuento_selecionada(jComboBox1.getSelectedItem().toString());
         var.setLina_seleccionada(jComboBox2.getSelectedItem().toString());
         var.setSecuencia(0);
@@ -1003,7 +1014,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jtañoFocusGained
 
-    private void jToggleButton2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jToggleButton2ItemStateChanged
+    private void Filra_los_que_cuaadranItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_Filra_los_que_cuaadranItemStateChanged
         // TODO add your handling code here:
         int estado = evt.getStateChange();
         if (estado == ItemEvent.SELECTED) {
@@ -1013,30 +1024,30 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
         }
 
 
-    }//GEN-LAST:event_jToggleButton2ItemStateChanged
+    }//GEN-LAST:event_Filra_los_que_cuaadranItemStateChanged
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void filtra_sin_saldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtra_sin_saldoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    }//GEN-LAST:event_filtra_sin_saldoActionPerformed
 
-    private void jToggleButton3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jToggleButton3ItemStateChanged
+    private void consultaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_consultaItemStateChanged
         // TODO add your handling code here:
         int estado = evt.getStateChange();
         if (estado == ItemEvent.SELECTED) {
 //					label1.setText("Botón seleccionado");
-            jToggleButton3.setText("QUITAR CONSULTA");
-            var.setFiltro_carga_tabla(jTextField1.getText().toUpperCase());
+            consulta.setText("SIN CONS");
+            var.setFiltro_carga_tabla(txt_consulta.getText().toUpperCase());
             carga_tabla_lista();
 
         } else {
 //					label1.setText("Botón deseleccionado");
-            jToggleButton3.setText("CONSULTA");
+            consulta.setText("CONSULTA");
             var.setFiltro_carga_tabla("");
             carga_tabla_lista();
         }
 
 
-    }//GEN-LAST:event_jToggleButton3ItemStateChanged
+    }//GEN-LAST:event_consultaItemStateChanged
 
     private void jBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarActionPerformed
         // TODO add your handling code here:    int fila;
@@ -1156,7 +1167,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_JTFCodigoActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void recalculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recalculaActionPerformed
         // TODO add your handling code here:
 //        String sSQL = "UPDATE SISTEMA_FECHA cld "
 //                + "SET Nc_Alma1="
@@ -1223,26 +1234,39 @@ String sql="SELECT CART_ID,NC_ALMA FROM SISTEMA_FECHA  where CPROV_NOM ='"+var.g
         carga_tabla_cuenta();
 
 
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_recalculaActionPerformed
 
-    private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
+    private void consultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton3ActionPerformed
+    }//GEN-LAST:event_consultaActionPerformed
 
     private void JTFTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFTotalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFTotalActionPerformed
 
+    private void Filra_los_que_cuaadranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Filra_los_que_cuaadranActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_Filra_los_que_cuaadranActionPerformed
+
+    private void IgvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IgvActionPerformed
+        // TODO add your handling code here:
+        Calcula_totales();
+        imprime_totales();
+    }//GEN-LAST:event_IgvActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton Filra_los_que_cuaadran;
+    private javax.swing.JCheckBox Igv;
     private javax.swing.JTextField JTFCodigo;
     private javax.swing.JTextField JTFTotal;
+    private javax.swing.JToggleButton consulta;
+    private javax.swing.JToggleButton filtra_sin_saldo;
     private javax.swing.JButton jBEditar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -1275,18 +1299,16 @@ String sql="SELECT CART_ID,NC_ALMA FROM SISTEMA_FECHA  where CPROV_NOM ='"+var.g
     private javax.swing.JTextField jTFUnidades;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JTextField jtaño;
     private javax.swing.JTextField jtdia;
     private javax.swing.JTextField jtmes;
+    private javax.swing.JButton recalcula;
+    private javax.swing.JTextField txt_consulta;
     // End of variables declaration//GEN-END:variables
 
     private void Carga_componetes() {
@@ -1303,7 +1325,7 @@ String sql="SELECT CART_ID,NC_ALMA FROM SISTEMA_FECHA  where CPROV_NOM ='"+var.g
         jtdia.setText(String.valueOf(var.getCal().get(Calendar.DATE)));
         jtmes.setText(String.valueOf(var.getCal().get(Calendar.MONTH)));
         jtaño.setText(String.valueOf(var.getCal().get(Calendar.YEAR)));
-        jTextField1.setText("");
+        txt_consulta.setText("");
         var.setFiltro_carga_tabla("");
         jTextField5.setText(String.valueOf(formatea.format(var.getTotalXlinea())));
         jTextField6.setText(String.valueOf(formatea.format(var.getTotal_contado())));
@@ -1566,6 +1588,11 @@ String sql="SELECT CART_ID,NC_ALMA FROM SISTEMA_FECHA  where CPROV_NOM ='"+var.g
 
     private void calcula() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        Double IGV=1.0;
+//        if(Igv.isSelected())
+//        {
+//            IGV=1.18;
+//        }
         var.setC_cajas(Double.parseDouble(jTFCajas.getText()));
         var.setC_displays(Double.parseDouble(jTFDisplays.getText()));
         var.setC_unidades(Double.parseDouble(jTFUnidades.getText()));
@@ -1696,37 +1723,9 @@ String sql="SELECT CART_ID,NC_ALMA FROM SISTEMA_FECHA  where CPROV_NOM ='"+var.g
         } catch (SQLException ex) {
             Logger.getLogger(Borrar_por_fecha.class.getName()).log(Level.SEVERE, null, ex);
         }
-        String sqls = "SELECT SUM(Nultimo_Soles*NC_ALMA),SUM(Nultimo_Soles*NC_ALMA1) "
-                + "FROM SISTEMA_FECHA  "
-                + "where fecha_recuento='" + var.getFecha_recuento_selecionada().trim() + "' and  cprov_nom = '" + var.getLina_seleccionada().trim() + "'";
-        try {
-            PreparedStatement psr = var.conectar().prepareStatement(sqls);
-            ResultSet rsr = psr.executeQuery();
-            while (rsr.next()) {
-                var.setTotalXlinea(rsr.getDouble(1)*1.18);
-                var.setTotal_contado(rsr.getDouble(2)*1.18);
-                var.setTotal_diferencia(var.getTotalXlinea() - var.getTotal_contado());
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Recuento_con_fechas.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        sqls = "SELECT sum (total*Nultimo_Soles) FROM RECUENTO_FECHAS  where FECHA_DE_VENCIMIENTO <= '"+var.getFecha_recuento_selecionada()+"' and FECHA_RECUENTO='"+var.getFecha_recuento_selecionada()+"'";
-            
-        try {
-            PreparedStatement psr = var.conectar().prepareStatement(sqls);
-            ResultSet rsr = psr.executeQuery();
-            while (rsr.next()) {
-                var.setTotal_vencido(rsr.getDouble(1));
-                var.setTotal_vencido(var.getTotal_vencido()*1.18);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Recuento_con_fechas.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        Calcula_totales();
 
-        jTextField5.setText(String.valueOf(formatea.format(var.getTotalXlinea())));
-        jTextField6.setText(String.valueOf(formatea.format(var.getTotal_contado())));
-        jTextField7.setText(String.valueOf(formatea.format(var.getTotal_diferencia())));
-        jTextField9.setText(String.valueOf(formatea.format(var.getTotal_vencido())));
+        imprime_totales();
 
         carga_tabla_cuenta();
     }
@@ -1737,7 +1736,7 @@ String sql="SELECT CART_ID,NC_ALMA FROM SISTEMA_FECHA  where CPROV_NOM ='"+var.g
         String sql = "select Secuencia,Cart_Id,Cart_Nom,cajas,displays,unidades,total,Fecha_de_vencimiento "
                 + "from Recuento_fechas WHERE Fecha_recuento='"
                 + var.getFecha_recuento_selecionada()
-                + "' and Cprov_Nom='" + var.getLina_seleccionada() + "'";
+                + "' and Cprov_Nom='" + var.getLina_seleccionada() + "' order by Secuencia desc";
         jLabel7.setText(var.getLina_seleccionada());
         jLabel9.setText(var.getFecha_recuento_selecionada());
         try {
@@ -1796,5 +1795,65 @@ String sql="SELECT CART_ID,NC_ALMA FROM SISTEMA_FECHA  where CPROV_NOM ='"+var.g
             Logger.getLogger(Borrar_por_fecha.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    private void Calcula_totales() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Double IGV=1.00;
+        if (Igv.isSelected())
+        {
+            IGV=1.18;
+        }
+        String sqls = "SELECT SUM(Nultimo_Soles*NC_ALMA),SUM(Nultimo_Soles*NC_ALMA1) "
+                + "FROM SISTEMA_FECHA  "
+                + "where fecha_recuento='" + var.getFecha_recuento_selecionada().trim() + "' and  cprov_nom = '" + var.getLina_seleccionada().trim() + "'";
+        try {
+            PreparedStatement psr = var.conectar().prepareStatement(sqls);
+            ResultSet rsr = psr.executeQuery();
+            while (rsr.next()) {
+                var.setTotalXlinea(rsr.getDouble(1)*IGV);
+                var.setTotal_contado(rsr.getDouble(2)*IGV);
+                var.setTotal_diferencia(var.getTotalXlinea() - var.getTotal_contado());
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Recuento_con_fechas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        sqls = "SELECT sum (total*Nultimo_Soles) FROM RECUENTO_FECHAS  where FECHA_DE_VENCIMIENTO <= '"+var.getFecha_recuento_selecionada()+"' and FECHA_RECUENTO='"+var.getFecha_recuento_selecionada()+"'";
+            
+        try {
+            PreparedStatement psr = var.conectar().prepareStatement(sqls);
+            ResultSet rsr = psr.executeQuery();
+            while (rsr.next()) {
+                var.setTotal_vencido(rsr.getDouble(1));
+                var.setTotal_vencido(var.getTotal_vencido()*IGV);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Recuento_con_fechas.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+    }
+
+    private void imprime_totales() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        DecimalFormat formatea = var.MyFormatter();
+        
+        jTextField5.setText(String.valueOf(formatea.format(var.getTotalXlinea())));
+        jTextField6.setText(String.valueOf(formatea.format(var.getTotal_contado())));
+        jTextField7.setText(String.valueOf(formatea.format(var.getTotal_diferencia())));
+        jTextField9.setText(String.valueOf(formatea.format(var.getTotal_vencido())));
+    }
+
+    private void Componentes_SetEnable(boolean b) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        recalcula.setEnabled(b);
+        filtra_sin_saldo.setEnabled(b);
+        Filra_los_que_cuaadran.setEnabled(b);
+        Igv.setEnabled(b);
+        consulta.setEnabled(b);
+        txt_consulta.setEnabled(b);
+        jComboBox4.setEnabled(b);
     }
 }
