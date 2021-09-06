@@ -113,7 +113,7 @@ public class Ingreso_de_Stock_fecha extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            Date fecha = new Date();
+        Date fecha = new Date();
         try {
             // TODO add your handling code here:
 //        jTextPane1.setFont(new Font("monospaced", Font.PLAIN, 12));
@@ -121,7 +121,7 @@ public class Ingreso_de_Stock_fecha extends javax.swing.JInternalFrame {
             String filas[] = memoria.split("\\n");
             int tf = filas.length;
 //            Java.sql.Date date = new Java.sql.Date(currentDate.getTime());
-                java.sql.Date fechaSQL = new java.sql.Date(fecha.getTime());
+            java.sql.Date fechaSQL = new java.sql.Date(fecha.getTime());
             String sql = "insert into sistema_fecha values (?,?,?,?,?,?,?,?,?,?,"//10
                     + "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,"//25
                     + "?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,"//25
@@ -131,14 +131,18 @@ public class Ingreso_de_Stock_fecha extends javax.swing.JInternalFrame {
             for (int a = 0; a < tf; a++) {
                 String columnas[] = filas[a].split("\\t");
                 for (int b = 0; b < 8; b++) {
+                    if (b == 0) {
+                        ps.setString(b + 1,ancho_col(columnas[b]));
+                    }else{
                     ps.setString(b + 1, columnas[b]);
+                    }
                 }
                 double dob;
                 for (int b = 8; b < 17; b++) {
                     if (columnas[b].trim().equals("-")) {
                         dob = 0;
                     } else {
-                        columnas[b]=quita(columnas[b]);
+                        columnas[b] = quita(columnas[b]);
                         dob = Double.valueOf(columnas[b]);
                     }
                     ps.setDouble(b + 1, dob);
@@ -150,7 +154,7 @@ public class Ingreso_de_Stock_fecha extends javax.swing.JInternalFrame {
                     if (columnas[b].trim().equals("-")) {
                         dob = 0;
                     } else {
-                        columnas[b]=quita(columnas[b]);
+                        columnas[b] = quita(columnas[b]);
                         dob = Double.valueOf(columnas[b]);
                     }
                     ps.setDouble(b + 1, dob);
@@ -162,18 +166,16 @@ public class Ingreso_de_Stock_fecha extends javax.swing.JInternalFrame {
                     ps.setString(b + 1, " ");
                 }
                 ps.setDate(97, fechaSQL);
-                
-                
-                
+
                 ps.executeUpdate();
 
             }
         } catch (SQLException ex) {
             Logger.getLogger(Ingreso_de_Stock_fecha.class.getName()).log(Level.SEVERE, null, ex);
-            
+
         }
         jTextPane1.setText("/nP R O C E S O   C O M P L E T A D O");
-        
+
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -195,9 +197,22 @@ public class Ingreso_de_Stock_fecha extends javax.swing.JInternalFrame {
     private String quita(String columna) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //    int largo=columna.length();
-    String col= columna.replaceAll("[^0-9.]", "");
-    
-    return col;
-    
+        String col = columna.replaceAll("[^0-9.]", "");
+
+        return col;
+
+    }
+
+    private String ancho_col(String columna) {
+        //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String col = columna;
+        int inicio;
+        if (columna.length() > 8) {
+            inicio = columna.length() - 8;
+            col = columna.substring(inicio, 8);
+        }
+
+        return col;
+
     }
 }
