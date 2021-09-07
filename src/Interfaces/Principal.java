@@ -69,6 +69,7 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem39 = new javax.swing.JMenuItem();
         jMenuItem38 = new javax.swing.JMenuItem();
         jMenuItem40 = new javax.swing.JMenuItem();
+        jMenuItem45 = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
         jMenu26 = new javax.swing.JMenu();
@@ -298,6 +299,14 @@ public class Principal extends javax.swing.JFrame {
         jMenu14.add(jMenu37);
 
         jMenu3.add(jMenu14);
+
+        jMenuItem45.setText("Productos en piso");
+        jMenuItem45.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem45ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem45);
 
         jMenuBar1.add(jMenu3);
 
@@ -990,6 +999,14 @@ public class Principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
+    private void jMenuItem45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem45ActionPerformed
+        // TODO add your handling code here:
+        Producto_en_piso pep;
+        pep=new Producto_en_piso();
+        this.add(pep);
+        pep.setVisible(true);
+    }//GEN-LAST:event_jMenuItem45ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Analisis_Cred_resumen_general;
@@ -1077,6 +1094,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem42;
     private javax.swing.JMenuItem jMenuItem43;
     private javax.swing.JMenuItem jMenuItem44;
+    private javax.swing.JMenuItem jMenuItem45;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
