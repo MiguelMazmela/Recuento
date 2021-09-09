@@ -382,13 +382,13 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
         carga_cabeceras2();
         jTextField1.setText("");
         sql = "INSERT INTO factores (Cprov_Id, Cprov_Nom, Cart_Id,Cart_Nom,Nfactor_De_Venta,Nfactor_De_Consumo,Nfactor_A_Reporte)"
-                + " SELECT DISTINCT Cprov_Id, Cprov_Nom, Cart_Id,Cart_Nom,Nfactor_De_Venta,Nfactor_De_Consumo,Nfactor_A_Reporte FROM  sistema_fecha  "
-                + "where NOT EXISTS (SELECT Cart_Id FROM factores  WHERE (sistema_fecha.Cart_Id = factores.Cart_Id ))";
+                + " SELECT DISTINCT Cprov_Id, Cprov_Nom, Cart_Id,Cart_Nom,Nfactor_De_Venta,Nfactor_De_Consumo,Nfactor_A_Reporte FROM  sistema_fecha "
+                + "where NOT EXISTS (SELECT Cart_Id FROM factores  WHERE ((sistema_fecha.Cart_Id = factores.Cart_Id ) or (sistema_fecha.Cprov_Id = factores.Cprov_Id )))";
 
         try {
             PreparedStatement ps = v.getCon().prepareStatement(sql);
             ps.executeUpdate();
-        } catch (SQLException ex) {
+        } catch (SQLException ex) { 
             Logger.getLogger(Configuracion_factores.class.getName()).log(Level.SEVERE, null, ex);
         }
         
