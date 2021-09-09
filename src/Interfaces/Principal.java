@@ -117,6 +117,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu39 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem44 = new javax.swing.JMenuItem();
+        jMenuItem46 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenu20 = new javax.swing.JMenu();
         jMenu21 = new javax.swing.JMenu();
@@ -559,6 +560,14 @@ public class Principal extends javax.swing.JFrame {
         jMenu39.add(jMenuItem44);
 
         jMenu5.add(jMenu39);
+
+        jMenuItem46.setText("Cofig Varios");
+        jMenuItem46.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem46ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem46);
         jMenu5.add(jSeparator1);
 
         jMenu20.setText("Borrar");
@@ -1003,9 +1012,18 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         Producto_en_piso pep;
         pep=new Producto_en_piso();
-        this.add(pep);
+        this.Principal.add(pep);
         pep.setVisible(true);
     }//GEN-LAST:event_jMenuItem45ActionPerformed
+
+    private void jMenuItem46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem46ActionPerformed
+        // TODO add your handling code here:
+        Configuraciones cnf;
+        cnf=new Configuraciones(v);
+        this.Principal.add(cnf);
+        cnf.setEnabled(true);
+        cnf.setVisible(true);
+    }//GEN-LAST:event_jMenuItem46ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1095,6 +1113,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem43;
     private javax.swing.JMenuItem jMenuItem44;
     private javax.swing.JMenuItem jMenuItem45;
+    private javax.swing.JMenuItem jMenuItem46;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;

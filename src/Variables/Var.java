@@ -35,6 +35,7 @@ public final class Var {
     private String CreaTablaSistema;
     private String CreaTablaCreditos;
     private String CreaRecuento;
+    private String Crea_tabla_comprobantes;
     private String C_Cart_Id;
     private String C_Cart_Nom;
     private Double c_Nfactor_De_Venta;
@@ -613,6 +614,10 @@ public final class Var {
         CENTRO_DE_COSTO = "CREATE TABLE IF NOT EXISTS CENTRO_DE_COSTO("
                 + "COD char(11),"
                 + "NOMBRE char(20))";
+        this.Crea_tabla_comprobantes="CREATE TABLE IF NOT EXISTS comprobantes ("
+                + "Nombre TEXT NOT NULL UNIQUE, "
+                + "Descripcion TEXT, "
+                + "PRIMARY KEY(Nombre))";
 
         this.CreaTablaFactores = "Create table IF NOT EXISTS factores("
                 + "Cprov_Id nvarchar (8),"
@@ -1517,6 +1522,14 @@ public final class Var {
 
     public void setHoy(Date Hoy) {
         this.Hoy = Hoy;
+    }
+
+    public String getCrea_tabla_comprobantes() {
+        return Crea_tabla_comprobantes;
+    }
+
+    public void setCrea_tabla_comprobantes(String Crea_tabla_comprobantes) {
+        this.Crea_tabla_comprobantes = Crea_tabla_comprobantes;
     }
 
 }
