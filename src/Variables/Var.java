@@ -102,6 +102,7 @@ public final class Var {
     private java.util.Date Fecha_operacion;
     private final String creaTablaComplemento;
     private Date Hoy;
+    private Boolean confecha;
 
     public Connection getCon() {
         return con;
@@ -146,6 +147,7 @@ public final class Var {
         this.total_contado = 0.0;
         this.totalXlinea = 0.0;
         this.con = conectar();
+        this.confecha=true;
 //        this.Hoy=new Date();
 //        fechaSQL = new java.sql.Date(fecha.getTime());
         cal.setTime(fecha);
@@ -1530,6 +1532,14 @@ public final class Var {
 
     public void setCrea_tabla_comprobantes(String Crea_tabla_comprobantes) {
         this.Crea_tabla_comprobantes = Crea_tabla_comprobantes;
+    }
+
+    public Boolean getConfecha() {
+        return confecha;
+    }
+
+    public void setConfecha(Boolean confecha) {
+        this.confecha = confecha;
     }
 
 }
