@@ -9,6 +9,7 @@ import Variables.Var;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -30,6 +31,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         this.v = v;
         inicia_comprobaantes();
         cambia_proveedor();
+        carga_impuestos();
 
     }
 
@@ -50,6 +52,8 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        guarda_impuestos = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -80,34 +84,60 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         setClosable(true);
         setTitle("Configuraciones Varias");
 
+        jPanel3.setBackground(new java.awt.Color(51, 255, 0));
+
         jLabel3.setText("%");
 
         jTextField1.setText("jTextField1");
 
         jLabel2.setText("IGV  :");
 
+        guarda_impuestos.setText("Guardar");
+        guarda_impuestos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guarda_impuestosActionPerformed(evt);
+            }
+        });
+
+        jButton6.setText("Crea clave");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addContainerGap(792, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 643, Short.MAX_VALUE)
+                        .addComponent(jButton6))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(guarda_impuestos)))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addGap(42, 42, 42)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addContainerGap(380, Short.MAX_VALUE))
+                    .addComponent(jLabel3)
+                    .addComponent(jButton6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 340, Short.MAX_VALUE)
+                .addComponent(guarda_impuestos)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Impuestos", jPanel3);
@@ -364,15 +394,36 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         cambia();
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void guarda_impuestosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guarda_impuestosActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_guarda_impuestosActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        String sql="insert into config values('IGV','18')";
+        try {
+            // TODO add your handling code here:
+            
+            Statement st=v.getCon().createStatement();
+            st.executeUpdate(sql);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jTextField1.setText("18.00");
+    }//GEN-LAST:event_jButton6ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JRadioButton con_fechas;
+    private javax.swing.JButton guarda_impuestos;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
@@ -483,6 +534,29 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         String sql="update SISTEMA_FECHA set CPROV_NOM='NESTLE PERU S.A.' where CPROV_NOM='NESTLE PERU S.A. LBCC' and FECHA_RECUENTO='2021-09-06'";
         
         sql="update RECUENTO_FECHAS set CPROV_NOM='NESTLE PERU S.A.' where CPROV_NOM='NESTLE PERU S.A. LBCC' and FECHA_RECUENTO='2021-09-09'";
+        
+    }
+
+    private void carga_impuestos() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        v.setValor_igv(0.0);
+        
+        String sql="select valor from config where clave='IGV'";
+        
+        try {
+            PreparedStatement ps = v.getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                Double vigv=Double.valueOf(rs.getString("valor"));
+                v.setValor_igv(vigv);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        jTextField1.setText(v.getValor_igv().toString());
         
     }
 }

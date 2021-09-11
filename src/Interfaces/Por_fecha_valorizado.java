@@ -62,6 +62,8 @@ public class Por_fecha_valorizado extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
         jCheckBox1 = new javax.swing.JCheckBox();
+        jLabel5 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -99,6 +101,11 @@ public class Por_fecha_valorizado extends javax.swing.JInternalFrame {
 
         jCheckBox1.setText("Con IGV");
 
+        jLabel5.setText("Total   :  ");
+
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextField1.setText("0.00");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -121,10 +128,17 @@ public class Por_fecha_valorizado extends javax.swing.JInternalFrame {
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox1))
-                .addGap(183, 183, 183)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(183, 183, 183))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jCheckBox1)
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(jButton1)
                 .addContainerGap())
         );
@@ -150,7 +164,10 @@ public class Por_fecha_valorizado extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBox1)))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jCheckBox1)
+                                .addComponent(jLabel5)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
@@ -219,7 +236,7 @@ public class Por_fecha_valorizado extends javax.swing.JInternalFrame {
 //        v.setLina_seleccionada(jComboBox2.getSelectedItem().toString());
 //        v.setFiltro_carga_tabla("");
 //        carga_tabla_lista();
-            carga_fechas();
+        carga_fechas();
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
@@ -235,10 +252,12 @@ public class Por_fecha_valorizado extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
     private void inicia_todo() {
@@ -260,7 +279,7 @@ public class Por_fecha_valorizado extends javax.swing.JInternalFrame {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String prov = (String) jComboBox2.getSelectedItem();
         String f_recuento = (String) jComboBox1.getSelectedItem();
-        
+        Double igv=1+(v.getValor_igv()/100);
         String f_inicio;
         String f_final;
         f_inicio = sdf.format(jDateChooser1.getDate());
@@ -268,12 +287,15 @@ public class Por_fecha_valorizado extends javax.swing.JInternalFrame {
 
         String sql = v.getSql_consulta_temporal(prov, f_recuento, f_inicio, f_final);
         DecimalFormat formatea = v.MyFormatter();
+        Double precio;
+        Double total=0.0;
         try {
-            Statement borra=v.getCon().createStatement();
+            Statement borra = v.getCon().createStatement();
             borra.executeUpdate("delete from temporal");
-            Statement carga=v.getCon().createStatement();
+            Statement carga = v.getCon().createStatement();
             carga.executeUpdate(sql);
-            
+            calcula_precio_db();
+
             PreparedStatement ps = v.getCon().prepareStatement("select * from temporal");
             ResultSet rs = ps.executeQuery();
             DefaultTableModel modelo;
@@ -292,12 +314,23 @@ public class Por_fecha_valorizado extends javax.swing.JInternalFrame {
                 fila[6] = formatea.format(rs.getDouble("CC_ALMA1"));
                 fila[7] = rs.getString("FECHA_DE_VENCIMIENTO");
                 fila[8] = rs.getString("LOTE");
+//                modelo.addRow(fila);
+                Double compara = rs.getDouble("TOTAL");
+
+                if (jComboBox3.getSelectedItem().toString().equals("PRECIO DE COMPRA")) {
+                    precio = rs.getDouble("NULTIMO_SOLES");
+                }else{
+                    precio = rs.getDouble("NPREC_CONSUMO");
+                }
+                if(!jCheckBox1.isSelected()){
+                    igv=1.00;
+                }
+                
+                fila[6]=formatea.format((compara*precio)*igv);
+                
                 modelo.addRow(fila);
-//                Double compara = rs.getDouble("Nc_Alma4");
-//                if (compara > 0.0) {
-//
-//                    modelo.addRow(fila);
-//                }
+                total=total+((compara*precio)*igv);
+                jTextField1.setText(total.toString());
             }
             jTable1.setModel(modelo);
         } catch (SQLException ex) {
@@ -383,9 +416,27 @@ public class Por_fecha_valorizado extends javax.swing.JInternalFrame {
         jTable1.getColumnModel().getColumn(3).setCellRenderer(tcr);
         jTable1.getColumnModel().getColumn(4).setCellRenderer(tcr);
         jTable1.getColumnModel().getColumn(5).setCellRenderer(tcr);
-//        jTable1.getColumnModel().getColumn(6).setCellRenderer(tcr);
-//        jTable1.getColumnModel().getColumn(7).setCellRenderer(tcr);
+        jTable1.getColumnModel().getColumn(6).setCellRenderer(tcr);
+        jTable1.getColumnModel().getColumn(7).setCellRenderer(tcr);
         jTable1.setModel(modelo);
+
+    }
+
+    private void calcula_precio_db() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        String sql = "select * from temporal";
+        try {
+            PreparedStatement ps = v.getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Por_fecha_valorizado.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 

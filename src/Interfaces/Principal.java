@@ -7,6 +7,11 @@ package Interfaces;
 
 import Variables.Var;
 import java.awt.Dimension;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,6 +29,8 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         v.setSecuencia(0);
         initComponents();
+        inicia_variaves();
+        
 
     }
 
@@ -1168,4 +1175,33 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
     // End of variables declaration//GEN-END:variables
+
+    private void inicia_variaves() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        carga_igv();
+        
+        
+    }
+
+    private void carga_igv() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        v.setValor_igv(0.0);
+        
+        String sql="select valor from config where clave='IGV'";
+        
+        try {
+            PreparedStatement ps = v.getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                Double vigv=Double.valueOf(rs.getString("valor"));
+                v.setValor_igv(vigv);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
 }
