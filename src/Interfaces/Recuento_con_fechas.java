@@ -1502,8 +1502,10 @@ String sql="SELECT CART_ID,NC_ALMA FROM SISTEMA_FECHA  where CPROV_NOM ='"+var.g
                 tiene_datos = true;
                 codigos.add(rs.getNString("Cart_Id"));
                 jComboBox3.addItem(rs.getString("Cart_Nom"));
-
+                var.setFiltro_carga_tabla(rs.getString("Cart_Nom").substring(0, 10));
             }
+            
+            carga_tabla_lista();
 
         } catch (SQLException ex) {
             Logger.getLogger(Recuento_con_fechas.class.getName()).log(Level.SEVERE, null, ex);
