@@ -62,6 +62,7 @@ public class Producto_en_piso extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
+        setClosable(true);
         setTitle("Ingreso de Productos en piso");
 
         jPanel1.setBackground(new java.awt.Color(51, 204, 255));

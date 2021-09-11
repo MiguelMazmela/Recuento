@@ -216,6 +216,11 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         jButton4.setBackground(new java.awt.Color(204, 0, 0));
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("C A M B I A");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jScrollPane2.setViewportView(jEditorPane1);
 
@@ -354,6 +359,11 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        cambia();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
@@ -466,5 +476,13 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Borrar_por_fecha.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    private void cambia() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql="update SISTEMA_FECHA set CPROV_NOM='NESTLE PERU S.A.' where CPROV_NOM='NESTLE PERU S.A. LBCC' and FECHA_RECUENTO='2021-09-06'";
+        
+        sql="update RECUENTO_FECHAS set CPROV_NOM='NESTLE PERU S.A.' where CPROV_NOM='NESTLE PERU S.A. LBCC' and FECHA_RECUENTO='2021-09-09'";
+        
     }
 }
