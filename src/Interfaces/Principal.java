@@ -1179,6 +1179,7 @@ public class Principal extends javax.swing.JFrame {
     private void inicia_variaves() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         carga_igv();
+        v.setEditando(false);
         
         
     }

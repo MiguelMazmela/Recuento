@@ -264,6 +264,11 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         sin_fechas.setText("Sin Fechas");
 
         jButton5.setText("CAMBIA");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -396,22 +401,27 @@ public class Configuraciones extends javax.swing.JInternalFrame {
 
     private void guarda_impuestosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guarda_impuestosActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_guarda_impuestosActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        String sql="insert into config values('IGV','18')";
+        String sql = "insert into config values('IGV','18')";
         try {
             // TODO add your handling code here:
-            
-            Statement st=v.getCon().createStatement();
+
+            Statement st = v.getCon().createStatement();
             st.executeUpdate(sql);
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
         }
         jTextField1.setText("18.00");
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jButton5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -480,15 +490,15 @@ public class Configuraciones extends javax.swing.JInternalFrame {
             Logger.getLogger(Borrar_por_fecha.class.getName()).log(Level.SEVERE, null, ex);
         }
         //carga combo 3
-        
+
         jComboBox3.removeAllItems();
 
         try {
-            
+
             if (v.getConfecha()) {
                 sql = "select DISTINCT Cprov_Nom nvarchar from sistema_fecha";
-               
-            }else{
+
+            } else {
                 sql = "select DISTINCT Cprov_Nom nvarchar from sistema";
             }
             PreparedStatement ps = v.getCon().prepareStatement(sql);
@@ -499,8 +509,6 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Borrar_por_fecha.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
 
     }
 
@@ -513,11 +521,11 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         try {
 
             selecion = jComboBox1.getSelectedItem().toString();
-            
-            if(v.getConfecha()){
-            sql1 = "select DISTINCT Cprov_Nom nvarchar from sistema_fecha WHERE Fecha_recuento = '" + selecion + "'";
-            }else{
-                sql1 = "select DISTINCT Cprov_Nom nvarchar from sistema WHERE Fecha_recuento = '"+selecion+"'";
+
+            if (v.getConfecha()) {
+                sql1 = "select DISTINCT Cprov_Nom nvarchar from sistema_fecha WHERE Fecha_recuento = '" + selecion + "'";
+            } else {
+                sql1 = "select DISTINCT Cprov_Nom nvarchar from sistema WHERE Fecha_recuento = '" + selecion + "'";
             }
             PreparedStatement ps3 = v.getCon().prepareStatement(sql1);
             ResultSet rs3 = ps3.executeQuery();
@@ -531,32 +539,32 @@ public class Configuraciones extends javax.swing.JInternalFrame {
 
     private void cambia() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        String sql="update SISTEMA_FECHA set CPROV_NOM='NESTLE PERU S.A.' where CPROV_NOM='NESTLE PERU S.A. LBCC' and FECHA_RECUENTO='2021-09-06'";
-        
-        sql="update RECUENTO_FECHAS set CPROV_NOM='NESTLE PERU S.A.' where CPROV_NOM='NESTLE PERU S.A. LBCC' and FECHA_RECUENTO='2021-09-09'";
-        
+        String sql = "update SISTEMA_FECHA set CPROV_NOM='NESTLE PERU S.A.' where CPROV_NOM='NESTLE PERU S.A. LBCC' and FECHA_RECUENTO='2021-09-06'";
+
+        sql = "update RECUENTO_FECHAS set CPROV_NOM='NESTLE PERU S.A.' where CPROV_NOM='NESTLE PERU S.A. LBCC' and FECHA_RECUENTO='2021-09-09'";
+
     }
 
     private void carga_impuestos() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         v.setValor_igv(0.0);
-        
-        String sql="select valor from config where clave='IGV'";
-        
+
+        String sql = "select valor from config where clave='IGV'";
+
         try {
             PreparedStatement ps = v.getCon().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            
-            while(rs.next()){
-                Double vigv=Double.valueOf(rs.getString("valor"));
+
+            while (rs.next()) {
+                Double vigv = Double.valueOf(rs.getString("valor"));
                 v.setValor_igv(vigv);
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         jTextField1.setText(v.getValor_igv().toString());
-        
+
     }
 }

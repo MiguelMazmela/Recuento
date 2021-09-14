@@ -174,8 +174,8 @@ public class ImportarHistoria extends javax.swing.JInternalFrame {
             PreparedStatement ps = san.getCon().prepareStatement(sql);
             int fini = lineas.length - 1;
             for (int a = 1; a < lineas.length - 1; a++) {
-                String[] campos = lineas[a].split("\\t"); 
-//                String[] campos = lineas[a].split(",");
+//                String[] campos = lineas[a].split("\\t"); 
+                String[] campos = lineas[a].split(",");
                 ps.setString(1, campos[0]);
                 ps.setDate(2, Date.valueOf(campos[1]));
                 ps.setDate(3, Date.valueOf(campos[1]));

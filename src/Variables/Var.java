@@ -103,7 +103,8 @@ public final class Var {
     private final String creaTablaComplemento;
     private Date Hoy;
     private Boolean confecha;
-    private String sql_consulta_temporal;
+    private final String sql_consulta_temporal;
+    private Double valor_igv;
 
     public Connection getCon() {
         return con;
@@ -1592,5 +1593,13 @@ public final class Var {
 //    public void setSql_consulta_temporal(String sql_consulta_temporal) {
 //        this.sql_consulta_temporal = sql_consulta_temporal;
 //    }
+
+    public Double getValor_igv() {
+        return valor_igv;
+    }
+
+    public void setValor_igv(Double valor_igv) {
+        this.valor_igv = valor_igv;
+    }
 
 }
