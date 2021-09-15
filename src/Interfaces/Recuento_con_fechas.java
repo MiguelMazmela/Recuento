@@ -259,7 +259,13 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton4.setText("jButton4");
+        jButton4.setText("Graba");
+        jButton4.setEnabled(false);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -755,6 +761,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
     private void JTFCodigoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JTFCodigoFocusGained
         // TODO add your handling code here:
         JTFCodigo.selectAll();
+        var.setEditando(false);
     }//GEN-LAST:event_JTFCodigoFocusGained
 
     private void jTFDisplaysKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFDisplaysKeyTyped
@@ -1166,6 +1173,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
 //            carga_tabla_cuenta();
 //
 //        }
+        jButton4.setEnabled(true);
         editar_campo();
 
     }//GEN-LAST:event_jBEditarActionPerformed
@@ -1258,6 +1266,11 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
         Calcula_totales();
         imprime_totales();
     }//GEN-LAST:event_IgvActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        actualiza();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1615,6 +1628,8 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
         String SSQL;
 
         if (!var.getEditando()) {
+
+
             SSQL = "INSERT INTO Recuento_fechas ("
                     
                     + "Secuencia,"//1
@@ -1960,6 +1975,36 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
 //        jTextField1.requestFocusInWindow();
 //        inicia_todo();
 //            var.setEditando(false);
+    String sSQL = "UPDATE sistema_fecha SET "
+                + "Nc_Alma1=?,Nc_Alma2=?"
+                + " WHERE Cart_Id=? and Fecha_recuento='" + var.getFecha_recuento_selecionada() + "'";
+
+        try {
+            ps = var.conectar().prepareStatement(sSQL);
+            ps.setDouble(1, var.getC_total_general());
+            ps.setDouble(2, var.getC_Nc_Alma() + var.getC_total_general());
+            ps.setString(3, var.getC_Cart_Id());
+
+            if (ps.executeUpdate() > 0) {
+
+                JOptionPane.showMessageDialog(null, "Los datos han sido modificados con éxito", "Operación Exitosa",
+                        JOptionPane.INFORMATION_MESSAGE);
+
+            } else {
+
+                JOptionPane.showMessageDialog(null, "No se ha podido realizar la actualización de los datos\n"
+                        + "Inténtelo nuevamente.", "Error en la operación",
+                        JOptionPane.ERROR_MESSAGE);
+
+            }
+            var.setActualizo(true);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Recuento_con_fechas.class.getName()).log(Level.SEVERE, null, ex);
+            var.setActualizo(false);
+
+        }
+        
     }
 
     private void carga_en_pantalla() {
@@ -1976,6 +2021,15 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
         jTFUnidades.setText(var.getC_unidades().toString());
         jTFCajas.setEnabled(true);
         jTFDisplays.setEnabled(true);
+        
+        
+        
+        
+    }
+
+    private void actualiza() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
         
         
         
