@@ -101,6 +101,7 @@ public final class Var {
     private java.util.Date Fecha_operacion;
     private final String creaTablaComplemento;
     private Date Hoy;
+    private Boolean Conceros;
 
     public Connection getCon() {
         return con;
@@ -136,6 +137,7 @@ public final class Var {
     }
 
     public Var() {
+        this.Conceros=true;
         this.Fecha_operacion = new java.util.Date();
         this.codediper = "";
         this.editando = false;
@@ -1517,6 +1519,14 @@ public final class Var {
 
     public void setHoy(Date Hoy) {
         this.Hoy = Hoy;
+    }
+
+    public Boolean getConceros() {
+        return Conceros;
+    }
+
+    public void setConceros(Boolean Conceros) {
+        this.Conceros = Conceros;
     }
 
 }

@@ -619,9 +619,10 @@
             </Component>
             <Component class="javax.swing.JToggleButton" name="filtra_sin_saldo">
               <Properties>
-                <Property name="text" type="java.lang.String" value="filtra sin saldo"/>
+                <Property name="text" type="java.lang.String" value="Quita los ceros"/>
               </Properties>
               <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="filtra_sin_saldoItemStateChanged"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="filtra_sin_saldoActionPerformed"/>
               </Events>
             </Component>

@@ -478,7 +478,12 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
 
         jLabel9.setText("jLabel9");
 
-        filtra_sin_saldo.setText("filtra sin saldo");
+        filtra_sin_saldo.setText("Quita los ceros");
+        filtra_sin_saldo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                filtra_sin_saldoItemStateChanged(evt);
+            }
+        });
         filtra_sin_saldo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 filtra_sin_saldoActionPerformed(evt);
@@ -732,7 +737,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
 
     private void jTFCajasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFCajasKeyTyped
         // TODO add your handling code here:
-        char[] p = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0','.'};
+        char[] p = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.'};
         int b = 0;
         for (int i = 0; i <= 10; i++) {
             if (p[i] == evt.getKeyChar()) {
@@ -956,7 +961,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
 
     private void jtdiaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtdiaKeyTyped
         // TODO add your handling code here:
-        char[] p = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0','.'};
+        char[] p = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.'};
         int b = 0;
         for (int i = 0; i <= 10; i++) {
             if (p[i] == evt.getKeyChar()) {
@@ -1180,56 +1185,53 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
 //                + ")"
 //                + "WHERE cld.FECHA_RECUENTO  = '" + var.getFecha_recuento_selecionada() + "'";
 
-String sql="SELECT CART_ID,NC_ALMA FROM SISTEMA_FECHA  where CPROV_NOM ='"+var.getLina_seleccionada()+"' and FECHA_RECUENTO ='" + var.getFecha_recuento_selecionada() + "'";
+        String sql = "SELECT CART_ID,NC_ALMA FROM SISTEMA_FECHA  where CPROV_NOM ='" + var.getLina_seleccionada() + "' and FECHA_RECUENTO ='" + var.getFecha_recuento_selecionada() + "'";
 
-       try {
+        try {
             PreparedStatement ps = var.conectar().prepareStatement(sql);
-            ResultSet rs=ps.executeQuery();
-            
-            while(rs.next()){
-              String sql1="SELECT sum(TOTAL) suma "
-                      + "FROM RECUENTO_FECHAS "
-                      + "where CPROV_NOM ='"+var.getLina_seleccionada()+"' "
-                      + "and FECHA_RECUENTO ='" + var.getFecha_recuento_selecionada() + "' "
-                      + "and CART_ID ='"+rs.getNString("CART_ID")+"'";  
-              String codigo=rs.getNString("CART_ID");
-              Double Almacen=rs.getDouble("NC_ALMA");
-              PreparedStatement ps1=var.conectar().prepareStatement(sql1);
-              ResultSet rs1=ps1.executeQuery();
-              rs1.next();
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                String sql1 = "SELECT sum(TOTAL) suma "
+                        + "FROM RECUENTO_FECHAS "
+                        + "where CPROV_NOM ='" + var.getLina_seleccionada() + "' "
+                        + "and FECHA_RECUENTO ='" + var.getFecha_recuento_selecionada() + "' "
+                        + "and CART_ID ='" + rs.getNString("CART_ID") + "'";
+                String codigo = rs.getNString("CART_ID");
+                Double Almacen = rs.getDouble("NC_ALMA");
+                PreparedStatement ps1 = var.conectar().prepareStatement(sql1);
+                ResultSet rs1 = ps1.executeQuery();
+                rs1.next();
                 Double suma;
                 String sSQL = "UPDATE sistema_fecha SET "
                         + "Nc_Alma1=?,Nc_Alma2=?"
                         + " WHERE Cart_Id=? and Fecha_recuento='" + var.getFecha_recuento_selecionada() + "'";
                 PreparedStatement ps2 = var.conectar().prepareStatement(sSQL);
                 Double saldo;
-                if(rs1.wasNull()){
-                   suma=0.0; 
-                }else{
-                    suma=rs1.getDouble("suma");
+                if (rs1.wasNull()) {
+                    suma = 0.0;
+                } else {
+                    suma = rs1.getDouble("suma");
                 }
-                saldo=Almacen-suma;
+                saldo = Almacen - suma;
                 ps2.setDouble(1, suma);
                 ps2.setDouble(2, saldo);
                 ps2.setString(3, codigo);
                 ps2.executeUpdate();
-                
-                
-            }
 
-            
+            }
 
         } catch (SQLException ex) {
             Logger.getLogger(Recuento_con_fechas.class.getName()).log(Level.SEVERE, null, ex);
         }
-       String sql1="update SISTEMA_FECHA SET Nc_Alma1=0 where NC_ALMA1 is null";
+        String sql1 = "update SISTEMA_FECHA SET Nc_Alma1=0 where NC_ALMA1 is null";
         try {
             PreparedStatement ps1 = var.conectar().prepareStatement(sql1);
             ps1.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(Recuento_con_fechas.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
+
         carga_tabla_lista();
         carga_tabla_cuenta();
 
@@ -1246,7 +1248,7 @@ String sql="SELECT CART_ID,NC_ALMA FROM SISTEMA_FECHA  where CPROV_NOM ='"+var.g
 
     private void Filra_los_que_cuaadranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Filra_los_que_cuaadranActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_Filra_los_que_cuaadranActionPerformed
 
     private void IgvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IgvActionPerformed
@@ -1254,6 +1256,26 @@ String sql="SELECT CART_ID,NC_ALMA FROM SISTEMA_FECHA  where CPROV_NOM ='"+var.g
         Calcula_totales();
         imprime_totales();
     }//GEN-LAST:event_IgvActionPerformed
+
+    private void filtra_sin_saldoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_filtra_sin_saldoItemStateChanged
+        // TODO add your handling code here:
+
+        int estado = evt.getStateChange();
+        if (estado == ItemEvent.SELECTED) {
+//					label1.setText("Botón seleccionado");
+            filtra_sin_saldo.setText("CON CEROS");
+            var.setConceros(false);
+            carga_tabla_lista();
+
+        } else {
+//					label1.setText("Botón deseleccionado");
+            filtra_sin_saldo.setText("SIN CEROS");
+            var.setConceros(true);
+            carga_tabla_lista();
+        }
+
+
+    }//GEN-LAST:event_filtra_sin_saldoItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1504,7 +1526,7 @@ String sql="SELECT CART_ID,NC_ALMA FROM SISTEMA_FECHA  where CPROV_NOM ='"+var.g
                 jComboBox3.addItem(rs.getString("Cart_Nom"));
                 var.setFiltro_carga_tabla(rs.getString("Cart_Nom").substring(0, 10));
             }
-            
+
             carga_tabla_lista();
 
         } catch (SQLException ex) {
@@ -1719,7 +1741,15 @@ String sql="SELECT CART_ID,NC_ALMA FROM SISTEMA_FECHA  where CPROV_NOM ='"+var.g
                 fila[2] = formatea.format(rs.getDouble(3));
                 fila[3] = formatea.format(rs.getDouble(4));
                 fila[4] = formatea.format(Double.parseDouble(rs.getNString(3)) - Double.parseDouble(rs.getNString(4)));
-                modelo.addRow(fila);
+                if ((!var.getConceros())) {
+//                    String numero=(String) fila[4];
+                    double vc = (Double.parseDouble(rs.getNString(3)) - Double.parseDouble(rs.getNString(4)));
+                    if (vc != 0.0) {
+                        modelo.addRow(fila);
+                    } 
+                }else {
+                        modelo.addRow(fila);
+                    }
             }
             jTable2.setModel(modelo);
         } catch (SQLException ex) {
@@ -1801,10 +1831,9 @@ String sql="SELECT CART_ID,NC_ALMA FROM SISTEMA_FECHA  where CPROV_NOM ='"+var.g
 
     private void Calcula_totales() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        Double IGV=1.00;
-        if (Igv.isSelected())
-        {
-            IGV=1.18;
+        Double IGV = 1.00;
+        if (Igv.isSelected()) {
+            IGV = 1.18;
         }
         String sqls = "SELECT SUM(Nultimo_Soles*NC_ALMA),SUM(Nultimo_Soles*NC_ALMA1) "
                 + "FROM SISTEMA_FECHA  "
@@ -1813,34 +1842,32 @@ String sql="SELECT CART_ID,NC_ALMA FROM SISTEMA_FECHA  where CPROV_NOM ='"+var.g
             PreparedStatement psr = var.conectar().prepareStatement(sqls);
             ResultSet rsr = psr.executeQuery();
             while (rsr.next()) {
-                var.setTotalXlinea(rsr.getDouble(1)*IGV);
-                var.setTotal_contado(rsr.getDouble(2)*IGV);
+                var.setTotalXlinea(rsr.getDouble(1) * IGV);
+                var.setTotal_contado(rsr.getDouble(2) * IGV);
                 var.setTotal_diferencia(var.getTotalXlinea() - var.getTotal_contado());
             }
         } catch (SQLException ex) {
             Logger.getLogger(Recuento_con_fechas.class.getName()).log(Level.SEVERE, null, ex);
         }
-        sqls = "SELECT sum (total*Nultimo_Soles) FROM RECUENTO_FECHAS  where FECHA_DE_VENCIMIENTO <= '"+var.getFecha_recuento_selecionada()+"' and FECHA_RECUENTO='"+var.getFecha_recuento_selecionada()+"'";
-            
+        sqls = "SELECT sum (total*Nultimo_Soles) FROM RECUENTO_FECHAS  where FECHA_DE_VENCIMIENTO <= '" + var.getFecha_recuento_selecionada() + "' and FECHA_RECUENTO='" + var.getFecha_recuento_selecionada() + "'";
+
         try {
             PreparedStatement psr = var.conectar().prepareStatement(sqls);
             ResultSet rsr = psr.executeQuery();
             while (rsr.next()) {
                 var.setTotal_vencido(rsr.getDouble(1));
-                var.setTotal_vencido(var.getTotal_vencido()*IGV);
+                var.setTotal_vencido(var.getTotal_vencido() * IGV);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Recuento_con_fechas.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
+
     }
 
     private void imprime_totales() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         DecimalFormat formatea = var.MyFormatter();
-        
+
         jTextField5.setText(String.valueOf(formatea.format(var.getTotalXlinea())));
         jTextField6.setText(String.valueOf(formatea.format(var.getTotal_contado())));
         jTextField7.setText(String.valueOf(formatea.format(var.getTotal_diferencia())));
