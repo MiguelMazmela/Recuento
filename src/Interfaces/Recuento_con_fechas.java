@@ -70,6 +70,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
         jtaño = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jBEditar = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         JTFCodigo = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -140,7 +141,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel3.setText("      CAJAS                    DISPLAYS              UNIDADES");
+        jLabel3.setText("      CAJAS        DISPLAYS   UNIDADES");
 
         jTFCajas.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         jTFCajas.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -149,11 +150,11 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
             }
         });
         jTFCajas.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTFCajasKeyPressed(evt);
-            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTFCajasKeyTyped(evt);
+            }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFCajasKeyPressed(evt);
             }
         });
 
@@ -164,11 +165,11 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
             }
         });
         jTFDisplays.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTFDisplaysKeyPressed(evt);
-            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTFDisplaysKeyTyped(evt);
+            }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFDisplaysKeyPressed(evt);
             }
         });
 
@@ -180,11 +181,11 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
             }
         });
         jTFUnidades.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jTFUnidadesKeyPressed(evt);
-            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTFUnidadesKeyTyped(evt);
+            }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTFUnidadesKeyPressed(evt);
             }
         });
 
@@ -215,11 +216,11 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
             }
         });
         jtdia.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jtdiaKeyPressed(evt);
-            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtdiaKeyTyped(evt);
+            }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jtdiaKeyPressed(evt);
             }
         });
 
@@ -258,32 +259,41 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton4.setText("Graba");
+        jButton4.setEnabled(false);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jtdia, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jtmes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jtaño, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(26, 26, 26)
+                        .addComponent(jtmes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jBEditar, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                    .addComponent(jtaño))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jTFCajas, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTFDisplays, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTFUnidades, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel3)))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(JTFTotal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -298,7 +308,8 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2)
                     .addComponent(jLabel2)
-                    .addComponent(jBEditar))
+                    .addComponent(jBEditar)
+                    .addComponent(jButton4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTFCajas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -755,6 +766,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
     private void JTFCodigoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_JTFCodigoFocusGained
         // TODO add your handling code here:
         JTFCodigo.selectAll();
+        var.setEditando(false);
     }//GEN-LAST:event_JTFCodigoFocusGained
 
     private void jTFDisplaysKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFDisplaysKeyTyped
@@ -934,11 +946,12 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
 
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             guarda_cuenta();
-
+            jBEditar.setEnabled(false);
             JTFCodigo.selectAll();
             jTFCajas.setText("0");
             jTFDisplays.setText("0");
             jTFUnidades.setText("0");
+
             JTFCodigo.requestFocusInWindow();
 
         }
@@ -947,6 +960,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
     private void jTable1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTable1FocusGained
         // TODO add your handling code here:
         jButton2.setEnabled(true);
+        jBEditar.setEnabled(true);
 
     }//GEN-LAST:event_jTable1FocusGained
 
@@ -1056,115 +1070,116 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
 
     private void jBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarActionPerformed
         // TODO add your handling code here:    int fila;
-        int fila;
-        PreparedStatement ps;
-
-        fila = jTable1.getSelectedRow();
-        if (fila == -1) {
-            JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna fila.");
-        } else {
-            //aca toma el numero de fila seleccionada
-            String numero = (String) jTable1.getValueAt(fila, 0);
-            String codigo = (String) jTable1.getValueAt(fila, 1);
-
-            var.setC_Cart_Id(codigo);
-            String Recu = (String) jTable1.getValueAt(fila, 6);
-            Recu = Recu.replace(",", "");
-            double recu = Double.parseDouble(Recu);
-            double contado = 0, saldo = 0;
-            String sqle = "select Secuencia,Cart_Id,Cart_Nom, Nfactor_De_Venta, Nfactor_De_Consumo, "
-                    + "Nfactor_A_Reporte, Nultimo_Soles, Nprec_Consumo, "
-                    + "Nc_Alma,cajas,displays,unidades,total,total_general,"
-                    + "Fecha_de_vencimiento,Fecha_recuento,Cprov_Id,Cprov_Nom "
-                    + "from Recuento_fechas "
-                    + "WHERE Fecha_recuento='" + var.getFecha_recuento_selecionada() + "' and "
-                    + "Secuencia='" + numero + "'";//9 campos
-            PreparedStatement pse;
-
-//        int campos = 8 + 1;
-            try {
-                pse = var.getCon().prepareStatement(sqle);
-                ResultSet rs = pse.executeQuery();
-
-                while (rs.next()) {
-                    var.setC_Cart_Id(rs.getNString("Cart_Id"));
-                    var.setC_Cart_Nom(rs.getNString("Cart_Nom"));
-                    var.setC_Nfactor_De_Venta(rs.getDouble("Nfactor_De_Venta"));
-                    var.setC_Nfactor_De_Consumo(rs.getDouble("Nfactor_De_Consumo"));
-                    var.setC_Nfactor_A_Reporte(rs.getDouble("Nfactor_A_Reporte"));
-                    var.setC_Nultimo_Soles(rs.getDouble("Nultimo_Soles"));
-                    var.setC_Nprec_Consumo(rs.getDouble("Nprec_Consumo"));
-                    var.setC_Nc_Alma(rs.getDouble("Nc_Alma"));
-                    var.setC_cajas(rs.getDouble("cajas"));
-                    var.setC_displays(rs.getDouble("displays"));
-                    var.setC_unidades(rs.getDouble("unidades"));
-                    var.setC_total(rs.getDouble("total"));
-                    var.setC_total_general(rs.getDouble("total_general"));
-                    var.setT_Fecha_de_vencimiento(rs.getNString("Fecha_de_vencimiento"));
-                    var.setC_Cprov_Id(rs.getNString("Cprov_Id"));
-                    var.setUni(!(1 == (var.getC_Nfactor_De_Consumo() / var.getC_Nfactor_De_Venta())));
-//                var.setC_Fecha_de_vencimiento("Fecha_de_vencimiento");
-                    var.setC_Cprov_Nom(var.getLina_seleccionada());
-
-                    JTFCodigo.setEditable(false);
-
-                }
-
-            } catch (SQLException ex) {
-                Logger.getLogger(Recuento_con_fechas.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            jTFCajas.setEnabled(true);
-            jTFDisplays.setEnabled(true);
-
-            String sql = "DELETE FROM Recuento_fechas WHERE Secuencia='" + numero
-                    + "' and Fecha_recuento='" + var.getFecha_recuento_selecionada() + "'";
-            String sql1 = "select Nc_Alma,Nc_Alma1,Nc_Alma2 from sistema_fecha WHERE Fecha_recuento='"
-                    + var.getFecha_recuento_selecionada() + "' and Cprov_Nom='"
-                    + var.getLina_seleccionada() + "' and Cart_Id='" + codigo + "'";//8 campos
-            try {
-                // borrara el registro seleccionado
-                ps = var.conectar().prepareStatement(sql);
-                ps.executeUpdate();
-                // hasta aca borró el registro de recuento
-                // busca en sistemas el producto para restarle lo borrado
-                ps = var.conectar().prepareStatement(sql1);
-                ResultSet rs = ps.executeQuery();
-                while (rs.next()) {
-                    var.setC_Nc_Alma(rs.getDouble("Nc_Alma"));
-                    contado = rs.getDouble("Nc_Alma1");
-                    saldo = rs.getDouble("Nc_Alma2");
-                }
-                contado = contado - recu;
-                saldo = saldo + recu;
-                String sSQL = "UPDATE sistema_fecha SET "
-                        + "Nc_Alma1=?,Nc_Alma2=?"
-                        + " WHERE Cart_Id=? and Fecha_recuento='" + var.getFecha_recuento_selecionada() + "'";
-                ps = var.conectar().prepareStatement(sSQL);
-                ps.setDouble(1, contado);
-                ps.setDouble(2, saldo);
-                ps.setString(3, var.getC_Cart_Id());
-
-                if (ps.executeUpdate() > 0) {
-
-                    JOptionPane.showMessageDialog(null, "Los datos han sido modificados con éxito", "Operación Exitosa",
-                            JOptionPane.INFORMATION_MESSAGE);
-
-                } else {
-
-                    JOptionPane.showMessageDialog(null, "No se ha podido realizar la actualización de los datos\n"
-                            + "Inténtelo nuevamente.", "Error en la operación",
-                            JOptionPane.ERROR_MESSAGE);
-
-                }
-
-            } catch (SQLException ex) {
-                Logger.getLogger(Recuento_con_fechas.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            carga_tabla_lista();
-            carga_tabla_cuenta();
-
-        }
-
+//        int fila;
+//        PreparedStatement ps;
+//
+//        fila = jTable1.getSelectedRow();
+//        if (fila == -1) {
+//            JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna fila.");
+//        } else {
+//            //aca toma el numero de fila seleccionada
+//            String numero = (String) jTable1.getValueAt(fila, 0);
+//            String codigo = (String) jTable1.getValueAt(fila, 1);
+//
+//            var.setC_Cart_Id(codigo);
+//            String Recu = (String) jTable1.getValueAt(fila, 6);
+//            Recu = Recu.replace(",", "");
+//            double recu = Double.parseDouble(Recu);
+//            double contado = 0, saldo = 0;
+//            String sqle = "select Secuencia,Cart_Id,Cart_Nom, Nfactor_De_Venta, Nfactor_De_Consumo, "
+//                    + "Nfactor_A_Reporte, Nultimo_Soles, Nprec_Consumo, "
+//                    + "Nc_Alma,cajas,displays,unidades,total,total_general,"
+//                    + "Fecha_de_vencimiento,Fecha_recuento,Cprov_Id,Cprov_Nom "
+//                    + "from Recuento_fechas "
+//                    + "WHERE Fecha_recuento='" + var.getFecha_recuento_selecionada() + "' and "
+//                    + "Secuencia='" + numero + "'";//9 campos
+//            PreparedStatement pse;
+//
+////        int campos = 8 + 1;
+//            try {
+//                pse = var.getCon().prepareStatement(sqle);
+//                ResultSet rs = pse.executeQuery();
+//
+//                while (rs.next()) {
+//                    var.setC_Cart_Id(rs.getNString("Cart_Id"));
+//                    var.setC_Cart_Nom(rs.getNString("Cart_Nom"));
+//                    var.setC_Nfactor_De_Venta(rs.getDouble("Nfactor_De_Venta"));
+//                    var.setC_Nfactor_De_Consumo(rs.getDouble("Nfactor_De_Consumo"));
+//                    var.setC_Nfactor_A_Reporte(rs.getDouble("Nfactor_A_Reporte"));
+//                    var.setC_Nultimo_Soles(rs.getDouble("Nultimo_Soles"));
+//                    var.setC_Nprec_Consumo(rs.getDouble("Nprec_Consumo"));
+//                    var.setC_Nc_Alma(rs.getDouble("Nc_Alma"));
+//                    var.setC_cajas(rs.getDouble("cajas"));
+//                    var.setC_displays(rs.getDouble("displays"));
+//                    var.setC_unidades(rs.getDouble("unidades"));
+//                    var.setC_total(rs.getDouble("total"));
+//                    var.setC_total_general(rs.getDouble("total_general"));
+//                    var.setT_Fecha_de_vencimiento(rs.getNString("Fecha_de_vencimiento"));
+//                    var.setC_Cprov_Id(rs.getNString("Cprov_Id"));
+//                    var.setUni(!(1 == (var.getC_Nfactor_De_Consumo() / var.getC_Nfactor_De_Venta())));
+////                var.setC_Fecha_de_vencimiento("Fecha_de_vencimiento");
+//                    var.setC_Cprov_Nom(var.getLina_seleccionada());
+//
+//                    JTFCodigo.setEditable(false);
+//
+//                }
+//
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Recuento_con_fechas.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//            jTFCajas.setEnabled(true);
+//            jTFDisplays.setEnabled(true);
+//
+//            String sql = "DELETE FROM Recuento_fechas WHERE Secuencia='" + numero
+//                    + "' and Fecha_recuento='" + var.getFecha_recuento_selecionada() + "'";
+//            String sql1 = "select Nc_Alma,Nc_Alma1,Nc_Alma2 from sistema_fecha WHERE Fecha_recuento='"
+//                    + var.getFecha_recuento_selecionada() + "' and Cprov_Nom='"
+//                    + var.getLina_seleccionada() + "' and Cart_Id='" + codigo + "'";//8 campos
+//            try {
+//                // borrara el registro seleccionado
+//                ps = var.conectar().prepareStatement(sql);
+//                ps.executeUpdate();
+//                // hasta aca borró el registro de recuento
+//                // busca en sistemas el producto para restarle lo borrado
+//                ps = var.conectar().prepareStatement(sql1);
+//                ResultSet rs = ps.executeQuery();
+//                while (rs.next()) {
+//                    var.setC_Nc_Alma(rs.getDouble("Nc_Alma"));
+//                    contado = rs.getDouble("Nc_Alma1");
+//                    saldo = rs.getDouble("Nc_Alma2");
+//                }
+//                contado = contado - recu;
+//                saldo = saldo + recu;
+//                String sSQL = "UPDATE sistema_fecha SET "
+//                        + "Nc_Alma1=?,Nc_Alma2=?"
+//                        + " WHERE Cart_Id=? and Fecha_recuento='" + var.getFecha_recuento_selecionada() + "'";
+//                ps = var.conectar().prepareStatement(sSQL);
+//                ps.setDouble(1, contado);
+//                ps.setDouble(2, saldo);
+//                ps.setString(3, var.getC_Cart_Id());
+//
+//                if (ps.executeUpdate() > 0) {
+//
+//                    JOptionPane.showMessageDialog(null, "Los datos han sido modificados con éxito", "Operación Exitosa",
+//                            JOptionPane.INFORMATION_MESSAGE);
+//
+//                } else {
+//
+//                    JOptionPane.showMessageDialog(null, "No se ha podido realizar la actualización de los datos\n"
+//                            + "Inténtelo nuevamente.", "Error en la operación",
+//                            JOptionPane.ERROR_MESSAGE);
+//
+//                }
+//
+//            } catch (SQLException ex) {
+//                Logger.getLogger(Recuento_con_fechas.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//            carga_tabla_lista();
+//            carga_tabla_cuenta();
+//
+//        }
+        jButton4.setEnabled(true);
+        editar_campo();
 
     }//GEN-LAST:event_jBEditarActionPerformed
 
@@ -1257,6 +1272,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
         imprime_totales();
     }//GEN-LAST:event_IgvActionPerformed
 
+//<<<<<<< HEAD
     private void filtra_sin_saldoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_filtra_sin_saldoItemStateChanged
         // TODO add your handling code here:
 
@@ -1276,6 +1292,12 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
 
 
     }//GEN-LAST:event_filtra_sin_saldoItemStateChanged
+//=======
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        actualiza();
+    }//GEN-LAST:event_jButton4ActionPerformed
+//>>>>>>> revision
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1289,6 +1311,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -1526,9 +1549,13 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
                 jComboBox3.addItem(rs.getString("Cart_Nom"));
                 var.setFiltro_carga_tabla(rs.getString("Cart_Nom").substring(0, 10));
             }
+//<<<<<<< HEAD
 
             carga_tabla_lista();
 
+//=======
+            carga_tabla_lista();
+//>>>>>>> revision
         } catch (SQLException ex) {
             Logger.getLogger(Recuento_con_fechas.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1631,50 +1658,104 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
 
     private void guarda_cuenta() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        String SSQL = "INSERT INTO Recuento_fechas ("
-                + "Secuencia,"//1
-                + "Cart_Id,"
-                + "Cart_Nom,"
-                + "Nfactor_De_Venta,"
-                + "Nfactor_De_Consumo,"
-                + "Nfactor_A_Reporte,"
-                + "Nultimo_Soles,"
-                + "Nprec_Consumo,"
-                + "Nc_Alma,"
-                + "cajas,"
-                + "displays,"
-                + "unidades,"
-                + "total,"//13
-                + "total_general,"
-                + "Fecha_de_vencimiento,"//15
-                + "Fecha_recuento,"
-                + "Cprov_Id,"
-                + "Cprov_Nom) "
-                + "VALUES (?,?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?,?,?,?,?)";
+        String SSQL;
+
+        if (!var.getEditando()) {
+
+
+            SSQL = "INSERT INTO Recuento_fechas ("
+                    
+                    + "Secuencia,"//1
+                    + "Cart_Id,"
+                    + "Cart_Nom,"
+                    + "Nfactor_De_Venta,"
+                    + "Nfactor_De_Consumo,"
+                    + "Nfactor_A_Reporte,"
+                    + "Nultimo_Soles,"
+                    + "Nprec_Consumo,"
+                    + "Nc_Alma,"
+                    + "cajas,"
+                    + "displays,"
+                    + "unidades,"
+                    + "total,"//13
+                    + "total_general,"
+                    + "Fecha_de_vencimiento,"//15
+                    + "Fecha_recuento,"
+                    + "Cprov_Id,"
+                    + "Cprov_Nom) "
+                    + "VALUES (?,?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?,?,?,?,?)";
+
+        } else {
+            SSQL = "update Recuento_fechas set "
+                    + "Cart_Id=?,"
+                    + "Cart_Nom=?,"
+                    + "Nfactor_De_Venta=?,"
+                    + "Nfactor_De_Consumo=?,"
+                    + "Nfactor_A_Reporte=?,"
+                    + "Nultimo_Soles=?,"
+                    + "Nprec_Consumo=?,"
+                    + "Nc_Alma=?,"
+                    + "cajas=?,"
+                    + "displays=?,"
+                    + "unidades=?,"
+                    + "total=?,"//13
+                    + "total_general=?,"
+                    + "Fecha_de_vencimiento=?,"//15
+                    + "Fecha_recuento=?,"
+                    + "Cprov_Id=?,"
+                    + "Cprov_Nom=? "
+                    + "where Secuencia=?";
+        }
 
         try {
-            PreparedStatement ps = var.conectar().prepareStatement(SSQL);
-            var.setSecuencia(var.getSecuencia() + 1);
-            ps.setInt(1, var.getSecuencia());
-            ps.setString(2, var.getC_Cart_Id());
-            ps.setString(3, var.getC_Cart_Nom());
-            ps.setDouble(4, var.getC_Nfactor_De_Venta());
-            ps.setDouble(5, var.getC_Nfactor_De_Consumo());
-            ps.setDouble(6, var.getC_Nfactor_A_Reporte());
-            ps.setDouble(7, var.getC_Nultimo_Soles());
-            ps.setDouble(8, var.getC_Nprec_Consumo());
-            ps.setDouble(9, var.getC_Nc_Alma());
-            ps.setDouble(10, var.getC_cajas());
-            ps.setDouble(11, var.getC_displays());
-            ps.setDouble(12, var.getC_unidades());
-            ps.setDouble(13, var.getC_total());
-            ps.setDouble(14, var.getC_total_general());
-            ps.setDate(15, var.fecFormatoDate(var.getT_Fecha_de_vencimiento()));
-            ps.setDate(16, var.fecFormatoDate(var.getFecha_recuento_selecionada()));
-            ps.setString(17, var.getC_Cprov_Id());
-            ps.setString(18, var.getLina_seleccionada());
 
-            ps.executeUpdate();
+            if (var.getEditando()) {
+                PreparedStatement ps = var.conectar().prepareStatement(SSQL);
+//            var.setSecuencia(var.getSecuencia() + 1);
+
+                ps.setString(1, var.getC_Cart_Id());
+                ps.setString(2, var.getC_Cart_Nom());
+                ps.setDouble(3, var.getC_Nfactor_De_Venta());
+                ps.setDouble(4, var.getC_Nfactor_De_Consumo());
+                ps.setDouble(5, var.getC_Nfactor_A_Reporte());
+                ps.setDouble(6, var.getC_Nultimo_Soles());
+                ps.setDouble(7, var.getC_Nprec_Consumo());
+                ps.setDouble(8, var.getC_Nc_Alma());
+                ps.setDouble(9, var.getC_cajas());
+                ps.setDouble(10, var.getC_displays());
+                ps.setDouble(11, var.getC_unidades());
+                ps.setDouble(12, var.getC_total());
+                ps.setDouble(13, var.getC_total_general());
+                ps.setDate(14, var.fecFormatoDate(var.getT_Fecha_de_vencimiento()));
+                ps.setDate(15, var.fecFormatoDate(var.getFecha_recuento_selecionada()));
+                ps.setString(16, var.getC_Cprov_Id());
+                ps.setString(17, var.getLina_seleccionada());
+                ps.setInt(18, var.getSecuencia());
+                ps.executeUpdate();
+
+            } else {
+                PreparedStatement ps = var.conectar().prepareStatement(SSQL);
+                var.setSecuencia(var.getSecuencia() + 1);
+                ps.setInt(1, var.getSecuencia());
+                ps.setString(2, var.getC_Cart_Id());
+                ps.setString(3, var.getC_Cart_Nom());
+                ps.setDouble(4, var.getC_Nfactor_De_Venta());
+                ps.setDouble(5, var.getC_Nfactor_De_Consumo());
+                ps.setDouble(6, var.getC_Nfactor_A_Reporte());
+                ps.setDouble(7, var.getC_Nultimo_Soles());
+                ps.setDouble(8, var.getC_Nprec_Consumo());
+                ps.setDouble(9, var.getC_Nc_Alma());
+                ps.setDouble(10, var.getC_cajas());
+                ps.setDouble(11, var.getC_displays());
+                ps.setDouble(12, var.getC_unidades());
+                ps.setDouble(13, var.getC_total());
+                ps.setDouble(14, var.getC_total_general());
+                ps.setDate(15, var.fecFormatoDate(var.getT_Fecha_de_vencimiento()));
+                ps.setDate(16, var.fecFormatoDate(var.getFecha_recuento_selecionada()));
+                ps.setString(17, var.getC_Cprov_Id());
+                ps.setString(18, var.getLina_seleccionada());
+                ps.executeUpdate();
+            }
 
         } catch (SQLException ex) {
             Logger.getLogger(Recuento_con_fechas.class.getName()).log(Level.SEVERE, null, ex);
@@ -1884,5 +1965,115 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
         consulta.setEnabled(b);
         txt_consulta.setEnabled(b);
         jComboBox4.setEnabled(b);
+    }
+
+    private void editar_campo() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        var.setEditando(true);
+        JTFCodigo.setEnabled(false);
+//        jTextField1.setEditable(true);
+        int fila;
+        PreparedStatement ps;
+//        fila = jTable1.getSelectedRow();
+        DefaultTableModel tm = (DefaultTableModel) jTable1.getModel();
+
+        fila = jTable1.getSelectedRow();
+        String numero = String.valueOf(tm.getValueAt(jTable1.getSelectedRow(), 0));
+//        String numero = (String) jTable1.getValueAt(fila, 0);
+            String fsel=jComboBox1.getSelectedItem().toString();
+        String sql = "SELECT * FROM RECUENTO_FECHAS where secuencia='" + numero + "' and FECHA_RECUENTO  ='"+fsel+"'";
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna fila.");
+        } else {
+//        String sql="insert INTO CARGO (cod,nombre) VALUES ('"+codn+"','"+jTextField1.getText().toUpperCase().trim()+"' )";
+            try {
+                ps = var.conectar().prepareStatement(sql);
+                ResultSet rs = ps.executeQuery();
+                rs.next();
+                var.setC_Cart_Id(rs.getNString("Cart_Id"));
+                var.setC_Cart_Nom(rs.getNString("Cart_Nom"));
+                var.setC_Nfactor_De_Venta(rs.getDouble("Nfactor_De_Venta"));
+                var.setC_Nfactor_De_Consumo(rs.getDouble("Nfactor_De_Consumo"));
+                var.setC_Nfactor_A_Reporte(rs.getDouble("Nfactor_A_Reporte"));
+                var.setC_Nultimo_Soles(rs.getDouble("Nultimo_Soles"));
+                var.setC_Nprec_Consumo(rs.getDouble("Nprec_Consumo"));
+                var.setC_Nc_Alma(rs.getDouble("Nc_Alma"));
+                var.setC_cajas(rs.getDouble("cajas"));
+                var.setC_displays(rs.getDouble("displays"));
+                var.setC_unidades(rs.getDouble("unidades"));
+                var.setC_total(rs.getDouble("total"));
+                var.setC_total_general(rs.getDouble("total_general"));
+                var.setT_Fecha_de_vencimiento(rs.getNString("Fecha_de_vencimiento"));
+                var.setC_Cprov_Id(rs.getNString("Cprov_Id"));
+                var.setUni(!(1 == (var.getC_Nfactor_De_Consumo() / var.getC_Nfactor_De_Venta())));
+//                var.setC_Fecha_de_vencimiento("Fecha_de_vencimiento");
+                var.setC_Cprov_Nom(var.getLina_seleccionada());
+                carga_en_pantalla();
+            } catch (SQLException ex) {
+                Logger.getLogger(Cargos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+//        jTextField1.requestFocusInWindow();
+//        inicia_todo();
+//            var.setEditando(false);
+    String sSQL = "UPDATE sistema_fecha SET "
+                + "Nc_Alma1=?,Nc_Alma2=?"
+                + " WHERE Cart_Id=? and Fecha_recuento='" + var.getFecha_recuento_selecionada() + "'";
+
+        try {
+            ps = var.conectar().prepareStatement(sSQL);
+            ps.setDouble(1, var.getC_total_general());
+            ps.setDouble(2, var.getC_Nc_Alma() + var.getC_total_general());
+            ps.setString(3, var.getC_Cart_Id());
+
+            if (ps.executeUpdate() > 0) {
+
+                JOptionPane.showMessageDialog(null, "Los datos han sido modificados con éxito", "Operación Exitosa",
+                        JOptionPane.INFORMATION_MESSAGE);
+
+            } else {
+
+                JOptionPane.showMessageDialog(null, "No se ha podido realizar la actualización de los datos\n"
+                        + "Inténtelo nuevamente.", "Error en la operación",
+                        JOptionPane.ERROR_MESSAGE);
+
+            }
+            var.setActualizo(true);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Recuento_con_fechas.class.getName()).log(Level.SEVERE, null, ex);
+            var.setActualizo(false);
+
+        }
+        
+    }
+
+    private void carga_en_pantalla() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        JTFCodigo.setText(var.getC_Cart_Id());
+        jComboBox3.removeAllItems();
+        jComboBox3.addItem(var.getC_Cart_Nom());
+        System.out.print(var.getT_Fecha_de_vencimiento().substring(5, 7));
+        jtdia.setText(var.getT_Fecha_de_vencimiento().substring(8, 10));
+        jtmes.setText(var.getT_Fecha_de_vencimiento().substring(5, 7));
+        jtaño.setText(var.getT_Fecha_de_vencimiento().substring(0, 4));
+        jTFCajas.setText(var.getC_cajas().toString());
+        jTFDisplays.setText(var.getC_displays().toString());
+        jTFUnidades.setText(var.getC_unidades().toString());
+        jTFCajas.setEnabled(true);
+        jTFDisplays.setEnabled(true);
+        
+        
+        
+        
+    }
+
+    private void actualiza() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        
+        
+        
+        
     }
 }

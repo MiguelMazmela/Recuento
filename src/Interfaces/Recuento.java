@@ -1097,6 +1097,7 @@ public class Recuento extends javax.swing.JInternalFrame {
 
         }
         carga_tabla_lista();
+        var.setEditando(false);
     }
 
     private void carga_tabla_lista() {

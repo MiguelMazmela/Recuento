@@ -35,6 +35,7 @@ public final class Var {
     private String CreaTablaSistema;
     private String CreaTablaCreditos;
     private String CreaRecuento;
+    private String Crea_tabla_comprobantes;
     private String C_Cart_Id;
     private String C_Cart_Nom;
     private Double c_Nfactor_De_Venta;
@@ -101,6 +102,9 @@ public final class Var {
     private java.util.Date Fecha_operacion;
     private final String creaTablaComplemento;
     private Date Hoy;
+    private Boolean confecha;
+    private final String sql_consulta_temporal;
+    private Double valor_igv;
     private Boolean Conceros;
 
     public Connection getCon() {
@@ -147,6 +151,7 @@ public final class Var {
         this.total_contado = 0.0;
         this.totalXlinea = 0.0;
         this.con = conectar();
+        this.confecha = true;
 //        this.Hoy=new Date();
 //        fechaSQL = new java.sql.Date(fecha.getTime());
         cal.setTime(fecha);
@@ -282,8 +287,8 @@ public final class Var {
                 + "nimporte_neto decimal (14,4),"//29
                 + "nmonto decimal (14,4),"//30
                 + "dia_de_operacion date )";//31
-        
-        this.creaTablaComplemento="CREATE TABLE IF NOT EXISTS extencion("
+
+        this.creaTablaComplemento = "CREATE TABLE IF NOT EXISTS extencion("
                 + "cnumero nvarchar (20),"
                 + "Responsable nvarchar(200),"
                 + "fecha_pago Date,"
@@ -615,6 +620,10 @@ public final class Var {
         CENTRO_DE_COSTO = "CREATE TABLE IF NOT EXISTS CENTRO_DE_COSTO("
                 + "COD char(11),"
                 + "NOMBRE char(20))";
+        this.Crea_tabla_comprobantes = "CREATE TABLE IF NOT EXISTS comprobantes ("
+                + "Nombre TEXT NOT NULL UNIQUE, "
+                + "Descripcion TEXT, "
+                + "PRIMARY KEY(Nombre))";
 
         this.CreaTablaFactores = "Create table IF NOT EXISTS factores("
                 + "Cprov_Id nvarchar (8),"
@@ -624,6 +633,41 @@ public final class Var {
                 + "Nfactor_De_Venta numeric(18,4),"
                 + "Nfactor_De_Consumo numeric(18,4),"
                 + "Nfactor_A_Reporte numeric(18,4))";
+
+        this.sql_consulta_temporal = "insert into temporal "
+                + "(CPROV_ID ,CPROV_NOM ,"
+                + "CART_ID ,"
+                + "CART_NOM ,"
+                + "NFACTOR_DE_VENTA ,"
+                + "NFACTOR_DE_CONSUMO ,"
+                + "NFACTOR_A_REPORTE ,"
+                + "NULTIMO_SOLES ,"
+                + "NPREC_CONSUMO ,"
+                + "CAJAS ,"
+                + "DISPLAYS ,"
+                + "UNIDADES ,"
+                + "TOTAL ,"
+                + "FECHA_DE_VENCIMIENTO ,"
+                + "FECHA_RECUENTO ,"
+                + "LOTE ) SELECT "
+                + "CPROV_ID, "
+                + "CPROV_NOM,"
+                + "CART_ID ,"
+                + "CART_NOM ,"
+                + "NFACTOR_DE_VENTA ,"
+                + "NFACTOR_DE_CONSUMO ,"
+                + "NFACTOR_A_REPORTE ,"
+                + "NULTIMO_SOLES ,"
+                + "NPREC_CONSUMO ,"
+                + "CAJAS ,"
+                + "DISPLAYS ,"
+                + "UNIDADES ,"
+                + "TOTAL ,"
+                + "FECHA_DE_VENCIMIENTO ,"
+                + "FECHA_RECUENTO ,"
+                + "LOTE   "
+                + "FROM RECUENTO_FECHAS ";
+//                + "where CPROV_NOM ='NESTLE PERU S.A.' and FECHA_RECUENTO ='2021-09-09'";
 
     }
 
@@ -1246,52 +1290,51 @@ public final class Var {
         return df;
 
     }
-    
-    public String GetFechaVentasActual(){
-        String fec="SELECT max(DFECHA_DOC) FROM HISTORIA";  // BUSCA LA FECHA MAS ACUAL
+
+    public String GetFechaVentasActual() {
+        String fec = "SELECT max(DFECHA_DOC) FROM HISTORIA";  // BUSCA LA FECHA MAS ACUAL
         try {
-            PreparedStatement ps=this.conectar().prepareStatement(fec);
-            ResultSet rs=ps.executeQuery();
+            PreparedStatement ps = this.conectar().prepareStatement(fec);
+            ResultSet rs = ps.executeQuery();
             rs.next();
-            fec=rs.getNString(1);
+            fec = rs.getNString(1);
         } catch (SQLException ex) {
             Logger.getLogger(StockALaFecha.class.getName()).log(Level.SEVERE, null, ex);
-            
+
         }
         return fec;
     }
-    
-    public void pon_cajas_y_displays(){
-        String sql="SELECT CART_ID  ,NC_ALMA6 ,NFACTOR_DE_CONSUMO,NFACTOR_DE_VENTA "
+
+    public void pon_cajas_y_displays() {
+        String sql = "SELECT CART_ID  ,NC_ALMA6 ,NFACTOR_DE_CONSUMO,NFACTOR_DE_VENTA "
                 + "FROM SISTEMA_FECHA "
                 + "where FECHA_RECUENTO ='" + this.getFecha_recuento_selecionada() + "' "
                 + "and CPROV_NOM ='" + this.getLina_seleccionada().trim() + "'";
         try {
             PreparedStatement ps = this.conectar().prepareStatement(sql);
-            ResultSet rs=ps.executeQuery();
-            while(rs.next()){
-            String sSQL = "UPDATE sistema_fecha SET "
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                String sSQL = "UPDATE sistema_fecha SET "
                         + "Nc_Alma10=?,Nc_Alma11=?,Nc_Alma12=?"
-                        + " WHERE Cart_Id=? and Fecha_recuento='" + this.getFecha_recuento_selecionada() + "'";   
-            
-            PreparedStatement ps2=this.conectar().prepareStatement(sSQL);
-            int fc=rs.getInt(3);
-            String codigo=rs.getNString(1);
-            int almacen=rs.getInt(2);
+                        + " WHERE Cart_Id=? and Fecha_recuento='" + this.getFecha_recuento_selecionada() + "'";
+
+                PreparedStatement ps2 = this.conectar().prepareStatement(sSQL);
+                int fc = rs.getInt(3);
+                String codigo = rs.getNString(1);
+                int almacen = rs.getInt(2);
 //            int display=almacen%fc;
-            int cajas=almacen/fc;
-            Double almacend=rs.getDouble(2);
-            double cal1=(almacend/fc)-cajas;
-            int display=(int) (cal1*rs.getInt(4));
-            
-            
-            ps2.setInt(1, cajas);
+                int cajas = almacen / fc;
+                Double almacend = rs.getDouble(2);
+                double cal1 = (almacend / fc) - cajas;
+                int display = (int) (cal1 * rs.getInt(4));
+
+                ps2.setInt(1, cajas);
                 ps2.setInt(2, display);
                 ps2.setInt(3, 0);
                 ps2.setString(4, codigo);
                 ps2.executeUpdate();
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(StockALaFecha.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1519,6 +1562,46 @@ public final class Var {
 
     public void setHoy(Date Hoy) {
         this.Hoy = Hoy;
+    }
+
+    public String getCrea_tabla_comprobantes() {
+        return Crea_tabla_comprobantes;
+    }
+
+    public void setCrea_tabla_comprobantes(String Crea_tabla_comprobantes) {
+        this.Crea_tabla_comprobantes = Crea_tabla_comprobantes;
+    }
+
+    public Boolean getConfecha() {
+        return confecha;
+    }
+
+    public void setConfecha(Boolean confecha) {
+        this.confecha = confecha;
+    }
+
+    public String getSql_consulta_temporal(String prov,
+                                           String f_recuento,
+                                           String f_inicio,
+                                           String f_final) {
+        
+        String tem=this.sql_consulta_temporal+ "where CPROV_NOM ='"+prov+"' and "
+                + "FECHA_RECUENTO ='"+f_recuento+"'and "
+                + "FECHA_DE_VENCIMIENTO BETWEEN '"+f_inicio+"' and '"+f_final+"' ";
+        
+        return tem;
+    }
+
+//    public void setSql_consulta_temporal(String sql_consulta_temporal) {
+//        this.sql_consulta_temporal = sql_consulta_temporal;
+//    }
+
+    public Double getValor_igv() {
+        return valor_igv;
+    }
+
+    public void setValor_igv(Double valor_igv) {
+        this.valor_igv = valor_igv;
     }
 
     public Boolean getConceros() {
