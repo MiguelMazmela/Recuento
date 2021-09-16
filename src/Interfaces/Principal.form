@@ -135,8 +135,14 @@
             <Menu class="javax.swing.JMenu" name="jMenu11">
               <Properties>
                 <Property name="text" type="java.lang.String" value="otros"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <SubComponents>
+                <Menu class="javax.swing.JMenu" name="jMenu40">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jMenu40"/>
+                  </Properties>
+                </Menu>
+              </SubComponents>
             </Menu>
             <Menu class="javax.swing.JMenu" name="jMenu14">
               <Properties>
@@ -163,8 +169,11 @@
                     </MenuItem>
                     <MenuItem class="javax.swing.JMenuItem" name="jMenuItem36">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="lo que resta a sistema"/>
+                        <Property name="text" type="java.lang.String" value="Vencidos"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem36ActionPerformed"/>
+                      </Events>
                     </MenuItem>
                   </SubComponents>
                 </Menu>

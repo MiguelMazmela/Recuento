@@ -65,6 +65,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu13 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu11 = new javax.swing.JMenu();
+        jMenu40 = new javax.swing.JMenu();
         jMenu14 = new javax.swing.JMenu();
         jMenu36 = new javax.swing.JMenu();
         jMenuItem15 = new javax.swing.JMenuItem();
@@ -246,7 +247,10 @@ public class Principal extends javax.swing.JFrame {
         jMenu3.add(jMenu4);
 
         jMenu11.setText("otros");
-        jMenu11.setEnabled(false);
+
+        jMenu40.setText("jMenu40");
+        jMenu11.add(jMenu40);
+
         jMenu3.add(jMenu11);
 
         jMenu14.setText("Recuento por fecha");
@@ -264,7 +268,12 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem35.setText("lo que suma a sistema");
         jMenu36.add(jMenuItem35);
 
-        jMenuItem36.setText("lo que resta a sistema");
+        jMenuItem36.setText("Vencidos");
+        jMenuItem36.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem36ActionPerformed(evt);
+            }
+        });
         jMenu36.add(jMenuItem36);
 
         jMenu14.add(jMenu36);
@@ -1071,6 +1080,13 @@ public class Principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem48ActionPerformed
 
+    private void jMenuItem36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem36ActionPerformed
+        // TODO add your handling code here:
+        Ingreso_vencidos iv=new Ingreso_vencidos(v);
+        this.Principal.add(iv);
+        iv.setVisible(true);
+    }//GEN-LAST:event_jMenuItem36ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Analisis_Cred_resumen_general;
@@ -1113,6 +1129,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu38;
     private javax.swing.JMenu jMenu39;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu40;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;

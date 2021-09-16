@@ -10,8 +10,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 
 /**
  *
@@ -32,6 +39,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         inicia_comprobaantes();
         cambia_proveedor();
         carga_impuestos();
+        vencidos();
 
     }
 
@@ -78,6 +86,20 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         con_fechas = new javax.swing.JRadioButton();
         sin_fechas = new javax.swing.JRadioButton();
         jButton5 = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jDateChooser3 = new com.toedter.calendar.JDateChooser();
+        jLabel8 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox<>();
 
         jCheckBox1.setText("jCheckBox1");
 
@@ -135,7 +157,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jButton6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 340, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 342, Short.MAX_VALUE)
                 .addComponent(guarda_impuestos)
                 .addContainerGap())
         );
@@ -327,7 +349,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -359,6 +381,121 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         );
 
         jTabbedPane1.addTab("Cambio de proveedor", jPanel5);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable2);
+
+        jPanel10.setBackground(new java.awt.Color(0, 255, 0));
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("||"));
+
+        jLabel7.setText("Descripcion");
+
+        jTextField3.setText("jTextField3");
+
+        jLabel8.setText("Fecha    :");
+
+        jButton7.setText("Grabar");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
+        jButton8.setText("Anular");
+
+        jButton9.setText("Borrar");
+
+        jLabel9.setText("Linea :    ");
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addComponent(jButton7)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
+                        .addComponent(jButton8))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField3)
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGap(22, 22, 22)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9)
+                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton7)
+                    .addComponent(jButton8)
+                    .addComponent(jButton9))
+                .addGap(29, 29, 29))
+        );
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
+            .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Vencidos", jPanel8);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -423,6 +560,12 @@ public class Configuraciones extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+
+        graba_vencidos();
+    }//GEN-LAST:event_jButton7ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
@@ -434,10 +577,15 @@ public class Configuraciones extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private com.toedter.calendar.JDateChooser jDateChooser3;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -445,19 +593,28 @@ public class Configuraciones extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JRadioButton sin_fechas;
     // End of variables declaration//GEN-END:variables
 
@@ -567,4 +724,123 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         jTextField1.setText(v.getValor_igv().toString());
 
     }
+
+    private void vencidos() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        jTextField3.setText("");
+        jDateChooser3.setDate(v.getFecha());
+        jComboBox4.removeAllItems();
+        try {
+
+            String sql = "select DISTINCT Cprov_Nom nvarchar from sistema_fecha";
+            PreparedStatement ps = v.getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                jComboBox4.addItem(rs.getNString(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Borrar_por_fecha.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        carga_cabeceras1();
+        carga_tabla_vencidos();
+
+    }
+
+    private void carga_cabeceras1() {
+        String[] colu = {"DESCRIPCION", "PROVEEDOR", "FECHA",};
+        DefaultTableModel modelo;
+        modelo = (DefaultTableModel) jTable2.getModel();
+        modelo.setColumnIdentifiers(colu);
+
+        v.borratabla(modelo);
+
+        DefaultTableCellRenderer tcr;
+        TableColumnModel columnModel = jTable2.getColumnModel();
+        columnModel.getColumn(1).setPreferredWidth(280);
+        columnModel.getColumn(2).setPreferredWidth(80);
+//        columnModel.getColumn(3).setPreferredWidth(60);
+//        columnModel.getColumn(4).setPreferredWidth(60);
+//        columnModel.getColumn(5).setPreferredWidth(60);
+//        columnModel.getColumn(6).setPreferredWidth(60);
+//        columnModel.getColumn(7).setPreferredWidth(75);
+
+        columnModel.getColumn(0).setPreferredWidth(200);
+//        columnModel.getColumn(7).setPreferredWidth(60);
+//        columnModel.getColumn(8).setPreferredWidth(90);
+//        columnModel.getColumn(9).setPreferredWidth(90);
+//        columnModel.getColumn(10).setPreferredWidth(90);
+//        columnModel.getColumn(11).setPreferredWidth(90);
+//        columnModel.getColumn(12).setPreferredWidth(90);
+//        columnModel.getColumn(13).setPreferredWidth(90);
+
+        tcr = new DefaultTableCellRenderer();
+        tcr.setHorizontalAlignment(SwingConstants.RIGHT); //CENTER o LEFT
+//        jTable2.getColumnModel().getColumn(3).setCellRenderer(tcr);
+//        jTable2.getColumnModel().getColumn(4).setCellRenderer(tcr);
+//        jTable2.getColumnModel().getColumn(5).setCellRenderer(tcr);
+//        jTable2.getColumnModel().getColumn(6).setCellRenderer(tcr);
+//        jTable1.getColumnModel().getColumn(8).setCellRenderer(tcr);
+        jTable2.setModel(modelo);
+
+    }
+
+    private void graba_vencidos() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String SSQL = "INSERT INTO CABECERAS_VENCIDOS (desc,fecha,Cprov_Nom) values (?,?,?)";
+        SimpleDateFormat formatodeltexto = new SimpleDateFormat("yyyyy-MM-dd");
+        try {
+            PreparedStatement ps = v.conectar().prepareStatement(SSQL);
+            ps.setString(1, jTextField3.getText().toUpperCase());
+            ps.setString(2, formatodeltexto.format(jDateChooser3.getDate()));
+            ps.setString(3, jComboBox4.getSelectedItem().toString());
+//            System.out.print(jDateChooser3.getDateFormatString());
+            if (ps.executeUpdate() > 0) {
+
+                JOptionPane.showMessageDialog(null, "Los datos han sido modificados con éxito", "Operación Exitosa",
+                        JOptionPane.INFORMATION_MESSAGE);
+
+            } else {
+
+                JOptionPane.showMessageDialog(null, "No se ha podido realizar la actualización de los datos\n"
+                        + "Inténtelo nuevamente.", "Error en la operación",
+                        JOptionPane.ERROR_MESSAGE);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        carga_tabla_vencidos();
+    }
+
+    private void carga_tabla_vencidos() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql=("");
+        DecimalFormat formatea = v.MyFormatter();
+
+        sql = "select desc,Cprov_Nom,fecha "
+                + "from CABECERAS_VENCIDOS ";
+                
+        try {
+            PreparedStatement ps = v.getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            DefaultTableModel modelo;
+            modelo = (DefaultTableModel) jTable2.getModel();
+            v.borratabla(modelo);
+            int colu = 4;
+            Object[] fila = new Object[colu]; // Hay tres columnas en la tabla
+//            DecimalFormat formatea = var.MyFormatter();
+
+            while (rs.next()) {
+                fila[0] = rs.getString(1);
+                fila[1] = rs.getString(2);
+                fila[2] = rs.getString(3);
+                modelo.addRow(fila);
+            }
+            jTable2.setModel(modelo);
+        } catch (SQLException ex) {
+            Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+
 }
