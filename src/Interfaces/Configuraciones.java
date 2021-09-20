@@ -40,6 +40,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         cambia_proveedor();
         carga_impuestos();
         vencidos();
+        comprobantes();
 
     }
 
@@ -188,6 +189,11 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         jButton1.setText("Editar");
 
         jButton2.setText("Grabar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Borrar");
 
@@ -425,26 +431,24 @@ public class Configuraciones extends javax.swing.JInternalFrame {
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addComponent(jButton7)
                         .addGap(18, 18, 18)
                         .addComponent(jButton9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
+                        .addGap(77, 77, 77)
                         .addComponent(jButton8))
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
                             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField3)
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox4, 0, 214, Short.MAX_VALUE)
+                            .addComponent(jTextField3))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -457,11 +461,11 @@ public class Configuraciones extends javax.swing.JInternalFrame {
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addGap(22, 22, 22)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(17, 17, 17)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton7)
                     .addComponent(jButton8)
@@ -474,9 +478,9 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -565,6 +569,14 @@ public class Configuraciones extends javax.swing.JInternalFrame {
 
         graba_vencidos();
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+
+        guarda_comprobante();
+
+
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -814,12 +826,12 @@ public class Configuraciones extends javax.swing.JInternalFrame {
 
     private void carga_tabla_vencidos() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        String sql=("");
+        String sql = ("");
         DecimalFormat formatea = v.MyFormatter();
 
         sql = "select desc,Cprov_Nom,fecha "
                 + "from CABECERAS_VENCIDOS ";
-                
+
         try {
             PreparedStatement ps = v.getCon().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -840,7 +852,110 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
+    }
+
+    private void comprobantes() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        carga_cabeceras2();
+        carga_tabla_comprobantes();
+
+    }
+
+    private void carga_cabeceras2() {
+        String[] colu = {"DESCRIPCION"};
+        DefaultTableModel modelo;
+        modelo = (DefaultTableModel) jTable1.getModel();
+        modelo.setColumnIdentifiers(colu);
+
+        v.borratabla(modelo);
+
+        DefaultTableCellRenderer tcr;
+        TableColumnModel columnModel = jTable1.getColumnModel();
+//        columnModel.getColumn(1).setPreferredWidth(280);
+//        columnModel.getColumn(2).setPreferredWidth(80);
+//        columnModel.getColumn(3).setPreferredWidth(60);
+//        columnModel.getColumn(4).setPreferredWidth(60);
+//        columnModel.getColumn(5).setPreferredWidth(60);
+//        columnModel.getColumn(6).setPreferredWidth(60);
+//        columnModel.getColumn(7).setPreferredWidth(75);
+
+        columnModel.getColumn(0).setPreferredWidth(200);
+//        columnModel.getColumn(7).setPreferredWidth(60);
+//        columnModel.getColumn(8).setPreferredWidth(90);
+//        columnModel.getColumn(9).setPreferredWidth(90);
+//        columnModel.getColumn(10).setPreferredWidth(90);
+//        columnModel.getColumn(11).setPreferredWidth(90);
+//        columnModel.getColumn(12).setPreferredWidth(90);
+//        columnModel.getColumn(13).setPreferredWidth(90);
+
+        tcr = new DefaultTableCellRenderer();
+        tcr.setHorizontalAlignment(SwingConstants.RIGHT); //CENTER o LEFT
+//        jTable2.getColumnModel().getColumn(3).setCellRenderer(tcr);
+//        jTable2.getColumnModel().getColumn(4).setCellRenderer(tcr);
+//        jTable2.getColumnModel().getColumn(5).setCellRenderer(tcr);
+//        jTable2.getColumnModel().getColumn(6).setCellRenderer(tcr);
+//        jTable1.getColumnModel().getColumn(8).setCellRenderer(tcr);
+        jTable1.setModel(modelo);
+
+    }
+
+    private void carga_tabla_comprobantes() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        String sql = "select valor "
+                + "from config where clave='COMPROBANTE'";
+
+        try {
+            PreparedStatement ps = v.getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            DefaultTableModel modelo;
+            modelo = (DefaultTableModel) jTable1.getModel();
+            v.borratabla(modelo);
+            int colu = 1;
+            Object[] fila = new Object[colu]; // Hay tres columnas en la tabla
+//            DecimalFormat formatea = var.MyFormatter();
+
+            while (rs.next()) {
+                fila[0] = rs.getString(1);
+//                fila[1] = rs.getString(2);
+//                fila[2] = rs.getString(3);
+                modelo.addRow(fila);
+            }
+            jTable1.setModel(modelo);
+        } catch (SQLException ex) {
+            Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    private void guarda_comprobante() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "INSERT INTO config (clave,valor) values (?,?)";
+
+        PreparedStatement ps;
+        try {
+            ps = v.conectar().prepareStatement(sql);
+            ps.setString(1, "COMPROBANTE");
+            ps.setString(2, jTextField2.getText().toUpperCase());
+            if (ps.executeUpdate() > 0) {
+
+                JOptionPane.showMessageDialog(null, "Los datos han sido modificados con éxito", "Operación Exitosa",
+                        JOptionPane.INFORMATION_MESSAGE);
+
+            } else {
+
+                JOptionPane.showMessageDialog(null, "No se ha podido realizar la actualización de los datos\n"
+                        + "Inténtelo nuevamente.", "Error en la operación",
+                        JOptionPane.ERROR_MESSAGE);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        carga_tabla_comprobantes();
+
     }
 
 }

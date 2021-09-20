@@ -135,6 +135,7 @@
             <Menu class="javax.swing.JMenu" name="jMenu11">
               <Properties>
                 <Property name="text" type="java.lang.String" value="otros"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <SubComponents>
                 <Menu class="javax.swing.JMenu" name="jMenu40">
@@ -164,8 +165,11 @@
                     </MenuItem>
                     <MenuItem class="javax.swing.JMenuItem" name="jMenuItem35">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="lo que suma a sistema"/>
+                        <Property name="text" type="java.lang.String" value="Pisos"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem35ActionPerformed"/>
+                      </Events>
                     </MenuItem>
                     <MenuItem class="javax.swing.JMenuItem" name="jMenuItem36">
                       <Properties>

@@ -247,6 +247,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu3.add(jMenu4);
 
         jMenu11.setText("otros");
+        jMenu11.setEnabled(false);
 
         jMenu40.setText("jMenu40");
         jMenu11.add(jMenu40);
@@ -265,7 +266,12 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu36.add(jMenuItem15);
 
-        jMenuItem35.setText("lo que suma a sistema");
+        jMenuItem35.setText("Pisos");
+        jMenuItem35.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem35ActionPerformed(evt);
+            }
+        });
         jMenu36.add(jMenuItem35);
 
         jMenuItem36.setText("Vencidos");
@@ -1045,7 +1051,7 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem45ActionPerformed
         // TODO add your handling code here:
         Producto_en_piso pep;
-        pep=new Producto_en_piso();
+        pep=new Producto_en_piso(v);
         this.Principal.add(pep);
         pep.setVisible(true);
     }//GEN-LAST:event_jMenuItem45ActionPerformed
@@ -1086,6 +1092,15 @@ public class Principal extends javax.swing.JFrame {
         this.Principal.add(iv);
         iv.setVisible(true);
     }//GEN-LAST:event_jMenuItem36ActionPerformed
+
+    private void jMenuItem35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem35ActionPerformed
+        // TODO add your handling code here:
+        
+        Producto_en_piso pp=new Producto_en_piso(v);
+        this.Principal.add(pp);
+        pp.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem35ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

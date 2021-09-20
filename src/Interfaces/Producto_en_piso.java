@@ -5,17 +5,29 @@
  */
 package Interfaces;
 
+import Variables.Var;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author miguel
  */
 public class Producto_en_piso extends javax.swing.JInternalFrame {
 
+    private final Var v;
+
     /**
      * Creates new form Producto_en_piso
+     * @param v
      */
-    public Producto_en_piso() {
+    public Producto_en_piso(Var v) {
+        this.v = v;
         initComponents();
+        inicia_todo();
     }
 
     /**
@@ -96,16 +108,16 @@ public class Producto_en_piso extends javax.swing.JInternalFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
-                        .addGap(3, 3, 3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -375,4 +387,37 @@ public class Producto_en_piso extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
+
+    private void inicia_todo() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        carga_comprobantes();
+        
+        
+        
+    }
+
+    private void carga_comprobantes() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        jComboBox1.removeAllItems();
+//        String sql = "select valor from config where clave='COMPROBANTE'";
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jComboBox2.removeAllItems();
+        
+
+        try {
+            PreparedStatement ps = v.getCon().prepareStatement("select valor from config where clave='COMPROBANTE'");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                jComboBox1.addItem(rs.getString("valor"));
+             }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
 }
