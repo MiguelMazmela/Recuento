@@ -748,9 +748,9 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
 
     private void jTFCajasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFCajasKeyTyped
         // TODO add your handling code here:
-        char[] p = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.'};
+        char[] p = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'};
         int b = 0;
-        for (int i = 0; i <= 10; i++) {
+        for (int i = 0; i <= 9; i++) {
             if (p[i] == evt.getKeyChar()) {
                 b = 1;
             }
@@ -1007,11 +1007,45 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jtmesKeyPressed
 
+    @SuppressWarnings("empty-statement")
     private void jtañoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtañoKeyPressed
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
 //            java.sql.Date fven;
-            var.setT_Fecha_de_vencimiento(jtaño.getText() + "-" + jtmes.getText() + "-" + jtdia.getText());
+                String año=jtaño.getText();
+                int largo=jtaño.getText().length();
+                
+                
+                if (largo>4){
+                    JOptionPane.showMessageDialog(null, "corriga la fecha", "Error en fecha",
+                        JOptionPane.INFORMATION_MESSAGE);
+                    jtaño.requestFocusInWindow();
+                    evt.consume();
+                    jtaño.requestFocusInWindow();
+                }
+                if(largo==3){
+                    año="2"+año;
+                }
+                if(largo==2){
+                    año="20"+año;
+                }
+                if(largo==1){
+                    año="200"+año;
+                }
+                if(largo==0){
+                    evt.consume();
+                }
+                try {
+                largo=Integer.valueOf(año);
+                }
+                catch(java.lang.NumberFormatException excepcion){
+                    JOptionPane.showMessageDialog(null, "corriga la fecha", "Error en fecha",
+                        JOptionPane.INFORMATION_MESSAGE);
+                    jtaño.requestFocusInWindow();
+                    evt.consume();
+                }
+
+            var.setT_Fecha_de_vencimiento(año + "-" + jtmes.getText() + "-" + jtdia.getText());
 
             jTFCajas.requestFocusInWindow();
         }
@@ -1644,7 +1678,9 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
 //        {
 //            IGV=1.18;
 //        }
-        var.setC_cajas(Double.parseDouble(jTFCajas.getText()));
+        String cajas=jTFCajas.getText();
+        
+        var.setC_cajas(Double.parseDouble(cajas));
         var.setC_displays(Double.parseDouble(jTFDisplays.getText()));
         var.setC_unidades(Double.parseDouble(jTFUnidades.getText()));
         double toto = ((var.getC_cajas() * var.getC_Nfactor_De_Consumo())
