@@ -84,6 +84,8 @@ public class Ingreso_vencidos extends javax.swing.JInternalFrame {
         jButton3 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jComboBox5 = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
+        jComboBox6 = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -388,18 +390,18 @@ public class Ingreso_vencidos extends javax.swing.JInternalFrame {
         jPanel4.setBackground(new java.awt.Color(51, 204, 0));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setEnabled(false);
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Descripcion de recuento");
+        jLabel1.setText("Descripcion ");
 
         jLabel5.setText("LINEA");
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox2.setEnabled(false);
 
         jButton3.setText("OK");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -413,23 +415,39 @@ public class Ingreso_vencidos extends javax.swing.JInternalFrame {
 
         jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jLabel16.setText("Tipo   :");
+
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboBox5, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jComboBox6, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBox2, 0, 223, Short.MAX_VALUE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox5, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton3)
                 .addContainerGap())
@@ -437,19 +455,23 @@ public class Ingreso_vencidos extends javax.swing.JInternalFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15))
-                        .addGap(11, 11, 11)
+                            .addComponent(jLabel16)
+                            .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -702,7 +724,7 @@ public class Ingreso_vencidos extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)))
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -1308,9 +1330,23 @@ public class Ingreso_vencidos extends javax.swing.JInternalFrame {
         if (jComboBox1.getSelectedItem() == null) {
 
         } else {
+            jComboBox2.setEnabled(true);
             Carga_lineas();
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jComboBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox6ActionPerformed
+        // TODO add your handling code here:
+        if (jComboBox6.getSelectedItem() == null) {
+
+        } else {
+            jComboBox1.setEnabled(true);
+            var.setOp_seleccionada(jComboBox6.getSelectedItem().toString());
+            Carga_descripcion();
+            Carga_lineas();
+        }
+        
+    }//GEN-LAST:event_jComboBox6ActionPerformed
 //>>>>>>> revision
 
 
@@ -1331,6 +1367,7 @@ public class Ingreso_vencidos extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1338,6 +1375,7 @@ public class Ingreso_vencidos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1376,6 +1414,7 @@ public class Ingreso_vencidos extends javax.swing.JInternalFrame {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         DecimalFormat formatea = var.MyFormatter();
         jComboBox1.removeAllItems();
+        jComboBox6.removeAllItems();
         jButton2.setEnabled(false);
         jTFCajas.setText("0");
         jTFDisplays.setText("0");
@@ -1394,18 +1433,19 @@ public class Ingreso_vencidos extends javax.swing.JInternalFrame {
         jComboBox4.removeAllItems();
         jComboBox4.addItem("PRECIO DE COMPRA");
         jComboBox4.addItem("PRECIO DE VENTA");
-
+        
         try {
 
-            String sql = "select DISTINCT DESC  from CABECERAS_VENCIDOS";
+            String sql = "SELECT VALOR FROM CONFIG WHERE CLAVE='OPERACCION'";
             PreparedStatement ps = var.getCon().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                jComboBox1.addItem(rs.getNString(1));
+                jComboBox6.addItem(rs.getNString(1));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Borrar_por_fecha.class.getName()).log(Level.SEVERE, null, ex);
         }
+
 //        Carga_lineas();
         carga_cabeceras2();
         carga_cabeceras1();
@@ -1505,7 +1545,7 @@ public class Ingreso_vencidos extends javax.swing.JInternalFrame {
     }
 
     private void guarda() {
-        int cajas, displays, unidades = 0;
+//        int cajas, displays, unidades = 0;
         double total;
         int fila = jComboBox3.getSelectedIndex();
         String fe = jComboBox1.getSelectedItem().toString();
@@ -1699,8 +1739,9 @@ public class Ingreso_vencidos extends javax.swing.JInternalFrame {
                     + "Fecha_recuento,"
                     + "Cprov_Id,"
                     + "Cprov_Nom,"
-                    + "desc) "
-                    + "VALUES (?,?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                    + "desc,"
+                    + "TIPO_OP) "
+                    + "VALUES (?,?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         } else {
             SSQL = "update VENCIDOS set "
@@ -1772,6 +1813,8 @@ public class Ingreso_vencidos extends javax.swing.JInternalFrame {
                 ps.setString(17, var.getC_Cprov_Id());
                 ps.setString(18, var.getLina_seleccionada());
                 ps.setString(19, jComboBox1.getSelectedItem().toString());
+                ps.setString(20, jComboBox6.getSelectedItem().toString());
+                
                 ps.executeUpdate();
             }
 
@@ -1910,20 +1953,33 @@ public class Ingreso_vencidos extends javax.swing.JInternalFrame {
 
     private void Carga_lineas() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        String selecion = "";
+        String selecion;
+        selecion = "";
+        String combo2="";
         jComboBox2.removeAllItems();
         jComboBox5.removeAllItems();
         try {
-
-            selecion = jComboBox1.getSelectedItem().toString();
-
-            String sql1 = "select CPROV_NOM   from CABECERAS_VENCIDOS WHERE DESC  = '" + selecion + "'";
+            if(jComboBox1.getSelectedItem() == null){
+                selecion="";
+            
+            
+            }else{
+                selecion = jComboBox1.getSelectedItem().toString();
+            }
+            
+            String sql1 = "select CPROV_NOM   from CABECERAS_VENCIDOS WHERE DESC  = '" + selecion + "' and "
+                    + "TIPO_OP='"+jComboBox6.getSelectedItem().toString()+"'";
             PreparedStatement ps3 = var.getCon().prepareStatement(sql1);
             ResultSet rs3 = ps3.executeQuery();
             while (rs3.next()) {
                 jComboBox2.addItem(rs3.getNString(1));
             }
-            sql1 = "select DISTINCT Fecha_recuento from sistema_fecha where CPROV_NOM='"+jComboBox2.getSelectedItem().toString()+"'";
+            if(jComboBox2.getSelectedItem()==null){
+                
+            }else{
+                combo2=jComboBox2.getSelectedItem().toString();
+            }
+            sql1 = "select DISTINCT Fecha_recuento from sistema_fecha where CPROV_NOM='"+combo2+"'";
             PreparedStatement ps4 = var.getCon().prepareStatement(sql1);
             ResultSet rs4 = ps4.executeQuery();
             while (rs4.next()) {
@@ -2099,6 +2155,26 @@ public class Ingreso_vencidos extends javax.swing.JInternalFrame {
         
         
         
+        
+        
+    }
+
+    private void Carga_descripcion() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+                jComboBox1.removeAllItems();
+                try {
+
+            String sql = "select DISTINCT DESC  from CABECERAS_VENCIDOS where TIPO_OP='"+var.getOp_seleccionada()+"'";
+            PreparedStatement ps = var.getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                jComboBox1.addItem(rs.getNString(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Borrar_por_fecha.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         
         
     }

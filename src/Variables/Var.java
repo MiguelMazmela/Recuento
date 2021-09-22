@@ -106,6 +106,7 @@ public final class Var {
     private final String sql_consulta_temporal;
     private Double valor_igv;
     private Boolean Conceros;
+    private String op_seleccionada;
 
     public Connection getCon() {
         return con;
@@ -155,6 +156,7 @@ public final class Var {
 //        this.Hoy=new Date();
 //        fechaSQL = new java.sql.Date(fecha.getTime());
         cal.setTime(fecha);
+        this.op_seleccionada="VENCIDOS";
         this.CreaTablaSistema = "Create table sistema("
                 + "Cprov_Id nvarchar (8),"
                 + "Cprov_Nom nvarchar (50),"
@@ -1610,6 +1612,14 @@ public final class Var {
 
     public void setConceros(Boolean Conceros) {
         this.Conceros = Conceros;
+    }
+
+    public String getOp_seleccionada() {
+        return op_seleccionada;
+    }
+
+    public void setOp_seleccionada(String op_seleccionada) {
+        this.op_seleccionada = op_seleccionada;
     }
 
 }
