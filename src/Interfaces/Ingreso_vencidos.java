@@ -342,7 +342,8 @@ public class Ingreso_vencidos extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton1.setText("Buscar");
+        jButton1.setText("Borrar");
+        jButton1.setEnabled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -1227,7 +1228,10 @@ public class Ingreso_vencidos extends javax.swing.JInternalFrame {
 //                + ")"
 //                + "WHERE cld.FECHA_RECUENTO  = '" + var.getFecha_recuento_selecionada() + "'";
 
-        String sql = "SELECT CART_ID,NC_ALMA FROM SISTEMA_FECHA  where CPROV_NOM ='" + var.getLina_seleccionada() + "' and FECHA_RECUENTO ='" + var.getFecha_recuento_selecionada() + "'";
+        String sql = "SELECT CART_ID,NC_ALMA FROM SISTEMA_FECHA  where CPROV_NOM ='" 
+                + var.getLina_seleccionada() + "' and FECHA_RECUENTO ='" + var.getFecha_recuento_selecionada() + "'";
+        String desc=jComboBox1.getSelectedItem().toString();
+        String TIPO_OP =jComboBox6.getSelectedItem().toString();
 
         try {
             PreparedStatement ps = var.conectar().prepareStatement(sql);
@@ -1238,7 +1242,10 @@ public class Ingreso_vencidos extends javax.swing.JInternalFrame {
                         + "FROM VENCIDOS "
                         + "where CPROV_NOM ='" + var.getLina_seleccionada() + "' "
                         + "and FECHA_RECUENTO ='" + var.getFecha_recuento_selecionada() + "' "
-                        + "and CART_ID ='" + rs.getNString("CART_ID") + "'";
+                        + "and CART_ID ='" + rs.getNString("CART_ID") + "' "
+                        + "and desc='"+desc+"' "
+                        + "and TIPO_OP ='"+TIPO_OP+"' ";
+                
                 String codigo = rs.getNString("CART_ID");
                 Double Almacen = rs.getDouble("NC_ALMA");
                 PreparedStatement ps1 = var.conectar().prepareStatement(sql1);
@@ -1906,11 +1913,29 @@ public class Ingreso_vencidos extends javax.swing.JInternalFrame {
 
     private void carga_tabla_cuenta() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String tipo_op="";
+        String desc="";
+        if (jComboBox6.getSelectedItem() == null) {
+
+        } else {
+            tipo_op=jComboBox6.getSelectedItem().toString();
+            
+        }
+        if (jComboBox1.getSelectedItem() == null) {
+
+        } else {
+            desc=jComboBox1.getSelectedItem().toString();
+            
+        }
+        
+        
 
         String sql = "select Secuencia,Cart_Id,Cart_Nom,cajas,displays,unidades,total,Fecha_de_vencimiento "
-                + "from VENCIDOS WHERE Fecha_recuento='"
-                + var.getFecha_recuento_selecionada()
-                + "' and Cprov_Nom='" + var.getLina_seleccionada() + "' order by Secuencia desc";
+                + "from VENCIDOS WHERE "
+//                + "Fecha_recuento='"+ var.getFecha_recuento_selecionada()+ "' and "
+                + "Cprov_Nom='"+ var.getLina_seleccionada() + "' and "
+                + "TIPO_OP ='"+tipo_op
+                + "' and DESC='" + desc + "' order by Secuencia desc";
         jLabel7.setText(var.getLina_seleccionada());
         jLabel9.setText(var.getFecha_recuento_selecionada());
         try {
@@ -1948,7 +1973,7 @@ public class Ingreso_vencidos extends javax.swing.JInternalFrame {
     }
 
     private void borra() {
-
+        
     }
 
     private void Carga_lineas() {

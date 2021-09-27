@@ -1,0 +1,7 @@
+
+create table Cabeceras_vencidos (desc varchar(100),fecha date,precio_c numeric(11,2),precio_v numeric(11,2))
+
+SISTEMA_FECHA:
+NC_ALMA15  Venta adelantada	
+NC_ALMA16  Vencido	
+NC_ALMA17  Devuelto pendiente de nota de credito
