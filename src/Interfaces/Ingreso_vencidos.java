@@ -1614,7 +1614,7 @@ public class Ingreso_vencidos extends javax.swing.JInternalFrame {
             }
 //<<<<<<< HEAD
 
-            carga_tabla_lista();
+//            carga_tabla_lista();
 
 //=======
             carga_tabla_lista();

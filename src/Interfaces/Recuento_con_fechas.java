@@ -20,6 +20,7 @@ import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -1234,7 +1235,9 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
 //                + ")"
 //                + "WHERE cld.FECHA_RECUENTO  = '" + var.getFecha_recuento_selecionada() + "'";
 
-        String sql = "SELECT CART_ID,NC_ALMA FROM SISTEMA_FECHA  where CPROV_NOM ='" + var.getLina_seleccionada() + "' and FECHA_RECUENTO ='" + var.getFecha_recuento_selecionada() + "'";
+        String sql = "SELECT CART_ID,NC_ALMA,NC_ALMA15,NC_ALMA16,NC_ALMA17 FROM SISTEMA_FECHA  where CPROV_NOM ='" 
+                + var.getLina_seleccionada() 
+                + "' and FECHA_RECUENTO ='" + var.getFecha_recuento_selecionada() + "'";
 
         try {
             PreparedStatement ps = var.conectar().prepareStatement(sql);
@@ -1248,6 +1251,9 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
                         + "and CART_ID ='" + rs.getNString("CART_ID") + "'";
                 String codigo = rs.getNString("CART_ID");
                 Double Almacen = rs.getDouble("NC_ALMA");
+                Double piso = rs.getDouble("NC_ALMA15");
+                Double vencido= rs.getDouble("NC_ALMA16");
+                Double guia= rs.getDouble("NC_ALMA17");
                 PreparedStatement ps1 = var.conectar().prepareStatement(sql1);
                 ResultSet rs1 = ps1.executeQuery();
                 rs1.next();
@@ -1262,7 +1268,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
                 } else {
                     suma = rs1.getDouble("suma");
                 }
-                saldo = Almacen - suma;
+                saldo = Almacen+piso - suma-vencido-guia;
                 ps2.setDouble(1, suma);
                 ps2.setDouble(2, saldo);
                 ps2.setString(3, codigo);
@@ -1436,13 +1442,13 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
     private void carga_cabeceras2() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //        TableModel modelo =jTable2.getModel();
-        String[] colu = {"CODIGO", "DESCRIPCION", "CANTIDAD", "RECUENTO", "DIFERENCIA"};
+        String[] colu = {"CODIGO", "DESCRIPCION", "CANTIDAD", "RECUENTO", "DIFERENCIA", "PISO", "VENCIDO", "GUIA"};
         DefaultTableModel modelo;
         modelo = (DefaultTableModel) jTable2.getModel();
         modelo.setColumnIdentifiers(colu);
 
         borratabla(modelo);
-
+        jTable2.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         DefaultTableCellRenderer tcr;
         TableColumnModel columnModel = jTable2.getColumnModel();
         columnModel.getColumn(0).setPreferredWidth(80);
@@ -1465,8 +1471,9 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
         jTable2.getColumnModel().getColumn(2).setCellRenderer(tcr);
         jTable2.getColumnModel().getColumn(3).setCellRenderer(tcr);
         jTable2.getColumnModel().getColumn(4).setCellRenderer(tcr);
-//        jTable1.getColumnModel().getColumn(7).setCellRenderer(tcr);
-//        jTable1.getColumnModel().getColumn(8).setCellRenderer(tcr);
+        jTable2.getColumnModel().getColumn(5).setCellRenderer(tcr);
+        jTable2.getColumnModel().getColumn(6).setCellRenderer(tcr);
+        jTable2.getColumnModel().getColumn(7).setCellRenderer(tcr);
         jTable2.setModel(modelo);
 
     }
@@ -1834,8 +1841,8 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
     private void carga_tabla_lista() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         DecimalFormat formatea = var.MyFormatter();
-
-        String sql = "select Cart_Id,Cart_Nom,Nc_Alma,Nc_Alma1,Nc_Alma2 "
+        Double saldo;
+        String sql = "select Cart_Id,Cart_Nom,Nc_Alma,Nc_Alma1,Nc_Alma2,Nc_Alma15,Nc_Alma16,Nc_Alma17 "
                 + "from sistema_fecha "
                 + "WHERE Fecha_recuento='" + var.getFecha_recuento_selecionada() + ""
                 + "' and Cprov_Nom='" + var.getLina_seleccionada() + "'"
@@ -1849,15 +1856,21 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
             DefaultTableModel modelo;
             modelo = (DefaultTableModel) jTable2.getModel();
             borratabla(modelo);
-            int colu = 5;
+            int colu = 5+3;
+            
             Object[] fila = new Object[colu]; // Hay tres columnas en la tabla
 //            DecimalFormat formatea = var.MyFormatter();
             while (rs.next()) {
-                fila[0] = rs.getString(1);
-                fila[1] = rs.getString(2);
-                fila[2] = formatea.format(rs.getDouble(3));
-                fila[3] = formatea.format(rs.getDouble(4));
-                fila[4] = formatea.format(Double.parseDouble(rs.getNString(3)) - Double.parseDouble(rs.getNString(4)));
+                saldo=rs.getDouble("Nc_Alma")-rs.getDouble("Nc_Alma1")+rs.getDouble("Nc_Alma15")-rs.getDouble("Nc_Alma16")-rs.getDouble("Nc_Alma17");
+                fila[0] = rs.getString("Cart_Id");
+                fila[1] = rs.getString("Cart_Nom");
+                fila[2] = formatea.format(rs.getDouble("Nc_Alma"));
+                fila[3] = formatea.format(rs.getDouble("Nc_Alma1"));
+                fila[4] = formatea.format(saldo);
+                fila[5] = formatea.format(rs.getDouble("Nc_Alma15"));
+                fila[6] = formatea.format(rs.getDouble("Nc_Alma16"));
+                fila[7] = formatea.format(rs.getDouble("Nc_Alma17"));
+                
                 if ((!var.getConceros())) {
 //                    String numero=(String) fila[4];
                     double vc = Double.parseDouble(rs.getNString(3));

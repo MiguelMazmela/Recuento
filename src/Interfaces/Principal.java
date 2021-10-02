@@ -211,6 +211,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu3.setText("Almacenes");
 
         jMenu4.setText("Recuentos");
+        jMenu4.setEnabled(false);
 
         jMenu12.setText("Cargas");
 
@@ -258,7 +259,7 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu36.setText("Cargas");
 
-        jMenuItem15.setText("Sistema");
+        jMenuItem15.setText("Rex");
         jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem15ActionPerformed(evt);
@@ -266,8 +267,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu36.add(jMenuItem15);
 
-        jMenuItem35.setText("Pisos");
-        jMenuItem35.setEnabled(false);
+        jMenuItem35.setText("Chess");
         jMenuItem35.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem35ActionPerformed(evt);
@@ -275,7 +275,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu36.add(jMenuItem35);
 
-        jMenuItem36.setText("Vencidos");
+        jMenuItem36.setText("Otrascargas");
         jMenuItem36.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem36ActionPerformed(evt);
@@ -330,7 +330,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu37.add(jMenuItem47);
 
-        jMenuItem48.setText("jMenuItem48");
+        jMenuItem48.setText("Otro");
         jMenuItem48.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem48ActionPerformed(evt);
@@ -343,6 +343,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu3.add(jMenu14);
 
         jMenuItem45.setText("Productos en piso");
+        jMenuItem45.setEnabled(false);
         jMenuItem45.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem45ActionPerformed(evt);
@@ -1097,7 +1098,7 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem35ActionPerformed
         // TODO add your handling code here:
         
-        Producto_en_piso pp=new Producto_en_piso(v);
+        Carga_chess pp=new Carga_chess(v);
         this.Principal.add(pp);
         pp.setVisible(true);
         

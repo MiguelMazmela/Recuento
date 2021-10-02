@@ -86,6 +86,7 @@
             <Menu class="javax.swing.JMenu" name="jMenu4">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Recuentos"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <SubComponents>
                 <Menu class="javax.swing.JMenu" name="jMenu12">
@@ -157,7 +158,7 @@
                   <SubComponents>
                     <MenuItem class="javax.swing.JMenuItem" name="jMenuItem15">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Sistema"/>
+                        <Property name="text" type="java.lang.String" value="Rex"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem15ActionPerformed"/>
@@ -165,8 +166,7 @@
                     </MenuItem>
                     <MenuItem class="javax.swing.JMenuItem" name="jMenuItem35">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Pisos"/>
-                        <Property name="enabled" type="boolean" value="false"/>
+                        <Property name="text" type="java.lang.String" value="Chess"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem35ActionPerformed"/>
@@ -174,7 +174,7 @@
                     </MenuItem>
                     <MenuItem class="javax.swing.JMenuItem" name="jMenuItem36">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Vencidos"/>
+                        <Property name="text" type="java.lang.String" value="Otrascargas"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem36ActionPerformed"/>
@@ -234,7 +234,7 @@
                     </MenuItem>
                     <MenuItem class="javax.swing.JMenuItem" name="jMenuItem48">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="jMenuItem48"/>
+                        <Property name="text" type="java.lang.String" value="Otro"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem48ActionPerformed"/>
@@ -247,6 +247,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem45">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Productos en piso"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem45ActionPerformed"/>

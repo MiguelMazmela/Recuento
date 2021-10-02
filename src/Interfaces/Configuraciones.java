@@ -6,6 +6,7 @@
 package Interfaces;
 
 import Variables.Var;
+import java.awt.Color;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
@@ -41,6 +43,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         carga_impuestos();
         vencidos();
         comprobantes();
+        cargas();
 
     }
 
@@ -117,6 +120,15 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         jTable4 = new javax.swing.JTable();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jComboBox7 = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
+        jComboBox8 = new javax.swing.JComboBox<>();
+        Vencidos = new javax.swing.JCheckBox();
+        Piso = new javax.swing.JCheckBox();
+        Guias = new javax.swing.JCheckBox();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
 
@@ -418,12 +430,12 @@ public class Configuraciones extends javax.swing.JInternalFrame {
             }
         ));
         jTable2.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jTable2AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jTable2.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -660,15 +672,91 @@ public class Configuraciones extends javax.swing.JInternalFrame {
 
         jTabbedPane1.addTab("Vencidos", jPanel8);
 
+        jPanel12.setBackground(new java.awt.Color(0, 204, 0));
+
+        jLabel15.setText("PROVEEDOR   :");
+
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox7ActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setText("FECHA       :");
+
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox8ActionPerformed(evt);
+            }
+        });
+
+        Vencidos.setText("Vencidos");
+
+        Piso.setText("Piso");
+
+        Guias.setText("Guias");
+
+        jButton10.setText("CARGA");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
+        jButton11.setText("Muestra");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 409, Short.MAX_VALUE)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel16))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(Piso, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Guias, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Vencidos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(115, 115, 115)
+                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15))
+                .addGap(19, 19, 19)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60)
+                .addComponent(Vencidos)
+                .addGap(18, 18, 18)
+                .addComponent(Piso)
+                .addGap(18, 18, 18)
+                .addComponent(Guias)
+                .addGap(70, 70, 70)
+                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
@@ -690,8 +778,8 @@ public class Configuraciones extends javax.swing.JInternalFrame {
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 333, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 754, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -699,7 +787,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
             .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("tab5", jPanel11);
+        jTabbedPane1.addTab("Cargas", jPanel11);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -781,19 +869,19 @@ public class Configuraciones extends javax.swing.JInternalFrame {
     private void jTable2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTable2AncestorAdded
         // TODO add your handling code here:
         carga_tabla4();
-        
+
     }//GEN-LAST:event_jTable2AncestorAdded
 
     private void jTable2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTable2FocusGained
         // TODO add your handling code here:
-        
-         carga_tabla4();
+
+        carga_tabla4();
     }//GEN-LAST:event_jTable2FocusGained
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
         // TODO add your handling code here:
         carga_tabla4();
-        
+
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void jTable2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable2KeyPressed
@@ -804,7 +892,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
     private void jTable2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable2KeyTyped
         // TODO add your handling code here:
         carga_tabla4();
-        
+
     }//GEN-LAST:event_jTable2KeyTyped
 
     private void jTable2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable2KeyReleased
@@ -812,12 +900,40 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         carga_tabla4();
     }//GEN-LAST:event_jTable2KeyReleased
 
+    private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox7ActionPerformed
+        // TODO add your handling code here:
+
+        carga_combo8();
+    }//GEN-LAST:event_jComboBox7ActionPerformed
+
+    private void jComboBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox8ActionPerformed
+        // TODO add your handling code here:
+//        carga_tabla3();
+
+
+    }//GEN-LAST:event_jComboBox8ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+        carga_tabla3();
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+        hacer_cargas();
+    }//GEN-LAST:event_jButton10ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox Guias;
+    private javax.swing.JCheckBox Piso;
+    private javax.swing.JCheckBox Vencidos;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JRadioButton con_fechas;
     private javax.swing.JButton guarda_impuestos;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -834,6 +950,8 @@ public class Configuraciones extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JComboBox<String> jComboBox6;
+    private javax.swing.JComboBox<String> jComboBox7;
+    private javax.swing.JComboBox<String> jComboBox8;
     private com.toedter.calendar.JDateChooser jDateChooser3;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
@@ -842,6 +960,8 @@ public class Configuraciones extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -998,7 +1118,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         carga_comprobantes();
         carga_cabeceras_tabla4();
         try {
-            
+
             String sql = "SELECT VALOR FROM CONFIG WHERE CLAVE='OPERACCION'";
             PreparedStatement ps = v.getCon().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -1008,9 +1128,9 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Borrar_por_fecha.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         try {
-            
+
             String sql = "select DISTINCT Cprov_Nom nvarchar from sistema_fecha";
             PreparedStatement ps = v.getCon().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
@@ -1020,14 +1140,14 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Borrar_por_fecha.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         carga_cabeceras1();
         carga_tabla_vencidos();
 
     }
 
     private void carga_cabeceras1() {
-        String[] colu = {"TIPO","DESCRIPCION", "PROVEEDOR", "FECHA",};
+        String[] colu = {"TIPO", "DESCRIPCION", "PROVEEDOR", "FECHA",};
         DefaultTableModel modelo;
         modelo = (DefaultTableModel) jTable2.getModel();
         modelo.setColumnIdentifiers(colu);
@@ -1227,7 +1347,8 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         carga_tabla_comprobantes();
 
     }
-private void carga_comprobantes() {
+
+    private void carga_comprobantes() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         jComboBox6.removeAllItems();
 //        String sql = "select valor from config where clave='COMPROBANTE'";
@@ -1235,7 +1356,6 @@ private void carga_comprobantes() {
         jTextField5.setText("");
         jTextField6.setText("");
 //        jComboBox7.removeAllItems();
-        
 
         try {
             PreparedStatement ps = v.getCon().prepareStatement("select valor from config where clave='COMPROBANTE'");
@@ -1243,20 +1363,21 @@ private void carga_comprobantes() {
 
             while (rs.next()) {
                 jComboBox6.addItem(rs.getString("valor"));
-             }
-            
+            }
+
         } catch (SQLException ex) {
             Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
     }
-private void carga_cabeceras_tabla4() {
+
+    private void carga_cabeceras_tabla4() {
         String[] colu = {"nn", "CODIGO", "DESCRIPCION", "CAJAS", "DISPLAYS", "UNIDADES", "TOTAL", "FECHA"};
         DefaultTableModel modelo;
         modelo = (DefaultTableModel) jTable4.getModel();
         modelo.setColumnIdentifiers(colu);
-
+        jTable4.setBackground(Color.WHITE);
+        jTable4.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
         v.borratabla(modelo);
 
         DefaultTableCellRenderer tcr;
@@ -1290,7 +1411,7 @@ private void carga_cabeceras_tabla4() {
 
     private void carga_tabla4() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        int fil=0;
+        int fil = 0;
         PreparedStatement ps;
 //        int colu = 8;
 //            Object fila1 = new Object[colu]; // Hay tres columnas en la tabla
@@ -1299,56 +1420,379 @@ private void carga_cabeceras_tabla4() {
         System.out.print(fil);
         if (fil == -1) {
 //            JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna fila.");
-            fil=0;
+            fil = 0;
         } else {
             //aca toma el numero de fila seleccionada
             String numero = (String) jTable2.getValueAt(fil, 0);
             String codigo = (String) jTable2.getValueAt(fil, 1);
             String Recu = (String) jTable2.getValueAt(fil, 2);
             String sql = "select Secuencia,Cart_Id,Cart_Nom,cajas,displays,unidades,total,Fecha_de_vencimiento "
-                + "from VENCIDOS WHERE DESC='"+ codigo
-                + "' and Cprov_Nom='" + Recu + "' and "
-                    + "TIPO_OP='"+numero+"' order by Secuencia desc";
-            
+                    + "from VENCIDOS WHERE DESC='" + codigo
+                    + "' and Cprov_Nom='" + Recu + "' and "
+                    + "TIPO_OP='" + numero + "' order by Secuencia desc";
+
             try {
                 ps = v.getCon().prepareStatement(sql);
                 ResultSet rs = ps.executeQuery();
-            DefaultTableModel modelo;
-            modelo = (DefaultTableModel) jTable4.getModel();
-            v.borratabla(modelo);
-            int colu = 8;
-            Object[] fila = new Object[colu];
-            DecimalFormat formatea = v.MyFormatter();
-            DecimalFormat fen = v.MyFormatter();
-            int secu = 0;
-            while (rs.next()) {
-                 secu = rs.getInt("Secuencia");
+                DefaultTableModel modelo;
+                modelo = (DefaultTableModel) jTable4.getModel();
+                v.borratabla(modelo);
+                int colu = 8;
+                Object[] fila = new Object[colu];
+                DecimalFormat formatea = v.MyFormatter();
+                DecimalFormat fen = v.MyFormatter();
+                int secu = 0;
+                while (rs.next()) {
+                    secu = rs.getInt("Secuencia");
 
-                if (v.getSecuencia() < secu) {
-                    v.setSecuencia(rs.getInt("Secuencia"));
+                    if (v.getSecuencia() < secu) {
+                        v.setSecuencia(rs.getInt("Secuencia"));
+                    }
+                    fila[0] = rs.getString("Secuencia");
+                    fila[1] = rs.getString("Cart_Id");
+                    fila[2] = rs.getString("Cart_Nom");
+                    fila[3] = fen.format(rs.getDouble("cajas"));
+                    fila[4] = fen.format(rs.getDouble("displays"));
+                    fila[5] = fen.format(rs.getDouble("unidades"));
+                    fila[6] = formatea.format(rs.getDouble("total"));
+                    fila[7] = rs.getString("Fecha_de_vencimiento");
+                    modelo.addRow(fila);
                 }
-                fila[0] = rs.getString("Secuencia");
-                fila[1] = rs.getString("Cart_Id");
-                fila[2] = rs.getString("Cart_Nom");
-                fila[3] = fen.format(rs.getDouble("cajas"));
-                fila[4] = fen.format(rs.getDouble("displays"));
-                fila[5] = fen.format(rs.getDouble("unidades"));
-                fila[6] = formatea.format(rs.getDouble("total"));
-                fila[7] = rs.getString("Fecha_de_vencimiento");
-                modelo.addRow(fila);
-            }
-            jTable4.setModel(modelo);
-                
+                jTable4.setModel(modelo);
+
             } catch (SQLException ex) {
                 Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
 
-        
-        
-        
+        }
+
     }
+
+    private void cargas() {
+
+        carga_combo7();
+        carga_combo8();
+//        carga_tabla3();
+        Vencidos.setSelected(true);
+        Piso.setSelected(true);
+        Guias.setSelected(true);
+
+    }
+
+    private void carga_combo7() {
+        try {
+            jComboBox7.removeAllItems();
+            String sql = "select DISTINCT Cprov_Nom nvarchar from sistema_fecha";
+            PreparedStatement ps = v.getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                jComboBox7.addItem(rs.getNString(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Borrar_por_fecha.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    private void carga_combo8() {
+        try {
+            jComboBox8.removeAllItems();
+            if (jComboBox7.getSelectedItem() == null) {
+
+            } else {
+                String sql = "select DISTINCT FECHA_RECUENTO from sistema_fecha where Cprov_Nom='" + jComboBox7.getSelectedItem().toString() + "'";
+                PreparedStatement ps = v.getCon().prepareStatement(sql);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    jComboBox8.addItem(rs.getNString(1));
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Borrar_por_fecha.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    private void carga_tabla3() {
+        DecimalFormat formatea = v.MyFormatter();
+        carga_cabezeras_tabla3();
+        DefaultTableModel modelo;
+        modelo = (DefaultTableModel) jTable3.getModel();
+//        v.borratabla(modelo);
+        carga_cabezeras_tabla3();
+        String fecha;
+        String prov;
+        v.setFiltro_carga_tabla("");
+        if (jComboBox7.getSelectedItem() == null) {
+            prov = "";
+        } else {
+            prov = jComboBox7.getSelectedItem().toString();
+        }
+        if (jComboBox8.getSelectedItem() == null) {
+            fecha = v.GetFechaVentasActual();
+        } else {
+            fecha = jComboBox8.getSelectedItem().toString();
+        }
+
+        try {
+//            jComboBox8.removeAllItems();
+
+            if (jComboBox7.getSelectedItem() == null && jComboBox7.getSelectedItem() == null) {
+            }
+
+            String sql = "select Cart_Id,Cart_Nom,Nc_Alma,Nc_Alma1,Nc_Alma2 "
+                    + "from sistema_fecha "
+                    + "WHERE Fecha_recuento='" + fecha
+                    + "' and Cprov_Nom='" + prov + "'"
+                    + " AND Cart_Nom like '%" + v.getFiltro_carga_tabla() + "%'";
+//                String sql = "select DISTINCT FECHA_RECUENTO from sistema_fecha where Cprov_Nom='" + jComboBox7.getSelectedItem().toString() + "'";
+            PreparedStatement ps = v.getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            int colu = 5;
+            Object[] fila = new Object[colu]; // Hay tres columnas en la tabla
+//          
+            while (rs.next()) {
+                fila[0] = rs.getString(1);
+                fila[1] = rs.getString(2);
+                fila[2] = formatea.format(rs.getDouble(3));
+                fila[3] = formatea.format(rs.getDouble(4));
+                fila[4] = formatea.format(Double.parseDouble(rs.getNString(3)) - Double.parseDouble(rs.getNString(4)));
+                if ((!v.getConceros())) {
+//                    String numero=(String) fila[4];
+                    double vc = (Double.parseDouble(rs.getNString(3)) - Double.parseDouble(rs.getNString(4)));
+                    if (vc != 0.0) {
+                        modelo.addRow(fila);
+                    }
+                } else {
+                    modelo.addRow(fila);
+                }
+
+            }
+            jTable3.setModel(modelo);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Borrar_por_fecha.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    private void carga_cabezeras_tabla3() {
+        String[] colu = {"CODIGO", "DESCRIPCION", "CANTIDAD", "RECUENTO", "DIFERENCIA"};
+        DefaultTableModel modelo;
+        modelo = (DefaultTableModel) jTable3.getModel();
+        modelo.setColumnIdentifiers(colu);
+
+        v.borratabla(modelo);
+        DefaultTableCellRenderer tcr;
+        TableColumnModel columnModel = jTable3.getColumnModel();
+        columnModel.getColumn(0).setPreferredWidth(80);
+        columnModel.getColumn(1).setPreferredWidth(230);
+        columnModel.getColumn(2).setPreferredWidth(80);
+        columnModel.getColumn(3).setPreferredWidth(80);
+        columnModel.getColumn(4).setPreferredWidth(80);
+//        columnModel.getColumn(5).setPreferredWidth(90);
+//        columnModel.getColumn(6).setPreferredWidth(90);
+//        columnModel.getColumn(7).setPreferredWidth(60);
+//        columnModel.getColumn(8).setPreferredWidth(90);
+//        columnModel.getColumn(9).setPreferredWidth(90);
+//        columnModel.getColumn(10).setPreferredWidth(90);
+//        columnModel.getColumn(11).setPreferredWidth(90);
+//        columnModel.getColumn(12).setPreferredWidth(90);
+//        columnModel.getColumn(13).setPreferredWidth(90);
+
+        tcr = new DefaultTableCellRenderer();
+        tcr.setHorizontalAlignment(SwingConstants.RIGHT); //CENTER o LEFT
+        jTable3.getColumnModel().getColumn(2).setCellRenderer(tcr);
+        jTable3.getColumnModel().getColumn(3).setCellRenderer(tcr);
+        jTable3.getColumnModel().getColumn(4).setCellRenderer(tcr);
+//        jTable1.getColumnModel().getColumn(7).setCellRenderer(tcr);
+//        jTable1.getColumnModel().getColumn(8).setCellRenderer(tcr);
+        jTable3.setModel(modelo);
+    }
+
+    private void hacer_cargas() {
+        if (jComboBox7.getSelectedItem() == null) {
+            v.setLina_seleccionada("");
+        } else {
+            v.setLina_seleccionada(jComboBox7.getSelectedItem().toString());
+        }
+
+        if (jComboBox8.getSelectedItem() == null) {
+            v.setFecha_recuento_selecionada("");
+        } else {
+            v.setFecha_recuento_selecionada(jComboBox8.getSelectedItem().toString());
+        }
+//===================================================================================================================================
+        if (Vencidos.isSelected()) {
+            String sql = "SELECT CART_ID,NC_ALMA FROM SISTEMA_FECHA  where CPROV_NOM ='"
+                    + v.getLina_seleccionada() + "' and FECHA_RECUENTO ='" + v.getFecha_recuento_selecionada() + "'";
+//        String desc=jComboBox7.getSelectedItem().toString();
+            String TIPO_OP = "VENCIDOS";
+
+            try {
+                PreparedStatement ps = v.conectar().prepareStatement(sql);
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    String sql1 = "SELECT sum(TOTAL) suma "
+                            + "FROM VENCIDOS "
+                            + "where CPROV_NOM ='" + v.getLina_seleccionada() + "' "
+                            //                        + "and FECHA_RECUENTO ='" + v.getFecha_recuento_selecionada() + "' "
+                            + "and CART_ID ='" + rs.getNString("CART_ID") + "' "
+                            //                        + "and desc='"+desc+"' "
+                            + "and TIPO_OP ='" + TIPO_OP + "' ";
+
+                    String codigo = rs.getNString("CART_ID");
+                    Double Almacen = rs.getDouble("NC_ALMA");
+                    PreparedStatement ps1 = v.conectar().prepareStatement(sql1);
+                    ResultSet rs1 = ps1.executeQuery();
+                    rs1.next();
+                    Double suma;
+                    String sSQL = "UPDATE sistema_fecha SET "
+                            + "Nc_Alma1=?,Nc_Alma2=?,NC_ALMA16=?"
+                            + " WHERE Cart_Id=? and Fecha_recuento='" + v.getFecha_recuento_selecionada() + "'";
+                    PreparedStatement ps2 = v.conectar().prepareStatement(sSQL);
+                    Double saldo;
+                    if (rs1.wasNull()) {
+                        suma = 0.0;
+                    } else {
+                        suma = rs1.getDouble("suma");
+                    }
+                    saldo = Almacen - suma;
+                    ps2.setDouble(1, suma);
+                    ps2.setDouble(2, saldo);
+                    ps2.setDouble(3, suma);// agrega los vencidos en la columna NC_ALMA16
+                    ps2.setString(4, codigo);
+                    ps2.executeUpdate();
+
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(Ingreso_vencidos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            String sql1 = "update SISTEMA_FECHA SET Nc_Alma1=0 where NC_ALMA1 is null";
+            try {
+                PreparedStatement ps1 = v.conectar().prepareStatement(sql1);
+                ps1.executeUpdate();
+            } catch (SQLException ex) {
+                Logger.getLogger(Ingreso_vencidos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        if (Piso.isSelected()) {
+            String sql = "SELECT CART_ID,NC_ALMA FROM SISTEMA_FECHA  where CPROV_NOM ='"
+                    + v.getLina_seleccionada() + "' and FECHA_RECUENTO ='" + v.getFecha_recuento_selecionada() + "'";
+//        String desc=jComboBox7.getSelectedItem().toString();
+            String TIPO_OP = "PISO";
+
+            try {
+                PreparedStatement ps = v.conectar().prepareStatement(sql);
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    String sql1 = "SELECT sum(TOTAL) suma "
+                            + "FROM VENCIDOS "
+                            + "where CPROV_NOM ='" + v.getLina_seleccionada() + "' "
+                            //                        + "and FECHA_RECUENTO ='" + v.getFecha_recuento_selecionada() + "' "
+                            + "and CART_ID ='" + rs.getNString("CART_ID") + "' "
+                            //                        + "and desc='"+desc+"' "
+                            + "and TIPO_OP ='" + TIPO_OP + "' ";
+
+                    String codigo = rs.getNString("CART_ID");
+                    Double Almacen = rs.getDouble("NC_ALMA");
+                    PreparedStatement ps1 = v.conectar().prepareStatement(sql1);
+                    ResultSet rs1 = ps1.executeQuery();
+                    rs1.next();
+                    Double suma;
+                    String sSQL = "UPDATE sistema_fecha SET "
+                            + "Nc_Alma1=?,Nc_Alma2=?,NC_ALMA15=?"
+                            + " WHERE Cart_Id=? and Fecha_recuento='" + v.getFecha_recuento_selecionada() + "'";
+                    PreparedStatement ps2 = v.conectar().prepareStatement(sSQL);
+                    Double saldo;
+                    if (rs1.wasNull()) {
+                        suma = 0.0;
+                    } else {
+                        suma = rs1.getDouble("suma");
+                    }
+                    saldo = Almacen + suma;
+                    ps2.setDouble(1, suma);
+                    ps2.setDouble(2, saldo);
+                    ps2.setDouble(3, suma);// agrega los vencidos en la columna NC_ALMA16
+                    ps2.setString(4, codigo);
+                    ps2.executeUpdate();
+
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(Ingreso_vencidos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            String sql1 = "update SISTEMA_FECHA SET Nc_Alma1=0 where NC_ALMA1 is null";
+            try {
+                PreparedStatement ps1 = v.conectar().prepareStatement(sql1);
+                ps1.executeUpdate();
+            } catch (SQLException ex) {
+                Logger.getLogger(Ingreso_vencidos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         
+        if (Guias.isSelected()) {
+            String sql = "SELECT CART_ID,NC_ALMA,Nc_Alma1 FROM SISTEMA_FECHA  where CPROV_NOM ='"
+                    + v.getLina_seleccionada() + "' and FECHA_RECUENTO ='" + v.getFecha_recuento_selecionada() + "'";
+//        String desc=jComboBox7.getSelectedItem().toString();
+            String TIPO_OP = "DEVUELTO";
+
+            try {
+                PreparedStatement ps = v.conectar().prepareStatement(sql);
+                ResultSet rs = ps.executeQuery();
+
+                while (rs.next()) {
+                    String sql1 = "SELECT sum(TOTAL) suma "
+                            + "FROM VENCIDOS "
+                            + "where CPROV_NOM ='" + v.getLina_seleccionada() + "' "
+                            //                        + "and FECHA_RECUENTO ='" + v.getFecha_recuento_selecionada() + "' "
+                            + "and CART_ID ='" + rs.getNString("CART_ID") + "' "
+                            //                        + "and desc='"+desc+"' "
+                            + "and TIPO_OP ='" + TIPO_OP + "' ";
+
+                    String codigo = rs.getNString("CART_ID");
+                    Double Almacen = rs.getDouble("NC_ALMA");
+                    Double saldo_inicial=rs.getDouble("Nc_Alma1");
+                    PreparedStatement ps1 = v.conectar().prepareStatement(sql1);
+                    ResultSet rs1 = ps1.executeQuery();
+                    rs1.next();
+                    Double suma;
+                    String sSQL = "UPDATE sistema_fecha SET "
+                            + "Nc_Alma1=?,Nc_Alma2=?,NC_ALMA17=?"
+                            + " WHERE Cart_Id=? and Fecha_recuento='" + v.getFecha_recuento_selecionada() + "'";
+                    PreparedStatement ps2 = v.conectar().prepareStatement(sSQL);
+                    Double saldo;
+                    if (rs1.wasNull()) {
+                        suma = 0.0;
+                    } else {
+                        suma = rs1.getDouble("suma");
+                    }
+                    
+                    saldo = Almacen - suma-saldo_inicial;
+                    ps2.setDouble(1, suma+saldo_inicial);
+                    ps2.setDouble(2, saldo);
+                    ps2.setDouble(3, suma);// agrega los vencidos en la columna NC_ALMA16
+                    ps2.setString(4, codigo);
+                    ps2.executeUpdate();
+
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(Ingreso_vencidos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            String sql1 = "update SISTEMA_FECHA SET Nc_Alma1=0 where NC_ALMA1 is null";
+            try {
+                PreparedStatement ps1 = v.conectar().prepareStatement(sql1);
+                ps1.executeUpdate();
+            } catch (SQLException ex) {
+                Logger.getLogger(Ingreso_vencidos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
         
+
     }
 }

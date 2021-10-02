@@ -8,6 +8,7 @@ package Variables;
 import Clases.pordia;
 import Interfaces.CreditosXClientes;
 import Interfaces.StockALaFecha;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -107,6 +108,8 @@ public final class Var {
     private Double valor_igv;
     private Boolean Conceros;
     private String op_seleccionada;
+    private String sSistemaOperativo;
+//    private String currentDir;
 
     public Connection getCon() {
         return con;
@@ -126,12 +129,23 @@ public final class Var {
 
     public Connection conectar() {
         Connection coco = null;
+        this.sSistemaOperativo = System.getProperty("os.name");
+        System.out.println(sSistemaOperativo);
+
+        String sFichero = "recuento";
+        String sDirectorio = "src" + File.separator + "Data";
+
+        String sPath = getCurrentDir()+File.separator + sDirectorio + File.separator + sFichero;
+        System.out.println(sPath);
 
         try {
+
             Class.forName("org.h2.Driver");
-            coco = DriverManager.getConnection("jdbc:h2:file:C:\\Users"
-                    + "\\PORTATIL\\Documents\\NetBeansProjects\\Recuento"
-                    + "\\src\\Data\\recuento", "Miguel", "");
+//            coco = DriverManager.getConnection("jdbc:h2:file:C:\\Users"
+//                    + "\\PORTATIL\\Documents\\NetBeansProjects\\Recuento"
+//                    + "\\src\\Data\\recuento", "Miguel", "");
+            coco = DriverManager.getConnection("jdbc:h2:file:" + sPath, "Miguel", "");
+
 //            System.out.print();
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.print(ex);
@@ -142,7 +156,7 @@ public final class Var {
     }
 
     public Var() {
-        this.Conceros=true;
+        this.Conceros = true;
         this.Fecha_operacion = new java.util.Date();
         this.codediper = "";
         this.editando = false;
@@ -155,8 +169,10 @@ public final class Var {
         this.confecha = true;
 //        this.Hoy=new Date();
 //        fechaSQL = new java.sql.Date(fecha.getTime());
+        
         cal.setTime(fecha);
-        this.op_seleccionada="VENCIDOS";
+        
+        this.op_seleccionada = "VENCIDOS";
         this.CreaTablaSistema = "Create table sistema("
                 + "Cprov_Id nvarchar (8),"
                 + "Cprov_Nom nvarchar (50),"
@@ -1583,21 +1599,20 @@ public final class Var {
     }
 
     public String getSql_consulta_temporal(String prov,
-                                           String f_recuento,
-                                           String f_inicio,
-                                           String f_final) {
-        
-        String tem=this.sql_consulta_temporal+ "where CPROV_NOM ='"+prov+"' and "
-                + "FECHA_RECUENTO ='"+f_recuento+"'and "
-                + "FECHA_DE_VENCIMIENTO BETWEEN '"+f_inicio+"' and '"+f_final+"' ";
-        
+            String f_recuento,
+            String f_inicio,
+            String f_final) {
+
+        String tem = this.sql_consulta_temporal + "where CPROV_NOM ='" + prov + "' and "
+                + "FECHA_RECUENTO ='" + f_recuento + "'and "
+                + "FECHA_DE_VENCIMIENTO BETWEEN '" + f_inicio + "' and '" + f_final + "' ";
+
         return tem;
     }
 
 //    public void setSql_consulta_temporal(String sql_consulta_temporal) {
 //        this.sql_consulta_temporal = sql_consulta_temporal;
 //    }
-
     public Double getValor_igv() {
         return valor_igv;
     }
@@ -1620,6 +1635,23 @@ public final class Var {
 
     public void setOp_seleccionada(String op_seleccionada) {
         this.op_seleccionada = op_seleccionada;
+    }
+
+    public String getsSistemaOperativo() {
+        return sSistemaOperativo;
+    }
+
+    public void setsSistemaOperativo(String sSistemaOperativo) {
+        this.sSistemaOperativo = sSistemaOperativo;
+    }
+
+    public String getCurrentDir() {
+        File currentDirFile = new File(".");
+        String helper = currentDirFile.getAbsolutePath();
+        String dir ="";
+//        System.out.print(helper);
+        dir = helper.substring(0, helper.length() - 2); //this line may need a try-catch
+        return dir;
     }
 
 }
