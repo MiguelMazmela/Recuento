@@ -22,6 +22,7 @@ public class Carga_chess extends javax.swing.JInternalFrame {
     public Carga_chess(Var v) {
         initComponents();
         this.v = v;
+        
     }
 
     /**
@@ -40,9 +41,9 @@ public class Carga_chess extends javax.swing.JInternalFrame {
 
         jScrollPane1.setViewportView(jTextPane1);
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Limpiar");
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Cargar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -50,10 +51,10 @@ public class Carga_chess extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(433, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addContainerGap(427, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
