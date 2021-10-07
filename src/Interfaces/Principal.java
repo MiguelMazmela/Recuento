@@ -7,6 +7,11 @@ package Interfaces;
 
 import Variables.Var;
 import java.awt.Dimension;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,6 +29,8 @@ public class Principal extends javax.swing.JFrame {
     public Principal() {
         v.setSecuencia(0);
         initComponents();
+        inicia_variaves();
+        
 
     }
 
@@ -58,6 +65,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu13 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu11 = new javax.swing.JMenu();
+        jMenu40 = new javax.swing.JMenu();
         jMenu14 = new javax.swing.JMenu();
         jMenu36 = new javax.swing.JMenu();
         jMenuItem15 = new javax.swing.JMenuItem();
@@ -69,6 +77,9 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem39 = new javax.swing.JMenuItem();
         jMenuItem38 = new javax.swing.JMenuItem();
         jMenuItem40 = new javax.swing.JMenuItem();
+        jMenuItem47 = new javax.swing.JMenuItem();
+        jMenuItem48 = new javax.swing.JMenuItem();
+        jMenuItem45 = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
         jMenu26 = new javax.swing.JMenu();
@@ -116,6 +127,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu39 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem44 = new javax.swing.JMenuItem();
+        jMenuItem46 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenu20 = new javax.swing.JMenu();
         jMenu21 = new javax.swing.JMenu();
@@ -199,6 +211,7 @@ public class Principal extends javax.swing.JFrame {
         jMenu3.setText("Almacenes");
 
         jMenu4.setText("Recuentos");
+        jMenu4.setEnabled(false);
 
         jMenu12.setText("Cargas");
 
@@ -236,13 +249,17 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu11.setText("otros");
         jMenu11.setEnabled(false);
+
+        jMenu40.setText("jMenu40");
+        jMenu11.add(jMenu40);
+
         jMenu3.add(jMenu11);
 
         jMenu14.setText("Recuento por fecha");
 
         jMenu36.setText("Cargas");
 
-        jMenuItem15.setText("Sistema");
+        jMenuItem15.setText("Rex");
         jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem15ActionPerformed(evt);
@@ -250,10 +267,20 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu36.add(jMenuItem15);
 
-        jMenuItem35.setText("lo que suma a sistema");
+        jMenuItem35.setText("Chess");
+        jMenuItem35.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem35ActionPerformed(evt);
+            }
+        });
         jMenu36.add(jMenuItem35);
 
-        jMenuItem36.setText("lo que resta a sistema");
+        jMenuItem36.setText("Otrascargas");
+        jMenuItem36.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem36ActionPerformed(evt);
+            }
+        });
         jMenu36.add(jMenuItem36);
 
         jMenu14.add(jMenu36);
@@ -295,9 +322,34 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu37.add(jMenuItem40);
 
+        jMenuItem47.setText("Semaforo valorizado");
+        jMenuItem47.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem47ActionPerformed(evt);
+            }
+        });
+        jMenu37.add(jMenuItem47);
+
+        jMenuItem48.setText("Otro");
+        jMenuItem48.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem48ActionPerformed(evt);
+            }
+        });
+        jMenu37.add(jMenuItem48);
+
         jMenu14.add(jMenu37);
 
         jMenu3.add(jMenu14);
+
+        jMenuItem45.setText("Productos en piso");
+        jMenuItem45.setEnabled(false);
+        jMenuItem45.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem45ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem45);
 
         jMenuBar1.add(jMenu3);
 
@@ -550,6 +602,14 @@ public class Principal extends javax.swing.JFrame {
         jMenu39.add(jMenuItem44);
 
         jMenu5.add(jMenu39);
+
+        jMenuItem46.setText("Cofig Varios");
+        jMenuItem46.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem46ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem46);
         jMenu5.add(jSeparator1);
 
         jMenu20.setText("Borrar");
@@ -990,6 +1050,60 @@ public class Principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
+    private void jMenuItem45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem45ActionPerformed
+        // TODO add your handling code here:
+        Producto_en_piso pep;
+        pep=new Producto_en_piso(v);
+        this.Principal.add(pep);
+        pep.setVisible(true);
+    }//GEN-LAST:event_jMenuItem45ActionPerformed
+
+    private void jMenuItem46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem46ActionPerformed
+        // TODO add your handling code here:
+        Configuraciones cnf;
+        cnf=new Configuraciones(v);
+        this.Principal.add(cnf);
+        cnf.setEnabled(true);
+        cnf.setVisible(true);
+    }//GEN-LAST:event_jMenuItem46ActionPerformed
+
+    private void jMenuItem47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem47ActionPerformed
+        // TODO add your handling code here:
+        
+        Reporte_Nestle rn;
+        rn=new Reporte_Nestle(v);
+        this.Principal.add(rn);
+        rn.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem47ActionPerformed
+
+    private void jMenuItem48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem48ActionPerformed
+        // TODO add your handling code here:
+        
+        Por_fecha_valorizado pfv;
+        pfv=new Por_fecha_valorizado(v);
+        this.Principal.add(pfv);
+        pfv.setEnabled(true);
+        pfv.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem48ActionPerformed
+
+    private void jMenuItem36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem36ActionPerformed
+        // TODO add your handling code here:
+        Ingreso_vencidos iv=new Ingreso_vencidos(v);
+        this.Principal.add(iv);
+        iv.setVisible(true);
+    }//GEN-LAST:event_jMenuItem36ActionPerformed
+
+    private void jMenuItem35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem35ActionPerformed
+        // TODO add your handling code here:
+        
+        Carga_chess pp=new Carga_chess(v);
+        this.Principal.add(pp);
+        pp.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem35ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Analisis_Cred_resumen_general;
@@ -1032,6 +1146,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu38;
     private javax.swing.JMenu jMenu39;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu40;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
@@ -1077,6 +1192,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem42;
     private javax.swing.JMenuItem jMenuItem43;
     private javax.swing.JMenuItem jMenuItem44;
+    private javax.swing.JMenuItem jMenuItem45;
+    private javax.swing.JMenuItem jMenuItem46;
+    private javax.swing.JMenuItem jMenuItem47;
+    private javax.swing.JMenuItem jMenuItem48;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
@@ -1090,4 +1209,34 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JPopupMenu.Separator jSeparator6;
     // End of variables declaration//GEN-END:variables
+
+    private void inicia_variaves() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        carga_igv();
+        v.setEditando(false);
+        
+        
+    }
+
+    private void carga_igv() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        v.setValor_igv(0.0);
+        
+        String sql="select valor from config where clave='IGV'";
+        
+        try {
+            PreparedStatement ps = v.getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                Double vigv=Double.valueOf(rs.getString("valor"));
+                v.setValor_igv(vigv);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
 }

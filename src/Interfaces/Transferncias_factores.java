@@ -149,33 +149,22 @@ public class Transferncias_factores extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-//         DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
-//        int filas = model.getRowCount();
-        String ssq="";
-        String sql="";
-        ssq = "SELECT CPROV_NOM,Cart_Id,Nfactor_De_Venta,Nfactor_De_Consumo,Nfactor_A_Reporte FROM FACTORES";
-        
+        String ssq = "SELECT CPROV_ID,CPROV_NOM,Cart_Id,Nfactor_De_Venta,Nfactor_De_Consumo,Nfactor_A_Reporte FROM FACTORES";
+        String sql;
         try {
             PreparedStatement psc = v.conectar().prepareStatement(ssq);
             ResultSet rsc = psc.executeQuery();
             while (rsc.next()) {
-                String dato1 = rsc.getNString("Nfactor_De_Venta");
-                String codigo = rsc.getNString("Cart_Id");
-                String dato2 = rsc.getNString("Nfactor_De_Consumo");
-                String dato3 = rsc.getNString("Nfactor_A_Reporte");
-                String dato4=rsc.getNString("CPROV_NOM");
-                if(ConFechas.isSelected()){
-                sql = "UPDATE sistema_fecha "
-                        + "SET Nfactor_De_Venta = '" + dato1 + "', Nfactor_De_Consumo = '" + dato2 + "', Nfactor_A_Reporte = '" + dato3 + "'"
-                        + "WHERE CPROV_NOM='"+dato4.trim()+"' and Cart_Id = '" + codigo + "' and Fecha_recuento='"+jComboBox1.getSelectedItem().toString()+"'";
-                }
-                if(SinFecha.isSelected()){
-                sql = "UPDATE sistema "
-                        + "SET Nfactor_De_Venta = '" + dato1 + "', Nfactor_De_Consumo = '" + dato2 + "', Nfactor_A_Reporte = '" + dato3 + "'"
-                        + "WHERE CPROV_NOM='"+dato4.trim()+"' and Cart_Id = '" + codigo + "' and Fecha_recuento='"+jComboBox1.getSelectedItem().toString()+"'";
-                }
-                
+                 sql="UPDATE sistema_fecha SET CPROV_ID=?,CPROV_NOM=?,Nfactor_De_Venta = ?,Nfactor_De_Consumo=?,Nfactor_A_Reporte=? "
+                        + "WHERE  Cart_Id =? and Fecha_recuento=?";
                 PreparedStatement ps = v.conectar().prepareStatement(sql);
+                ps.setString(1, rsc.getNString("CPROV_ID"));
+                ps.setString(2, rsc.getNString("CPROV_NOM"));
+                ps.setString(3, rsc.getNString("Nfactor_De_Venta"));
+                ps.setString(4, rsc.getNString("Nfactor_De_Consumo"));
+                ps.setString(5, rsc.getNString("Nfactor_A_Reporte"));
+                ps.setString(6, rsc.getNString("Cart_Id"));
+                ps.setString(7, jComboBox1.getSelectedItem().toString());
                 ps.executeUpdate();
             }
         } catch (SQLException ex) {

@@ -254,7 +254,7 @@ public class cemaforo extends javax.swing.JInternalFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
-          if (jComboBox1.getSelectedItem() == null) {
+        if (jComboBox1.getSelectedItem() == null) {
 
         } else {
             Carga_lineas();
@@ -395,53 +395,57 @@ public class cemaforo extends javax.swing.JInternalFrame {
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         v.borratabla(modelo);
         String fecha_recuento = jComboBox1.getSelectedItem().toString();
-        String proveedor=jComboBox2.getSelectedItem().toString();
+        String proveedor = jComboBox2.getSelectedItem().toString();
         Object[] fila = new Object[10]; // Hay tres columnas en la tabla6
         DecimalFormat formatea = v.MyFormatter();
         SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat formatodeltexto = new SimpleDateFormat("yyyy-MM-dd");
         java.util.Date date = null;
-        String fecha_de_vencimiento_desde=formatodeltexto.format(JDVencimiento_desde.getDate());
-        String fecha_de_vencimiento_hasta=formatodeltexto.format(JDVencimiento_hasta.getDate());
+        String fecha_de_vencimiento_desde = formatodeltexto.format(JDVencimiento_desde.getDate());
+        String fecha_de_vencimiento_hasta = formatodeltexto.format(JDVencimiento_hasta.getDate());
 //        String fecha_de_venta_desde=formatodeltexto.format(JDVenta_desde.getDate());
 //        String fecha_de_venta_hasta=formatodeltexto.format(JDVenta_hasta.getDate());
-        
-       
+
         try {
             // TODO add your handling code here:
             String sql = "SELECT DISTINCT CART_ID,CART_NOM,sum(TOTAL),Nfactor_De_Consumo,Nfactor_De_Venta, min(Fecha_de_vencimiento),sum(saldo) "
                     + "FROM RECUENTO_FECHAS  "
-                    + "where FECHA_RECUENTO ='"+fecha_recuento+"' "
-                    + "and Cprov_Nom='"+proveedor+"' "
-                    + "and fECHA_DE_VENCIMIENTO BETWEEN '"+fecha_de_vencimiento_desde+"' AND '"+fecha_de_vencimiento_hasta+"' "
+                    + "where FECHA_RECUENTO ='" + fecha_recuento + "' "
+                    + "and Cprov_Nom='" + proveedor + "' "
+                    + "and fECHA_DE_VENCIMIENTO BETWEEN '" + fecha_de_vencimiento_desde + "' AND '" + fecha_de_vencimiento_hasta + "' "
                     + "group by CART_ID";
             System.out.println(sql);
             PreparedStatement ps = v.conectar().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            Double tvencido,tventa,f_consumo,f_venta = 0.0;
+            Double tvencido, tventa, f_consumo, f_venta = 0.0;
             while (rs.next()) {
-                fila[0]=rs.getNString("CART_ID");
-                fila[1]=rs.getNString("CART_NOM");
-                fila[2]=formatea.format(rs.getDouble(7));
-                tvencido=Double.parseDouble(rs.getNString(7));
-                f_consumo=Double.parseDouble(rs.getNString("Nfactor_De_Consumo"));
-                f_venta=Double.parseDouble(rs.getNString("Nfactor_De_Venta"));
-                int cajas=(int)(tvencido/f_consumo);
-                fila[3]=cajas;
-                tventa=((tvencido/f_consumo)-cajas);
-                int display=(int)(tventa*f_venta);
-                fila[4]=display;
+                fila[0] = rs.getNString("CART_ID");
+                fila[1] = rs.getNString("CART_NOM");
+//                fila[2] = formatea.format(rs.getDouble(7));
+
+                if (rs.getNString(7) == null) {
+                    fila[2] = formatea.format(0.0);
+                    tvencido = 0.0;
+                } else {
+                    fila[2] = formatea.format(rs.getDouble(7));
+                    tvencido = Double.parseDouble(rs.getNString(7));
+                }
+                f_consumo = Double.parseDouble(rs.getNString("Nfactor_De_Consumo"));
+                f_venta = Double.parseDouble(rs.getNString("Nfactor_De_Venta"));
+                int cajas = (int) (tvencido / f_consumo);
+                fila[3] = cajas;
+                tventa = ((tvencido / f_consumo) - cajas);
+                int display = (int) (tventa * f_venta);
+                fila[4] = display;
 //                 fila[3]=formatea.format(tventa);
 //                fila[4]=formatea.format(tvencido-tventa);
-                fila[6]=rs.getString(6);
+                fila[6] = rs.getString(6);
 //                fila[9]=formatea.format(rs.getDouble(7));
-                
-                
+
                 modelo.addRow(fila);
-                
+
             }
             jTable1.setModel(modelo);
-            
 
         } catch (SQLException ex) {
             Logger.getLogger(cemaforo.class.getName()).log(Level.SEVERE, null, ex);

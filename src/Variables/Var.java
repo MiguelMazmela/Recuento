@@ -6,14 +6,17 @@
 package Variables;
 
 import Clases.pordia;
+import Interfaces.Configuracion_factores;
 import Interfaces.CreditosXClientes;
 import Interfaces.StockALaFecha;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
@@ -35,6 +38,7 @@ public final class Var {
     private String CreaTablaSistema;
     private String CreaTablaCreditos;
     private String CreaRecuento;
+    private String Crea_tabla_comprobantes;
     private String C_Cart_Id;
     private String C_Cart_Nom;
     private Double c_Nfactor_De_Venta;
@@ -101,7 +105,13 @@ public final class Var {
     private java.util.Date Fecha_operacion;
     private final String creaTablaComplemento;
     private Date Hoy;
+    private Boolean confecha;
+    private final String sql_consulta_temporal;
+    private Double valor_igv;
     private Boolean Conceros;
+    private String op_seleccionada;
+    private String sSistemaOperativo;
+//    private String currentDir;
 
     public Connection getCon() {
         return con;
@@ -121,12 +131,23 @@ public final class Var {
 
     public Connection conectar() {
         Connection coco = null;
+        this.sSistemaOperativo = System.getProperty("os.name");
+        System.out.println(sSistemaOperativo);
+
+        String sFichero = "recuento";
+        String sDirectorio = "src" + File.separator + "Data";
+
+        String sPath = getCurrentDir()+File.separator + sDirectorio + File.separator + sFichero;
+        System.out.println(sPath);
 
         try {
+
             Class.forName("org.h2.Driver");
-            coco = DriverManager.getConnection("jdbc:h2:file:C:\\Users"
-                    + "\\PORTATIL\\Documents\\NetBeansProjects\\Recuento"
-                    + "\\src\\Data\\recuento", "Miguel", "");
+//            coco = DriverManager.getConnection("jdbc:h2:file:C:\\Users"
+//                    + "\\PORTATIL\\Documents\\NetBeansProjects\\Recuento"
+//                    + "\\src\\Data\\recuento", "Miguel", "");
+            coco = DriverManager.getConnection("jdbc:h2:file:" + sPath, "Miguel", "");
+
 //            System.out.print();
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.print(ex);
@@ -137,7 +158,7 @@ public final class Var {
     }
 
     public Var() {
-        this.Conceros=true;
+        this.Conceros = true;
         this.Fecha_operacion = new java.util.Date();
         this.codediper = "";
         this.editando = false;
@@ -147,9 +168,13 @@ public final class Var {
         this.total_contado = 0.0;
         this.totalXlinea = 0.0;
         this.con = conectar();
+        this.confecha = true;
 //        this.Hoy=new Date();
 //        fechaSQL = new java.sql.Date(fecha.getTime());
+        
         cal.setTime(fecha);
+        
+        this.op_seleccionada = "VENCIDOS";
         this.CreaTablaSistema = "Create table sistema("
                 + "Cprov_Id nvarchar (8),"
                 + "Cprov_Nom nvarchar (50),"
@@ -282,8 +307,8 @@ public final class Var {
                 + "nimporte_neto decimal (14,4),"//29
                 + "nmonto decimal (14,4),"//30
                 + "dia_de_operacion date )";//31
-        
-        this.creaTablaComplemento="CREATE TABLE IF NOT EXISTS extencion("
+
+        this.creaTablaComplemento = "CREATE TABLE IF NOT EXISTS extencion("
                 + "cnumero nvarchar (20),"
                 + "Responsable nvarchar(200),"
                 + "fecha_pago Date,"
@@ -615,6 +640,10 @@ public final class Var {
         CENTRO_DE_COSTO = "CREATE TABLE IF NOT EXISTS CENTRO_DE_COSTO("
                 + "COD char(11),"
                 + "NOMBRE char(20))";
+        this.Crea_tabla_comprobantes = "CREATE TABLE IF NOT EXISTS comprobantes ("
+                + "Nombre TEXT NOT NULL UNIQUE, "
+                + "Descripcion TEXT, "
+                + "PRIMARY KEY(Nombre))";
 
         this.CreaTablaFactores = "Create table IF NOT EXISTS factores("
                 + "Cprov_Id nvarchar (8),"
@@ -624,6 +653,41 @@ public final class Var {
                 + "Nfactor_De_Venta numeric(18,4),"
                 + "Nfactor_De_Consumo numeric(18,4),"
                 + "Nfactor_A_Reporte numeric(18,4))";
+
+        this.sql_consulta_temporal = "insert into temporal "
+                + "(CPROV_ID ,CPROV_NOM ,"
+                + "CART_ID ,"
+                + "CART_NOM ,"
+                + "NFACTOR_DE_VENTA ,"
+                + "NFACTOR_DE_CONSUMO ,"
+                + "NFACTOR_A_REPORTE ,"
+                + "NULTIMO_SOLES ,"
+                + "NPREC_CONSUMO ,"
+                + "CAJAS ,"
+                + "DISPLAYS ,"
+                + "UNIDADES ,"
+                + "TOTAL ,"
+                + "FECHA_DE_VENCIMIENTO ,"
+                + "FECHA_RECUENTO ,"
+                + "LOTE ) SELECT "
+                + "CPROV_ID, "
+                + "CPROV_NOM,"
+                + "CART_ID ,"
+                + "CART_NOM ,"
+                + "NFACTOR_DE_VENTA ,"
+                + "NFACTOR_DE_CONSUMO ,"
+                + "NFACTOR_A_REPORTE ,"
+                + "NULTIMO_SOLES ,"
+                + "NPREC_CONSUMO ,"
+                + "CAJAS ,"
+                + "DISPLAYS ,"
+                + "UNIDADES ,"
+                + "TOTAL ,"
+                + "FECHA_DE_VENCIMIENTO ,"
+                + "FECHA_RECUENTO ,"
+                + "LOTE   "
+                + "FROM RECUENTO_FECHAS ";
+//                + "where CPROV_NOM ='NESTLE PERU S.A.' and FECHA_RECUENTO ='2021-09-09'";
 
     }
 
@@ -1246,52 +1310,51 @@ public final class Var {
         return df;
 
     }
-    
-    public String GetFechaVentasActual(){
-        String fec="SELECT max(DFECHA_DOC) FROM HISTORIA";  // BUSCA LA FECHA MAS ACUAL
+
+    public String GetFechaVentasActual() {
+        String fec = "SELECT max(DFECHA_DOC) FROM HISTORIA";  // BUSCA LA FECHA MAS ACUAL
         try {
-            PreparedStatement ps=this.conectar().prepareStatement(fec);
-            ResultSet rs=ps.executeQuery();
+            PreparedStatement ps = this.conectar().prepareStatement(fec);
+            ResultSet rs = ps.executeQuery();
             rs.next();
-            fec=rs.getNString(1);
+            fec = rs.getNString(1);
         } catch (SQLException ex) {
             Logger.getLogger(StockALaFecha.class.getName()).log(Level.SEVERE, null, ex);
-            
+
         }
         return fec;
     }
-    
-    public void pon_cajas_y_displays(){
-        String sql="SELECT CART_ID  ,NC_ALMA6 ,NFACTOR_DE_CONSUMO,NFACTOR_DE_VENTA "
+
+    public void pon_cajas_y_displays() {
+        String sql = "SELECT CART_ID  ,NC_ALMA6 ,NFACTOR_DE_CONSUMO,NFACTOR_DE_VENTA "
                 + "FROM SISTEMA_FECHA "
                 + "where FECHA_RECUENTO ='" + this.getFecha_recuento_selecionada() + "' "
                 + "and CPROV_NOM ='" + this.getLina_seleccionada().trim() + "'";
         try {
             PreparedStatement ps = this.conectar().prepareStatement(sql);
-            ResultSet rs=ps.executeQuery();
-            while(rs.next()){
-            String sSQL = "UPDATE sistema_fecha SET "
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                String sSQL = "UPDATE sistema_fecha SET "
                         + "Nc_Alma10=?,Nc_Alma11=?,Nc_Alma12=?"
-                        + " WHERE Cart_Id=? and Fecha_recuento='" + this.getFecha_recuento_selecionada() + "'";   
-            
-            PreparedStatement ps2=this.conectar().prepareStatement(sSQL);
-            int fc=rs.getInt(3);
-            String codigo=rs.getNString(1);
-            int almacen=rs.getInt(2);
+                        + " WHERE Cart_Id=? and Fecha_recuento='" + this.getFecha_recuento_selecionada() + "'";
+
+                PreparedStatement ps2 = this.conectar().prepareStatement(sSQL);
+                int fc = rs.getInt(3);
+                String codigo = rs.getNString(1);
+                int almacen = rs.getInt(2);
 //            int display=almacen%fc;
-            int cajas=almacen/fc;
-            Double almacend=rs.getDouble(2);
-            double cal1=(almacend/fc)-cajas;
-            int display=(int) (cal1*rs.getInt(4));
-            
-            
-            ps2.setInt(1, cajas);
+                int cajas = almacen / fc;
+                Double almacend = rs.getDouble(2);
+                double cal1 = (almacend / fc) - cajas;
+                int display = (int) (cal1 * rs.getInt(4));
+
+                ps2.setInt(1, cajas);
                 ps2.setInt(2, display);
                 ps2.setInt(3, 0);
                 ps2.setString(4, codigo);
                 ps2.executeUpdate();
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(StockALaFecha.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1521,12 +1584,141 @@ public final class Var {
         this.Hoy = Hoy;
     }
 
+    public String getCrea_tabla_comprobantes() {
+        return Crea_tabla_comprobantes;
+    }
+
+    public void setCrea_tabla_comprobantes(String Crea_tabla_comprobantes) {
+        this.Crea_tabla_comprobantes = Crea_tabla_comprobantes;
+    }
+
+    public Boolean getConfecha() {
+        return confecha;
+    }
+
+    public void setConfecha(Boolean confecha) {
+        this.confecha = confecha;
+    }
+
+    public String getSql_consulta_temporal(String prov,
+            String f_recuento,
+            String f_inicio,
+            String f_final) {
+
+        String tem = this.sql_consulta_temporal + "where CPROV_NOM ='" + prov + "' and "
+                + "FECHA_RECUENTO ='" + f_recuento + "'and "
+                + "FECHA_DE_VENCIMIENTO BETWEEN '" + f_inicio + "' and '" + f_final + "' ";
+
+        return tem;
+    }
+
+//    public void setSql_consulta_temporal(String sql_consulta_temporal) {
+//        this.sql_consulta_temporal = sql_consulta_temporal;
+//    }
+    public Double getValor_igv() {
+        return valor_igv;
+    }
+
+    public void setValor_igv(Double valor_igv) {
+        this.valor_igv = valor_igv;
+    }
+
     public Boolean getConceros() {
         return Conceros;
     }
 
     public void setConceros(Boolean Conceros) {
         this.Conceros = Conceros;
+    }
+
+    public String getOp_seleccionada() {
+        return op_seleccionada;
+    }
+
+    public void setOp_seleccionada(String op_seleccionada) {
+        this.op_seleccionada = op_seleccionada;
+    }
+
+    public String getsSistemaOperativo() {
+        return sSistemaOperativo;
+    }
+
+    public void setsSistemaOperativo(String sSistemaOperativo) {
+        this.sSistemaOperativo = sSistemaOperativo;
+    }
+
+    public String getCurrentDir() {
+        File currentDirFile = new File(".");
+        String helper = currentDirFile.getAbsolutePath();
+        String dir ="";
+//        System.out.print(helper);
+        dir = helper.substring(0, helper.length() - 2); //this line may need a try-catch
+        return dir;
+    }
+    
+    public String txtSqlFecha(java.util.Date fecha){
+        String txt;
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		        
+		txt = dateFormat.format(fecha);
+        
+        
+        return txt;
+    }
+    
+    public int tranfiere_factores(String txt_fecha_sql){
+        int error=0;
+    String ssq = "SELECT CPROV_ID,CPROV_NOM,Cart_Id,Nfactor_De_Venta,Nfactor_De_Consumo,Nfactor_A_Reporte FROM FACTORES";
+        String sql;
+        try {
+            PreparedStatement psc = this.conectar().prepareStatement(ssq);
+            ResultSet rsc = psc.executeQuery();
+            while (rsc.next()) {
+                 sql="UPDATE sistema_fecha SET CPROV_ID=?,CPROV_NOM=?,Nfactor_De_Venta = ?,Nfactor_De_Consumo=?,Nfactor_A_Reporte=? "
+                        + "WHERE  Cart_Id =? and Fecha_recuento=?";
+                PreparedStatement ps = this.conectar().prepareStatement(sql);
+                ps.setString(1, rsc.getNString("CPROV_ID"));
+                ps.setString(2, rsc.getNString("CPROV_NOM"));
+                ps.setString(3, rsc.getNString("Nfactor_De_Venta"));
+                ps.setString(4, rsc.getNString("Nfactor_De_Consumo"));
+                ps.setString(5, rsc.getNString("Nfactor_A_Reporte"));
+                ps.setString(6, rsc.getNString("Cart_Id"));
+                ps.setString(7, txt_fecha_sql);
+                ps.executeUpdate();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Configuracion_factores.class.getName()).log(Level.SEVERE, null, ex);
+            error=1;
+        }    
+        
+     return error;   
+    }
+    
+    public void carga_totales_chess(String txt_fecha_sql){
+        String ssq = "select Cart_Id,Nfactor_De_Venta,CDESCRIPCION_CAT_4,CDESCRIPCION_CAT_5  FROM sistema_fecha and Fecha_recuento=?";
+        String sql;
+        try {
+            PreparedStatement ps = this.conectar().prepareStatement(ssq);
+            ps.setString(1, txt_fecha_sql);
+            ResultSet rsc = ps.executeQuery();
+            while (rsc.next()) {
+                 sql="UPDATE sistema_fecha SET NC_ALMA =?"
+                        + "WHERE  Cart_Id =? and Fecha_recuento=?";
+                PreparedStatement ps1  = this.conectar().prepareStatement(sql);
+                ps1.setDouble(1, (rsc.getDouble("CDESCRIPCION_CAT_4")*rsc.getDouble("Nfactor_De_Venta"))+rsc.getDouble("CDESCRIPCION_CAT_5"));
+                ps1.setString(2, rsc.getString("Cart_Id"));
+                ps1.setString(3, txt_fecha_sql);
+                
+                ps1.executeUpdate();
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Var.class.getName()).log(Level.SEVERE, null, ex);
+        }
+   
+        
+        
     }
 
 }
