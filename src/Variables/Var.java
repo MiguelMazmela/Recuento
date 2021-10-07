@@ -1688,12 +1688,37 @@ public final class Var {
             }
         } catch (SQLException ex) {
             Logger.getLogger(Configuracion_factores.class.getName()).log(Level.SEVERE, null, ex);
+            error=1;
         }    
         
-        
-        
-        
      return error;   
+    }
+    
+    public void carga_totales_chess(String txt_fecha_sql){
+        String ssq = "select Cart_Id,Nfactor_De_Venta,CDESCRIPCION_CAT_4,CDESCRIPCION_CAT_5  FROM sistema_fecha and Fecha_recuento=?";
+        String sql;
+        try {
+            PreparedStatement ps = this.conectar().prepareStatement(ssq);
+            ps.setString(1, txt_fecha_sql);
+            ResultSet rsc = ps.executeQuery();
+            while (rsc.next()) {
+                 sql="UPDATE sistema_fecha SET NC_ALMA =?"
+                        + "WHERE  Cart_Id =? and Fecha_recuento=?";
+                PreparedStatement ps1  = this.conectar().prepareStatement(sql);
+                ps1.setDouble(1, (rsc.getDouble("CDESCRIPCION_CAT_4")*rsc.getDouble("Nfactor_De_Venta"))+rsc.getDouble("CDESCRIPCION_CAT_5"));
+                ps1.setString(2, rsc.getString("Cart_Id"));
+                ps1.setString(3, txt_fecha_sql);
+                
+                ps1.executeUpdate();
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Var.class.getName()).log(Level.SEVERE, null, ex);
+        }
+   
+        
+        
     }
 
 }

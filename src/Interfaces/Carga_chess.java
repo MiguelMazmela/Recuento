@@ -149,6 +149,7 @@ public class Carga_chess extends javax.swing.JInternalFrame {
             JOptionPane loadingService = new JOptionPane("Connecting to service. Please wait.");
             loadingService.setVisible(true);
             v.tranfiere_factores(v.txtSqlFecha(fechaSQL));
+            v.carga_totales_chess(v.txtSqlFecha(fechaSQL));
             
             jTextPane1.setText("Proceso concluido......");
             loadingService.setVisible(false);
