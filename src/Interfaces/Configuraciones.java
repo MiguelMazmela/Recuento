@@ -44,7 +44,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         vencidos();
         comprobantes();
         cargas();
-
+        proveedores();
     }
 
     /**
@@ -131,6 +131,19 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         jButton11 = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
+        jPanel14 = new javax.swing.JPanel();
+        jPanel15 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jPanel16 = new javax.swing.JPanel();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
 
         jCheckBox1.setText("jCheckBox1");
 
@@ -315,7 +328,6 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("|Seleccione|"));
 
         buttonGroup1.add(con_fechas);
-        con_fechas.setSelected(true);
         con_fechas.setText("Con Fechas");
 
         buttonGroup1.add(sin_fechas);
@@ -430,12 +442,12 @@ public class Configuraciones extends javax.swing.JInternalFrame {
             }
         ));
         jTable2.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jTable2AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jTable2.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -789,6 +801,144 @@ public class Configuraciones extends javax.swing.JInternalFrame {
 
         jTabbedPane1.addTab("Cargas", jPanel11);
 
+        jPanel15.setBackground(new java.awt.Color(0, 204, 51));
+        jPanel15.setBorder(javax.swing.BorderFactory.createTitledBorder("||"));
+
+        jLabel17.setText("codigo :");
+
+        jLabel18.setText("Descripcion");
+
+        jTextField7.setText("jTextField7");
+
+        jTextField8.setText("jTextField8");
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField8)
+                    .addGroup(jPanel15Layout.createSequentialGroup()
+                        .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel18)
+                            .addGroup(jPanel15Layout.createSequentialGroup()
+                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel15Layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
+                .addComponent(jLabel18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+
+        jPanel16.setBackground(new java.awt.Color(0, 255, 255));
+        jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder("||"));
+
+        jButton12.setText("jButton12");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+
+        jButton13.setText("jButton13");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+
+        jButton14.setText("jButton14");
+
+        jButton15.setText("jButton15");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel16Layout.createSequentialGroup()
+                        .addComponent(jButton12)
+                        .addGap(52, 52, 52)
+                        .addComponent(jButton13))
+                    .addComponent(jButton15))
+                .addGap(49, 49, 49)
+                .addComponent(jButton14)
+                .addContainerGap())
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel16Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton12)
+                    .addComponent(jButton13)
+                    .addComponent(jButton14))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(jButton15))
+        );
+
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTable5FocusGained(evt);
+            }
+        });
+        jScrollPane6.setViewportView(jTable5);
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 301, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addComponent(jPanel15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Proveedores", jPanel14);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -814,6 +964,74 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+        carga_tabla3();
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+        hacer_cargas();
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jComboBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox8ActionPerformed
+        // TODO add your handling code here:
+        //        carga_tabla3();
+
+    }//GEN-LAST:event_jComboBox8ActionPerformed
+
+    private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox7ActionPerformed
+        // TODO add your handling code here:
+
+        carga_combo8();
+    }//GEN-LAST:event_jComboBox7ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+
+        graba_vencidos();
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jTable2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable2KeyReleased
+        // TODO add your handling code here:
+        carga_tabla4();
+    }//GEN-LAST:event_jTable2KeyReleased
+
+    private void jTable2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable2KeyPressed
+        // TODO add your handling code here:
+        carga_tabla4();
+    }//GEN-LAST:event_jTable2KeyPressed
+
+    private void jTable2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable2KeyTyped
+        // TODO add your handling code here:
+        carga_tabla4();
+    }//GEN-LAST:event_jTable2KeyTyped
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        // TODO add your handling code here:
+        carga_tabla4();
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void jTable2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTable2FocusGained
+        // TODO add your handling code here:
+
+        carga_tabla4();
+    }//GEN-LAST:event_jTable2FocusGained
+
+    private void jTable2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTable2AncestorAdded
+        // TODO add your handling code here:
+        carga_tabla4();
+    }//GEN-LAST:event_jTable2AncestorAdded
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        cambia();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
         if (jComboBox1.getSelectedItem() == null) {
@@ -823,15 +1041,12 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        cambia();
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void guarda_impuestosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guarda_impuestosActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
 
-    }//GEN-LAST:event_guarda_impuestosActionPerformed
+        guarda_comprobante();
+
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         String sql = "insert into config values('IGV','18')";
@@ -847,81 +1062,32 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         jTextField1.setText("18.00");
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void guarda_impuestosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guarda_impuestosActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_guarda_impuestosActionPerformed
 
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
+        jButton13.setEnabled(true);
+        jTextField7.setEnabled(true);
+        jTextField8.setEnabled(true);
+    }//GEN-LAST:event_jButton12ActionPerformed
 
-        graba_vencidos();
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
+        guarda_proveedores();
+    }//GEN-LAST:event_jButton13ActionPerformed
 
-        guarda_comprobante();
-
-
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jTable2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTable2AncestorAdded
+    private void jTable5FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTable5FocusGained
         // TODO add your handling code here:
-        carga_tabla4();
+        jButton14.setEnabled(true);
+        jButton15.setEnabled(true);
+    }//GEN-LAST:event_jTable5FocusGained
 
-    }//GEN-LAST:event_jTable2AncestorAdded
-
-    private void jTable2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTable2FocusGained
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         // TODO add your handling code here:
-
-        carga_tabla4();
-    }//GEN-LAST:event_jTable2FocusGained
-
-    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-        // TODO add your handling code here:
-        carga_tabla4();
-
-    }//GEN-LAST:event_jTable2MouseClicked
-
-    private void jTable2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable2KeyPressed
-        // TODO add your handling code here:
-        carga_tabla4();
-    }//GEN-LAST:event_jTable2KeyPressed
-
-    private void jTable2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable2KeyTyped
-        // TODO add your handling code here:
-        carga_tabla4();
-
-    }//GEN-LAST:event_jTable2KeyTyped
-
-    private void jTable2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable2KeyReleased
-        // TODO add your handling code here:
-        carga_tabla4();
-    }//GEN-LAST:event_jTable2KeyReleased
-
-    private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox7ActionPerformed
-        // TODO add your handling code here:
-
-        carga_combo8();
-    }//GEN-LAST:event_jComboBox7ActionPerformed
-
-    private void jComboBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox8ActionPerformed
-        // TODO add your handling code here:
-//        carga_tabla3();
-
-
-    }//GEN-LAST:event_jComboBox8ActionPerformed
-
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-        carga_tabla3();
-    }//GEN-LAST:event_jButton11ActionPerformed
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
-        hacer_cargas();
-    }//GEN-LAST:event_jButton10ActionPerformed
+        borra_tabla5();
+    }//GEN-LAST:event_jButton15ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -934,6 +1100,10 @@ public class Configuraciones extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -962,6 +1132,8 @@ public class Configuraciones extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -975,6 +1147,9 @@ public class Configuraciones extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -988,17 +1163,21 @@ public class Configuraciones extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTable5;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
     private javax.swing.JRadioButton sin_fechas;
     // End of variables declaration//GEN-END:variables
 
@@ -1010,7 +1189,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
 
     private void cambia_proveedor() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        String sql = "";
+        String sql = "select DISTINCT Fecha_recuento from sistema_fecha";
         jComboBox1.removeAllItems();
 
         try {
@@ -1794,5 +1973,161 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         }
         
 
+    }
+
+    private void proveedores() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        jTextField7.setText("");
+        jTextField8.setText("");
+        jButton12.setText("NUEVO");
+        jTextField7.setEnabled(false);
+        jTextField8.setEnabled(false);
+        jButton13.setText("GUARDAR");
+        jButton13.setEnabled(false);
+        jButton14.setEnabled(false);
+        jButton15.setEnabled(false);
+        jButton14.setText("EDIT");
+        jButton15.setText("BORRAR");
+      carga_tabla5();
+        
+        
+        
+    }
+    private void carga_cabezeras_tabla5() {
+        String[] colu = {"CODIGO", "DESCRIPCION"};
+        DefaultTableModel modelo;
+        modelo = (DefaultTableModel) jTable5.getModel();
+        modelo.setColumnIdentifiers(colu);
+
+        v.borratabla(modelo);
+        DefaultTableCellRenderer tcr;
+        TableColumnModel columnModel = jTable5.getColumnModel();
+        columnModel.getColumn(0).setPreferredWidth(80);
+        columnModel.getColumn(1).setPreferredWidth(230);
+//        columnModel.getColumn(2).setPreferredWidth(80);
+//        columnModel.getColumn(3).setPreferredWidth(80);
+//        columnModel.getColumn(4).setPreferredWidth(80);
+//        columnModel.getColumn(5).setPreferredWidth(90);
+//        columnModel.getColumn(6).setPreferredWidth(90);
+//        columnModel.getColumn(7).setPreferredWidth(60);
+//        columnModel.getColumn(8).setPreferredWidth(90);
+//        columnModel.getColumn(9).setPreferredWidth(90);
+//        columnModel.getColumn(10).setPreferredWidth(90);
+//        columnModel.getColumn(11).setPreferredWidth(90);
+//        columnModel.getColumn(12).setPreferredWidth(90);
+//        columnModel.getColumn(13).setPreferredWidth(90);
+
+        tcr = new DefaultTableCellRenderer();
+        tcr.setHorizontalAlignment(SwingConstants.RIGHT); //CENTER o LEFT
+//        jTable3.getColumnModel().getColumn(2).setCellRenderer(tcr);
+//        jTable3.getColumnModel().getColumn(3).setCellRenderer(tcr);
+//        jTable3.getColumnModel().getColumn(4).setCellRenderer(tcr);
+////        jTable1.getColumnModel().getColumn(7).setCellRenderer(tcr);
+//        jTable1.getColumnModel().getColumn(8).setCellRenderer(tcr);
+        jTable5.setModel(modelo);
+    }
+    private void carga_tabla5() {
+//        DecimalFormat formatea = v.MyFormatter();
+//        carga_cabezeras_tabla5();
+        DefaultTableModel modelo;
+        modelo = (DefaultTableModel) jTable5.getModel();
+//        v.borratabla(modelo);
+        carga_cabezeras_tabla5();
+        
+        
+
+        try {
+
+            String sql = "SELECT * FROM proveedores ORDER BY id ASC";
+            PreparedStatement ps = v.getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            int colu = 5;
+            Object[] fila = new Object[colu]; // Hay tres columnas en la tabla
+            while (rs.next()) {
+                fila[0] = rs.getString(1);
+                fila[1] = rs.getString(2);
+                modelo.addRow(fila);
+            }
+            jTable5.setModel(modelo);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Borrar_por_fecha.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    private void guarda_proveedores() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql="INSERT INTO proveedores VALUES(?, ?);";
+        
+        try {
+            PreparedStatement ps = v.conectar().prepareStatement(sql);
+            ps.setString(1, jTextField7.getText().toUpperCase().trim());
+            ps.setString(2, jTextField8.getText().toUpperCase().trim());
+            ps.executeUpdate();
+            carga_tabla5();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+
+    private void borra_tabla5() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                int fila;
+        PreparedStatement ps;
+
+        fila = jTable5.getSelectedRow();
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna fila.");
+        } else {
+            //aca toma el numero de fila seleccionada
+            String numero = (String) jTable5.getValueAt(fila, 0);
+//            String codigo = (String) jTable1.getValueAt(fila, 1);
+
+//            v.setC_Cart_Id(codigo);
+//            String Recu = (String) jTable1.getValueAt(fila, 6);
+//            Recu = Recu.replace(",", "");
+//            double recu = Double.parseDouble(Recu);
+//            double contado = 0, saldo = 0;
+            String sql = "DELETE FROM proveedores WHERE id='" + numero+"'";
+//                    + "' and Fecha_recuento='" + var.getFecha_recuento_selecionada() + "'";
+//            String sql1 = "select Nc_Alma,Nc_Alma1,Nc_Alma2 from sistema_fecha WHERE Fecha_recuento='"
+//                    + var.getFecha_recuento_selecionada() + "' and Cprov_Nom='"
+//                    + var.getLina_seleccionada() + "' and Cart_Id='" + codigo + "'";//8 campos
+            try {
+                // borrara el registro seleccionado
+                ps = v.conectar().prepareStatement(sql);
+                ps.executeUpdate();
+                // hasta aca borró el registro de recuento
+                // busca en sistemas el producto para restarle lo borrado
+
+
+                if (ps.executeUpdate() > 0) {
+
+                    JOptionPane.showMessageDialog(null, "Los datos han sido modificados con éxito", "Operación Exitosa",
+                            JOptionPane.INFORMATION_MESSAGE);
+
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "No se ha podido realizar la actualización de los datos\n"
+                            + "Inténtelo nuevamente.", "Error en la operación",
+                            JOptionPane.ERROR_MESSAGE);
+
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(Recuento_con_fechas.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            carga_tabla5();
+//            carga_tabla_cuenta();
+
+        }
+
+
+    
+        
+        
     }
 }

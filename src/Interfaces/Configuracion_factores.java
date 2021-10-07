@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.text.DecimalFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -66,6 +67,14 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
         ConFechas = new javax.swing.JRadioButton();
         SinFechas = new javax.swing.JRadioButton();
         jButton5 = new javax.swing.JButton();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        Asigna_proveedor = new javax.swing.JButton();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jButton6 = new javax.swing.JButton();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
 
         setClosable(true);
 
@@ -160,7 +169,7 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2)
                     .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -209,31 +218,102 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
             }
         });
 
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        Asigna_proveedor.setText("Asigna seleccion");
+        Asigna_proveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Asigna_proveedorActionPerformed(evt);
+            }
+        });
+
+        jTextField2.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextField2.setText("jTextField2");
+
+        jTextField3.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextField3.setText("jTextField2");
+
+        jTextField4.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextField4.setText("jTextField2");
+
+        jButton6.setText("Borra sel");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ConFechas)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(SinFechas)
-                        .addGap(30, 30, 30)
-                        .addComponent(jButton5)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(SinFechas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ConFechas, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckBox1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jCheckBox2, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(6, 6, 6))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                        .addComponent(jButton6)))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 15, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(Asigna_proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(ConFechas)
+                .addGap(41, 41, 41)
+                .addComponent(SinFechas)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jCheckBox1))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(ConFechas)
+                        .addGap(3, 3, 3)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SinFechas)
+                    .addComponent(Asigna_proveedor)
+                    .addComponent(jButton6)
                     .addComponent(jButton5))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
+
+        jTextField2.getAccessibleContext().setAccessibleDescription("");
+        jTextField3.getAccessibleContext().setAccessibleDescription("");
+        jTextField4.getAccessibleContext().setAccessibleDescription("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -268,17 +348,34 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
         int filas = model.getRowCount();
 
         for (int a = 0; a < filas; a++) {
-            String dato1=String.valueOf(model.getValueAt(a,2));
-            String codigo=String.valueOf(model.getValueAt(a,0));
-            String dato2=String.valueOf(model.getValueAt(a,3));
-            String dato3=String.valueOf(model.getValueAt(a,4));
+            String dato1=String.valueOf(model.getValueAt(a,2+2));
+            String codigo=String.valueOf(model.getValueAt(a,0+2));
+            String dato2=String.valueOf(model.getValueAt(a,3+2));
+            String dato3=String.valueOf(model.getValueAt(a,4+2));
+            String cod_prov=String.valueOf(model.getValueAt(a,0));
+            String desc_prov=String.valueOf(model.getValueAt(a,1));
+            
             
 //            System.out.println(dato2+"="+dato1);
+//            String sql = "UPDATE factores "
+//                    + "SET Nfactor_De_Venta = '"+dato1+"', Nfactor_De_Consumo = '"+dato2+"', Nfactor_A_Reporte = '"+dato3+"'"
+//                    + "WHERE Cart_Id = '"+codigo+"'";
+            
             String sql = "UPDATE factores "
-                    + "SET Nfactor_De_Venta = '"+dato1+"', Nfactor_De_Consumo = '"+dato2+"', Nfactor_A_Reporte = '"+dato3+"'"
-                    + "WHERE Cart_Id = '"+codigo+"'";
+                    + "SET CPROV_ID=?,CPROV_NOM=?,Nfactor_De_Venta = ?, Nfactor_De_Consumo = ?, Nfactor_A_Reporte = ?"
+                    + "WHERE Cart_Id = ?";
+            
+            
+            
             try {
                 PreparedStatement ps=v.conectar().prepareStatement(sql);
+                ps.setString(1, cod_prov);
+                ps.setString(2, desc_prov);
+                ps.setString(3, dato1);
+                ps.setString(4, dato2);
+                ps.setString(5, dato3);
+                ps.setString(6, codigo);
+                
                 ps.executeUpdate();
             } catch (SQLException ex) {
                 Logger.getLogger(Configuracion_factores.class.getName()).log(Level.SEVERE, null, ex);
@@ -319,8 +416,19 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
         inicia();
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void Asigna_proveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Asigna_proveedorActionPerformed
+        // TODO add your handling code here:
+        Asigna_proveedor();
+    }//GEN-LAST:event_Asigna_proveedorActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        borra_selecionados();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Asigna_proveedor;
     private javax.swing.JRadioButton ConFechas;
     private javax.swing.ButtonGroup GrupoDeBotones;
     private javax.swing.JRadioButton SinFechas;
@@ -329,8 +437,12 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -339,13 +451,22 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 
     private void inicia() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         String sql="";
-        
+        String valini="1";
+        jTextField2.setText(valini);
+        jTextField3.setText(valini);
+        jTextField4.setText(valini);
+        jCheckBox1.setSelected(true);
+        jCheckBox2.setSelected(true);
         jComboBox1.removeAllItems();
+        jComboBox3.removeAllItems();
         try {
             if(ConFechas.isSelected()){
             sql = "select DISTINCT Fecha_recuento from sistema_fecha";
@@ -364,13 +485,14 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
         }
         jComboBox2.removeAllItems();
         try {
-            if(ConFechas.isSelected()){
-            sql = "SELECT DISTINCT cprov_nom FROM SISTEMA_FECHA  ";
-            }
-            if(SinFechas.isSelected()){
-            sql = "SELECT DISTINCT cprov_nom FROM SISTEMA";
-            }
-            
+//            if(ConFechas.isSelected()){
+//            sql = "SELECT DISTINCT cprov_nom FROM factores  ";
+//            }
+//            if(SinFechas.isSelected()){
+//            sql = "SELECT DISTINCT cprov_nom FROM SISTEMA";
+//            }
+                
+            sql = "SELECT DISTINCT cprov_nom FROM factores  ";
             PreparedStatement ps = v.getCon().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -379,6 +501,26 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
         } catch (SQLException ex) {
             Logger.getLogger(Borrar_por_fecha.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        try {
+//            if(ConFechas.isSelected()){
+//            sql = "SELECT DISTINCT cprov_nom FROM SISTEMA_FECHA  ";
+//            }
+//            if(SinFechas.isSelected()){
+//            sql = "SELECT DISTINCT cprov_nom FROM SISTEMA";
+//            }
+
+            sql = "SELECT DISTINCT nombre FROM proveedores";
+            PreparedStatement ps = v.getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                jComboBox3.addItem(rs.getNString(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Borrar_por_fecha.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
         carga_cabeceras2();
         jTextField1.setText("");
         sql = "INSERT INTO factores (Cprov_Id, Cprov_Nom, Cart_Id,Cart_Nom,Nfactor_De_Venta,Nfactor_De_Consumo,Nfactor_A_Reporte)"
@@ -398,7 +540,7 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
     private void carga_cabeceras2() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //        TableModel modelo =jTable2.getModel();
-        String[] colu = {"CODIGO", "DESCRIPCION", "factor De Venta", "factor De Consumo", "factor A Reporte"};
+        String[] colu = {"CODIGO", "PROVEEDOR","CODIGO", "DESCRIPCION", "factor De Venta", "factor De Consumo", "factor A Reporte"};
         DefaultTableModel modelo;
         modelo = (DefaultTableModel) jTable2.getModel();
         modelo.setColumnIdentifiers(colu);
@@ -409,11 +551,11 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
         TableColumnModel columnModel = jTable2.getColumnModel();
         columnModel.getColumn(0).setPreferredWidth(60);
         columnModel.getColumn(1).setPreferredWidth(230);
-        columnModel.getColumn(2).setPreferredWidth(80);
-        columnModel.getColumn(3).setPreferredWidth(80);
+        columnModel.getColumn(2).setPreferredWidth(60);
+        columnModel.getColumn(3).setPreferredWidth(230);
         columnModel.getColumn(4).setPreferredWidth(80);
-//        columnModel.getColumn(5).setPreferredWidth(90);
-//        columnModel.getColumn(6).setPreferredWidth(90);
+        columnModel.getColumn(5).setPreferredWidth(80);
+        columnModel.getColumn(6).setPreferredWidth(80);
 //        columnModel.getColumn(7).setPreferredWidth(60);
 //        columnModel.getColumn(8).setPreferredWidth(90);
 //        columnModel.getColumn(9).setPreferredWidth(90);
@@ -424,9 +566,9 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
 
         tcr = new DefaultTableCellRenderer();
         tcr.setHorizontalAlignment(SwingConstants.RIGHT); //CENTER o LEFT
-        jTable2.getColumnModel().getColumn(2).setCellRenderer(tcr);
-        jTable2.getColumnModel().getColumn(3).setCellRenderer(tcr);
         jTable2.getColumnModel().getColumn(4).setCellRenderer(tcr);
+        jTable2.getColumnModel().getColumn(5).setCellRenderer(tcr);
+        jTable2.getColumnModel().getColumn(6).setCellRenderer(tcr);
 //        jTable1.getColumnModel().getColumn(7).setCellRenderer(tcr);
 //        jTable1.getColumnModel().getColumn(8).setCellRenderer(tcr);
         jTable2.setModel(modelo);
@@ -436,7 +578,7 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
     private void carga_tabla(String fil) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         
-        String sql = "SELECT Cart_Id,Cart_Nom,Nfactor_De_Venta,Nfactor_De_Consumo,Nfactor_A_Reporte "
+        String sql = "SELECT CPROV_ID,CPROV_NOM,Cart_Id,Cart_Nom,Nfactor_De_Venta,Nfactor_De_Consumo,Nfactor_A_Reporte "
                 + "FROM FACTORES "
                 + "where Cprov_Nom='" + jComboBox2.getSelectedItem().toString() + "' and Cart_Nom like '%"+fil.trim()+"%'";
         try {
@@ -448,15 +590,18 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
 //            while (rs.next()) {
                
                 v.borratabla(modelo);
-                int colu = 5;
+                int colu = 7;
                 Object[] fila = new Object[colu]; // Hay tres columnas en la tabla
                 DecimalFormat formatea = v.MyFormatter_entero();
                 while (rs.next()) {
-                    fila[0] = rs.getString(1);
-                    fila[1] = rs.getString(2);
-                    fila[2] = formatea.format(rs.getDouble(3));
-                    fila[3] = formatea.format(rs.getDouble(4));
-                    fila[4] = formatea.format(rs.getDouble(5));
+                    fila[0] = rs.getString("CPROV_ID");
+                    fila[1] = rs.getString("CPROV_NOM");
+                    fila[2] = rs.getString("Cart_Id");
+                    fila[3] = rs.getString("Cart_Nom");
+ 
+                    fila[4] = formatea.format(rs.getDouble("Nfactor_De_Venta"));
+                    fila[5] = formatea.format(rs.getDouble("Nfactor_De_Consumo"));
+                    fila[6] = formatea.format(rs.getDouble("Nfactor_A_Reporte"));
                     modelo.addRow(fila);
                 }
                 jTable2.setModel(modelo);
@@ -465,36 +610,87 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
             Logger.getLogger(Borrar_por_fecha.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    private void carga_tabla() {
+
+    private void Asigna_proveedor() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         
-        String sql = "SELECT Cart_Id,Cart_Nom,Nfactor_De_Venta,Nfactor_De_Consumo,Nfactor_A_Reporte "
-                + "FROM FACTORES "
-                + "where Cprov_Nom='" + jComboBox2.getSelectedItem().toString().trim() + "'";
+        int[] seleccionados = jTable2.getSelectedRows();
+        
+//        System.out.print(seleccionados.length);
+        String prov=jComboBox3.getSelectedItem().toString();
+        String cod_prov="";
+        String sql="select id from proveedores where nombre=?";
+        
+        
+        int seleccionados_largo=seleccionados.length;
         try {
             PreparedStatement ps = v.getCon().prepareStatement(sql);
+            ps.setString(1, prov);
             ResultSet rs = ps.executeQuery();
-//            while (rs.next()) {
-                DefaultTableModel modelo;
-                modelo = (DefaultTableModel) jTable2.getModel();
-                v.borratabla(modelo);
-                int colu = 5;
-                Object[] fila = new Object[colu]; // Hay tres columnas en la tabla
-                DecimalFormat formatea = v.MyFormatter_entero();
-                while (rs.next()) {
-                    fila[0] = rs.getString(1);
-                    fila[1] = rs.getString(2);
-                    fila[2] = formatea.format(rs.getDouble(3));
-                    fila[3] = formatea.format(rs.getDouble(4));
-                    fila[4] = formatea.format(rs.getDouble(5));
-                    modelo.addRow(fila);
-                }
-                jTable2.setModel(modelo);
-//            }
+            rs.next();
+            cod_prov=rs.getNString("id");
+            
         } catch (SQLException ex) {
-            Logger.getLogger(Borrar_por_fecha.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Configuracion_factores.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
+        for(int i=0; i<seleccionados_largo;i++){
+            if(jCheckBox1.isSelected()){
+            jTable2.setValueAt(cod_prov, seleccionados[i], 0);
+            jTable2.setValueAt(prov, seleccionados[i], 1);
+            }
+            if(jCheckBox2.isSelected()){
+            jTable2.setValueAt(jTextField2.getText(), seleccionados[i], 4);
+            jTable2.setValueAt(jTextField3.getText(), seleccionados[i], 5);
+            jTable2.setValueAt(jTextField4.getText(), seleccionados[i], 6);
+            }
+            System.out.println(seleccionados[i]);
+        }
+        
     }
+
+    private void borra_selecionados() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        int[] seleccionados = jTable2.getSelectedRows();
+        int seleccionados_largo=seleccionados.length;
+        
+        for(int i=0; i<seleccionados_largo;i++){
+           
+            String cod_prov=jTable2.getValueAt(seleccionados[i], 0).toString();
+            String desc_prov=jTable2.getValueAt(seleccionados[i], 1).toString();
+            String cod_prod=jTable2.getValueAt(seleccionados[i], 2).toString();
+            String des_prod=jTable2.getValueAt(seleccionados[i], 3).toString();
+            String f1=jTable2.getValueAt(seleccionados[i], 4).toString();
+            String f2=jTable2.getValueAt(seleccionados[i], 5).toString();
+            String f3=jTable2.getValueAt(seleccionados[i], 6).toString();
+            
+            String sql="delete from factores where CPROV_ID=? and CPROV_NOM=? and "
+                    + "CART_ID=? and CART_NOM=? and NFACTOR_DE_VENTA=? and "
+                    + "NFACTOR_DE_CONSUMO=? and NFACTOR_A_REPORTE=?";
+            
+            try {
+                PreparedStatement ps = v.getCon().prepareStatement(sql);
+                ps.setString(1, cod_prov);
+                ps.setString(2, desc_prov);
+                ps.setString(3, cod_prod);
+                ps.setString(4, des_prod);
+                ps.setString(5, f1);
+                ps.setString(6, f2);
+                ps.setString(7, f3);
+                
+                ps.executeUpdate(); 
+            } catch (SQLException ex) {
+                Logger.getLogger(Configuracion_factores.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+             System.out.println(seleccionados[i]);
+        }
+        
+        carga_tabla("");
+    }
+    
+
 
 }

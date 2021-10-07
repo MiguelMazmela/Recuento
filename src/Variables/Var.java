@@ -6,6 +6,7 @@
 package Variables;
 
 import Clases.pordia;
+import Interfaces.Configuracion_factores;
 import Interfaces.CreditosXClientes;
 import Interfaces.StockALaFecha;
 import java.io.File;
@@ -15,6 +16,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
@@ -1652,6 +1654,46 @@ public final class Var {
 //        System.out.print(helper);
         dir = helper.substring(0, helper.length() - 2); //this line may need a try-catch
         return dir;
+    }
+    
+    public String txtSqlFecha(java.util.Date fecha){
+        String txt;
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		        
+		txt = dateFormat.format(fecha);
+        
+        
+        return txt;
+    }
+    
+    public int tranfiere_factores(String txt_fecha_sql){
+        int error=0;
+    String ssq = "SELECT CPROV_ID,CPROV_NOM,Cart_Id,Nfactor_De_Venta,Nfactor_De_Consumo,Nfactor_A_Reporte FROM FACTORES";
+        String sql;
+        try {
+            PreparedStatement psc = this.conectar().prepareStatement(ssq);
+            ResultSet rsc = psc.executeQuery();
+            while (rsc.next()) {
+                 sql="UPDATE sistema_fecha SET CPROV_ID=?,CPROV_NOM=?,Nfactor_De_Venta = ?,Nfactor_De_Consumo=?,Nfactor_A_Reporte=? "
+                        + "WHERE  Cart_Id =? and Fecha_recuento=?";
+                PreparedStatement ps = this.conectar().prepareStatement(sql);
+                ps.setString(1, rsc.getNString("CPROV_ID"));
+                ps.setString(2, rsc.getNString("CPROV_NOM"));
+                ps.setString(3, rsc.getNString("Nfactor_De_Venta"));
+                ps.setString(4, rsc.getNString("Nfactor_De_Consumo"));
+                ps.setString(5, rsc.getNString("Nfactor_A_Reporte"));
+                ps.setString(6, rsc.getNString("Cart_Id"));
+                ps.setString(7, txt_fecha_sql);
+                ps.executeUpdate();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Configuracion_factores.class.getName()).log(Level.SEVERE, null, ex);
+        }    
+        
+        
+        
+        
+     return error;   
     }
 
 }
