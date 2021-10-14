@@ -137,7 +137,7 @@ public final class Var {
         String sFichero = "recuento";
         String sDirectorio = "src" + File.separator + "Data";
 
-        String sPath = getCurrentDir()+File.separator + sDirectorio + File.separator + sFichero;
+        String sPath = getCurrentDir() + File.separator + sDirectorio + File.separator + sFichero;
         System.out.println(sPath);
 
         try {
@@ -171,9 +171,9 @@ public final class Var {
         this.confecha = true;
 //        this.Hoy=new Date();
 //        fechaSQL = new java.sql.Date(fecha.getTime());
-        
+
         cal.setTime(fecha);
-        
+
         this.op_seleccionada = "VENCIDOS";
         this.CreaTablaSistema = "Create table sistema("
                 + "Cprov_Id nvarchar (8),"
@@ -737,6 +737,13 @@ public final class Var {
         return dias;
     }
 
+    /**
+     * ****************************************************
+     * suma dias a una fecha
+     *
+     * @param fecha,Dias
+     * @return retorna formato de fecha util
+     */
     public java.util.Date sumar_dias(java.util.Date fecha, int Dias) {
 
         Calendar calendario = Calendar.getInstance();
@@ -746,11 +753,26 @@ public final class Var {
 
     }
 
+    /**
+     * ****************************************************
+     * conbierte una fecha Date a una fecha sql
+     *
+     * @param uDate
+     * @return retorna formato de fecha sql
+     */
+
     public java.sql.Date convert(java.util.Date uDate) {
         java.sql.Date sDate = new java.sql.Date(uDate.getTime());
         return sDate;
     }
 
+    /**
+     * ****************************************************
+     * borra y llena una tabla temporal
+     *
+     * @param fecha
+     * @return retorna booleano error
+     */
     public boolean actualiza(java.util.Date fecha) {
         boolean todobien = false;
         java.sql.Date fesql = convert(fecha);
@@ -981,7 +1003,14 @@ public final class Var {
     public void setActualizo(boolean actualizo) {
         this.actualizo = actualizo;
     }
-
+    
+    
+    /**
+     * ****************************************************
+     * conbierte una fecha a sql texto aaaa-MM-dd
+     *
+     * @return retorna un texto de fecha sql en aaaa-MM-dd
+     */
     public String getFecha_recuento_selecionada() {
         return fecha_recuento_selecionada;
     }
@@ -1650,31 +1679,62 @@ public final class Var {
     public String getCurrentDir() {
         File currentDirFile = new File(".");
         String helper = currentDirFile.getAbsolutePath();
-        String dir ="";
+        String dir;
 //        System.out.print(helper);
         dir = helper.substring(0, helper.length() - 2); //this line may need a try-catch
         return dir;
     }
-    
-    public String txtSqlFecha(java.util.Date fecha){
+
+    /**
+     * ****************************************************
+     * conbierte una fecha a sql texto aaaa-MM-dd
+     *
+     * @param fecha java.util.Date
+     * @return retorna un texto de fecha sql en aaaa-MM-dd
+     */
+
+    public String txtSqlFecha(java.util.Date fecha) {
         String txt;
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		        
-		txt = dateFormat.format(fecha);
-        
-        
+
+        txt = dateFormat.format(fecha);
+
         return txt;
     }
-    
-    public int tranfiere_factores(String txt_fecha_sql){
-        int error=0;
-    String ssq = "SELECT CPROV_ID,CPROV_NOM,Cart_Id,Nfactor_De_Venta,Nfactor_De_Consumo,Nfactor_A_Reporte FROM FACTORES";
+
+//    /**
+//     * ****************************************************
+//     * conbierte un texto fecha.util  a sql texto aaaa-MM-dd
+//     *
+//     * @param texto_util_fecha
+//     * @return retorna un texto  de fecha sql en aaaa-MM-dd
+//     */
+//    
+//    public String txtSqlFecha(String texto_util_fecha){
+//        String txt;
+////        java.util.Date fech = this.Hoy;
+////        boolean error=false;
+//        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//        String fecha_salida = dateFormat.format(texto_util_fecha);
+//        
+//        
+//
+//        DateFormat dateFormato = new SimpleDateFormat("yyyy-MM-dd");
+//		        
+//		txt = dateFormato.format(fecha_salida);
+//        
+//        
+//        return txt;
+//    }
+    public int tranfiere_factores(String txt_fecha_sql) {
+        int error = 0;
+        String ssq = "SELECT CPROV_ID,CPROV_NOM,Cart_Id,Nfactor_De_Venta,Nfactor_De_Consumo,Nfactor_A_Reporte FROM FACTORES";
         String sql;
         try {
             PreparedStatement psc = this.conectar().prepareStatement(ssq);
             ResultSet rsc = psc.executeQuery();
             while (rsc.next()) {
-                 sql="UPDATE sistema_fecha SET CPROV_ID=?,CPROV_NOM=?,Nfactor_De_Venta = ?,Nfactor_De_Consumo=?,Nfactor_A_Reporte=? "
+                sql = "UPDATE sistema_fecha SET CPROV_ID=?,CPROV_NOM=?,Nfactor_De_Venta = ?,Nfactor_De_Consumo=?,Nfactor_A_Reporte=? "
                         + "WHERE  Cart_Id =? and Fecha_recuento=?";
                 PreparedStatement ps = this.conectar().prepareStatement(sql);
                 ps.setString(1, rsc.getNString("CPROV_ID"));
@@ -1688,37 +1748,86 @@ public final class Var {
             }
         } catch (SQLException ex) {
             Logger.getLogger(Configuracion_factores.class.getName()).log(Level.SEVERE, null, ex);
-            error=1;
-        }    
-        
-     return error;   
+            error = 1;
+        }
+
+        return error;
     }
-    
-    public void carga_totales_chess(String txt_fecha_sql){
-        String ssq = "select Cart_Id,Nfactor_De_Venta,CDESCRIPCION_CAT_4,CDESCRIPCION_CAT_5  FROM sistema_fecha and Fecha_recuento=?";
+
+    /**
+     * ****************************************************
+     * carga en la base de datos sistema_fecha el total de la transferencia
+     * desde el chees para que paresca una del rex
+     *
+     * @param txt_fecha_sql
+     *
+     */
+    public void carga_totales_chess(String txt_fecha_sql) {
+        String ssq = "select Cart_Id,Nfactor_De_Venta,CDESCRIPCION_CAT_4,CDESCRIPCION_CAT_5  FROM sistema_fecha where Fecha_recuento=?";
         String sql;
         try {
             PreparedStatement ps = this.conectar().prepareStatement(ssq);
             ps.setString(1, txt_fecha_sql);
             ResultSet rsc = ps.executeQuery();
             while (rsc.next()) {
-                 sql="UPDATE sistema_fecha SET NC_ALMA =?"
-                        + "WHERE  Cart_Id =? and Fecha_recuento=?";
-                PreparedStatement ps1  = this.conectar().prepareStatement(sql);
-                ps1.setDouble(1, (rsc.getDouble("CDESCRIPCION_CAT_4")*rsc.getDouble("Nfactor_De_Venta"))+rsc.getDouble("CDESCRIPCION_CAT_5"));
-                ps1.setString(2, rsc.getString("Cart_Id"));
-                ps1.setString(3, txt_fecha_sql);
-                
-                ps1.executeUpdate();
+                Double pru = rsc.getDouble("CDESCRIPCION_CAT_4") + rsc.getDouble("CDESCRIPCION_CAT_5");
+                if (pru > 0) {
+                    sql = "UPDATE sistema_fecha SET NC_ALMA =?"
+                            + "WHERE  Cart_Id =? and Fecha_recuento=?";
+                    PreparedStatement ps1 = this.conectar().prepareStatement(sql);
+                    ps1.setDouble(1, (rsc.getDouble("CDESCRIPCION_CAT_4") * rsc.getDouble("Nfactor_De_Venta")) + rsc.getDouble("CDESCRIPCION_CAT_5"));
+                    ps1.setString(2, rsc.getString("Cart_Id"));
+                    ps1.setString(3, txt_fecha_sql);
+
+                    ps1.executeUpdate();
+                }
             }
-            
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Var.class.getName()).log(Level.SEVERE, null, ex);
         }
-   
-        
-        
+
+    }
+
+    /**
+     * ****************************************************
+     * conbierte una fecha sql aaaa-MM-dd en un texto dd/MM/aaaa
+     *
+     * @param fecha
+     * @return retorna texto en formato dd/MM/aaaa
+     */
+    public String deFechaSqlATexto(java.sql.Date fecha) {
+        String fecha_salida;
+
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+        fecha_salida = dateFormat.format(fecha);
+
+        return fecha_salida;
+    }
+
+    /**
+     * ****************************************************
+     * conbierte una fecha sql dd/MM/aaaa en un texto aaaa-MM-dd
+     *
+     * @param texto_fecha_util
+     * @return retorna texto en formato aaaa-MM-dd
+     */
+    public String deTextoFechaUtilATextoFechaSql(String texto_fecha_util) {
+        String texto_fecha_sql = "";
+        // Usaremos el formato de fecha que necesitemos
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            java.util.Date local = sdf.parse(texto_fecha_util);
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+            String formattedDate = simpleDateFormat.format(local);
+            texto_fecha_sql = formattedDate;
+        } catch (ParseException ex) {
+            Logger.getLogger(Var.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return texto_fecha_sql;
     }
 
 }

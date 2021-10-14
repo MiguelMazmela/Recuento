@@ -114,6 +114,7 @@ public class Ingreso_de_Stock_fecha extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Date fecha = new Date();
+        int recuento=0;
         try {
             // TODO add your handling code here:
 //        jTextPane1.setFont(new Font("monospaced", Font.PLAIN, 12));
@@ -168,13 +169,14 @@ public class Ingreso_de_Stock_fecha extends javax.swing.JInternalFrame {
                 ps.setDate(97, fechaSQL);
 
                 ps.executeUpdate();
+                recuento++;
 
             }
         } catch (SQLException ex) {
             Logger.getLogger(Ingreso_de_Stock_fecha.class.getName()).log(Level.SEVERE, null, ex);
 
         }
-        jTextPane1.setText("/nP R O C E S O   C O M P L E T A D O");
+        jTextPane1.setText("\nP R O C E S O   C O M P L E T A D O\n\n lineas ejecutadas ="+recuento);
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
