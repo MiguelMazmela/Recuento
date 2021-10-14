@@ -83,6 +83,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
         jButton3 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -406,6 +407,14 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton5.setText("chess");
+        jButton5.setToolTipText("Carga Totales Chess");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -417,9 +426,11 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addComponent(jButton5)
+                .addGap(98, 98, 98)
                 .addComponent(jButton3)
                 .addContainerGap())
         );
@@ -430,10 +441,11 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(9, 9, 9)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton5))
+                        .addGap(10, 10, 10)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -689,16 +701,16 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 514, Short.MAX_VALUE)))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 563, Short.MAX_VALUE)))
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -729,7 +741,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
         //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         DecimalFormat formatea = var.MyFormatter();
         Componentes_SetEnable(true);
-        var.setFecha_recuento_selecionada(jComboBox1.getSelectedItem().toString());
+        var.setFecha_recuento_selecionada(var.deTextoFechaUtilATextoFechaSql(jComboBox1.getSelectedItem().toString()));
         var.setLina_seleccionada(jComboBox2.getSelectedItem().toString());
         var.setSecuencia(0);
         carga_tabla_lista();
@@ -1337,6 +1349,11 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         actualiza();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        var.carga_totales_chess(var.getFecha_recuento_selecionada());
+    }//GEN-LAST:event_jButton5ActionPerformed
 //>>>>>>> revision
 
 
@@ -1352,6 +1369,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -1421,11 +1439,11 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
 
         try {
 
-            String sql = "select DISTINCT Fecha_recuento from sistema_fecha";
+            String sql = "select DISTINCT Fecha_recuento from sistema_fecha order by Fecha_recuento desc";
             PreparedStatement ps = var.getCon().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                jComboBox1.addItem(rs.getNString(1));
+                jComboBox1.addItem(var.deFechaSqlATexto(rs.getDate("Fecha_recuento")));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Borrar_por_fecha.class.getName()).log(Level.SEVERE, null, ex);
@@ -1533,7 +1551,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
         int cajas, displays, unidades = 0;
         double total;
         int fila = jComboBox3.getSelectedIndex();
-        String fe = jComboBox1.getSelectedItem().toString();
+        String fe = var.deTextoFechaUtilATextoFechaSql(jComboBox1.getSelectedItem().toString());
         var.setC_Cart_Id(resultados[fila][0]);
         var.setC_Cart_Nom(resultados[fila][1]);
         var.setC_Nfactor_De_Venta(Double.parseDouble(resultados[fila][2]));
@@ -1570,7 +1588,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
 
     private void cargadatos() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        String fesel = jComboBox1.getSelectedItem().toString();
+        String fesel = var.deTextoFechaUtilATextoFechaSql(jComboBox1.getSelectedItem().toString());
         String psel = jComboBox2.getSelectedItem().toString();
         String cdgo = JTFCodigo.getText();
         Boolean tiene_datos = false;
@@ -1623,7 +1641,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
 
     private void cargaProducto() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        String fesel = jComboBox1.getSelectedItem().toString();
+        String fesel = var.deTextoFechaUtilATextoFechaSql(jComboBox1.getSelectedItem().toString());
         String psel = jComboBox2.getSelectedItem().toString();
         String cdgo = var.getCodigos().get(var.getItemSel());
 
@@ -1945,7 +1963,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
         jComboBox2.removeAllItems();
         try {
 
-            selecion = jComboBox1.getSelectedItem().toString();
+            selecion = var.deTextoFechaUtilATextoFechaSql(jComboBox1.getSelectedItem().toString());
 
             String sql1 = "select DISTINCT Cprov_Nom nvarchar from sistema_fecha WHERE Fecha_recuento = '" + selecion + "'";
             PreparedStatement ps3 = var.getCon().prepareStatement(sql1);
@@ -2029,7 +2047,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
         fila = jTable1.getSelectedRow();
         String numero = String.valueOf(tm.getValueAt(jTable1.getSelectedRow(), 0));
 //        String numero = (String) jTable1.getValueAt(fila, 0);
-            String fsel=jComboBox1.getSelectedItem().toString();
+            String fsel=var.deTextoFechaUtilATextoFechaSql(jComboBox1.getSelectedItem().toString());
         String sql = "SELECT * FROM RECUENTO_FECHAS where secuencia='" + numero + "' and FECHA_RECUENTO  ='"+fsel+"'";
         if (fila == -1) {
             JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna fila.");
