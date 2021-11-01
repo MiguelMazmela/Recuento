@@ -1469,7 +1469,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
         jTable2.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         DefaultTableCellRenderer tcr;
         TableColumnModel columnModel = jTable2.getColumnModel();
-        columnModel.getColumn(0).setPreferredWidth(80);
+        columnModel.getColumn(0).setPreferredWidth(85);
         columnModel.getColumn(1).setPreferredWidth(230);
         columnModel.getColumn(2).setPreferredWidth(80);
         columnModel.getColumn(3).setPreferredWidth(80);

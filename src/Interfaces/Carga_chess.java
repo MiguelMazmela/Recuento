@@ -48,6 +48,7 @@ public class Carga_chess extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
 
         setClosable(true);
+        setTitle("C A R G A N D O   D E L   C H E S S . . . .");
 
         jScrollPane1.setViewportView(jTextPane1);
 

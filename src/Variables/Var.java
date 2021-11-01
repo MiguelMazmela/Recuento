@@ -132,13 +132,13 @@ public final class Var {
     public Connection conectar() {
         Connection coco = null;
         this.sSistemaOperativo = System.getProperty("os.name");
-        System.out.println(sSistemaOperativo);
+//        System.out.println(sSistemaOperativo);
 
         String sFichero = "recuento";
         String sDirectorio = "src" + File.separator + "Data";
 
         String sPath = getCurrentDir() + File.separator + sDirectorio + File.separator + sFichero;
-        System.out.println(sPath);
+//        System.out.println(sPath);
 
         try {
 
@@ -812,7 +812,7 @@ public final class Var {
             SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd", new Locale("es", "ES"));
             java.sql.Date fecFormatoDate = new java.sql.Date(sdf.parse(fe).getTime());
 
-            System.out.println("Fecha con el formato java.sql.Date: " + fecFormatoDate);
+//            System.out.println("Fecha con el formato java.sql.Date: " + fecFormatoDate);
             return fecFormatoDate;
         } catch (ParseException ex) {
             System.out.println("Error al obtener el formato de la fecha/hora: " + ex.getMessage());
