@@ -74,6 +74,11 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
         jButton6 = new javax.swing.JButton();
         jCheckBox1 = new javax.swing.JCheckBox();
         jCheckBox2 = new javax.swing.JCheckBox();
+        Nueva_linea = new javax.swing.JButton();
+        Cod_nvo_prod = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        Desc_nvo_prod = new javax.swing.JTextField();
 
         setClosable(true);
 
@@ -173,7 +178,7 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2)
                     .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -247,6 +252,21 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
             }
         });
 
+        Nueva_linea.setText("Nuevo");
+        Nueva_linea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Nueva_lineaActionPerformed(evt);
+            }
+        });
+
+        Cod_nvo_prod.setText("jTextField5");
+
+        jLabel2.setText("Codigo");
+
+        jLabel3.setText("Descripcion  :");
+
+        Desc_nvo_prod.setText("jTextField6");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -254,37 +274,44 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(SinFechas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ConFechas, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE))
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 6, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(SinFechas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ConFechas, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(71, 71, 71)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jCheckBox1, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jCheckBox2, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(6, 6, 6))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                        .addComponent(jButton6)))
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 15, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                .addComponent(Asigna_proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())))
+                    .addComponent(jButton6, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addComponent(Asigna_proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Nueva_linea, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Cod_nvo_prod, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(Desc_nvo_prod))))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -293,25 +320,38 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
                 .addComponent(SinFechas)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jCheckBox1)
-                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(ConFechas)
-                        .addGap(3, 3, 3)))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jCheckBox1)
+                                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(ConFechas)
+                                .addGap(3, 3, 3)))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCheckBox2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(Cod_nvo_prod, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Desc_nvo_prod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Asigna_proveedor)
                     .addComponent(jButton6)
-                    .addComponent(jButton5))
+                    .addComponent(jButton5)
+                    .addComponent(Nueva_linea))
                 .addContainerGap())
         );
 
@@ -358,6 +398,10 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
             String dato3=String.valueOf(model.getValueAt(a,4+2));
             String cod_prov=String.valueOf(model.getValueAt(a,0));
             String desc_prov=String.valueOf(model.getValueAt(a,1));
+            String CART_ID_CHESS=String.valueOf(model.getValueAt(a,7)).trim();
+            String CART_ID_BARRAS=String.valueOf(model.getValueAt(a, 8));
+            String CART_ID_BARRAS_UNI=String.valueOf(model.getValueAt(a, 9));
+            
             
             
 //            System.out.println(dato2+"="+dato1);
@@ -366,7 +410,7 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
 //                    + "WHERE Cart_Id = '"+codigo+"'";
             
             String sql = "UPDATE factores "
-                    + "SET CPROV_ID=?,CPROV_NOM=?,Nfactor_De_Venta = ?, Nfactor_De_Consumo = ?, Nfactor_A_Reporte = ?"
+                    + "SET CPROV_ID=?,CPROV_NOM=?,Nfactor_De_Venta = ?, Nfactor_De_Consumo = ?, Nfactor_A_Reporte = ?,CART_ID_CHESS =?,CART_ID_BARRAS=?,CART_ID_BARRAS_UNI=? "
                     + "WHERE Cart_Id = ?";
             
             
@@ -378,7 +422,11 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
                 ps.setString(3, dato1);
                 ps.setString(4, dato2);
                 ps.setString(5, dato3);
-                ps.setString(6, codigo);
+                ps.setString(6, CART_ID_CHESS);
+                ps.setString(7, CART_ID_BARRAS);
+                ps.setString(8, CART_ID_BARRAS_UNI);
+                
+                ps.setString(9, codigo);
                 
                 ps.executeUpdate();
             } catch (SQLException ex) {
@@ -434,11 +482,19 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void Nueva_lineaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Nueva_lineaActionPerformed
+        // TODO add your handling code here:
+        nueva_linea();
+    }//GEN-LAST:event_Nueva_lineaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Asigna_proveedor;
+    private javax.swing.JTextField Cod_nvo_prod;
     private javax.swing.JRadioButton ConFechas;
+    private javax.swing.JTextField Desc_nvo_prod;
     private javax.swing.ButtonGroup GrupoDeBotones;
+    private javax.swing.JButton Nueva_linea;
     private javax.swing.JRadioButton SinFechas;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -452,6 +508,8 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -548,7 +606,7 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
     private void carga_cabeceras2() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //        TableModel modelo =jTable2.getModel();
-        String[] colu = {"CODIGO", "PROVEEDOR","CODIGO", "DESCRIPCION", "factor De Venta", "factor De Consumo", "factor A Reporte"};
+        String[] colu = {"CODIGO", "PROVEEDOR","CODIGO", "DESCRIPCION", "factor De Venta", "factor De Consumo", "factor A Reporte","Cod chess","Barras caja","Barras Disp","Barras Unidad"};
         DefaultTableModel modelo;
         modelo = (DefaultTableModel) jTable2.getModel();
         modelo.setColumnIdentifiers(colu);
@@ -586,7 +644,7 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
     private void carga_tabla(String fil) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         
-        String sql = "SELECT CPROV_ID,CPROV_NOM,Cart_Id,Cart_Nom,Nfactor_De_Venta,Nfactor_De_Consumo,Nfactor_A_Reporte "
+        String sql = "SELECT CPROV_ID,CPROV_NOM,Cart_Id,Cart_Nom,Nfactor_De_Venta,Nfactor_De_Consumo,Nfactor_A_Reporte, Cart_Id_Chess,Cart_Id_Barras,Cart_Id_Barras_uni "
                 + "FROM FACTORES "
                 + "where Cprov_Nom='" + jComboBox2.getSelectedItem().toString() + "' and Cart_Nom like '%"+fil.trim()+"%'";
         try {
@@ -598,7 +656,7 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
 //            while (rs.next()) {
                
                 v.borratabla(modelo);
-                int colu = 7;
+                int colu = 10;
                 Object[] fila = new Object[colu]; // Hay tres columnas en la tabla
                 DecimalFormat formatea = v.MyFormatter_entero();
                 while (rs.next()) {
@@ -610,6 +668,11 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
                     fila[4] = formatea.format(rs.getDouble("Nfactor_De_Venta"));
                     fila[5] = formatea.format(rs.getDouble("Nfactor_De_Consumo"));
                     fila[6] = formatea.format(rs.getDouble("Nfactor_A_Reporte"));
+                    fila[7] = rs.getString("Cart_Id_Chess");
+                    fila[8] = rs.getString("Cart_Id_Barras");
+                    fila[9] = rs.getString("Cart_Id_Barras_uni");
+ 
+                    
                     modelo.addRow(fila);
                 }
                 jTable2.setModel(modelo);
@@ -697,6 +760,25 @@ public class Configuracion_factores extends javax.swing.JInternalFrame {
         }
         
         carga_tabla("");
+    }
+
+    private void nueva_linea() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String codigo=Cod_nvo_prod.getText().toUpperCase().trim();
+        String desc=Desc_nvo_prod.getText().toUpperCase().trim();
+        DefaultTableModel model = (DefaultTableModel) jTable2.getModel();
+        model.addRow(new Object[]{"", "",codigo, desc, "", "", "", "", "", ""});
+        String sql="INSERT INTO factores (Cart_Id,Cart_Nom) VALUES (?,?)";
+        
+        try {
+            PreparedStatement ps = v.getCon().prepareStatement(sql);
+            ps.setString(1, codigo);
+            ps.setString(2, desc);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Configuracion_factores.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
     
 

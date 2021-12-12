@@ -7,6 +7,7 @@ package Interfaces;
 
 import Variables.Var;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.logging.Level;
@@ -122,14 +123,18 @@ public class Carga_chess extends javax.swing.JInternalFrame {
             for (int z = 0; z < tf; z++) {
                 String columnas[] = filas[z].split("\\t");
                 int a = 0;
-                ps.setString(1, "");
-                ps.setString(2, "");
-                ps.setString(3, columnas[0]);
-                ps.setString(4, columnas[1]);
+                String codigo=v.codigo(columnas[2]);
+                
+                ps.setString(1, v.CPROV_ID(codigo));
+                ps.setString(2, v.CPROV_NOM(codigo));
+                ps.setString(3,codigo);
+                ps.setString(4, columnas[3]);
                 for (a = 5; a < 9; a++) {
                     ps.setString(a, "");
                 }
-                for (a = 9; a < 18; a++) {
+                ps.setInt(9, v.busca_NFACTOR_DE_VENTA(codigo));
+                ps.setInt(10, v.busca_NFACTOR_DE_CONSUMO(codigo));
+                for (a = 11; a < 18; a++) {
                     ps.setDouble(a, 0.0);
                 }
                 for (a = 18; a < 42; a++) {
@@ -138,12 +143,12 @@ public class Carga_chess extends javax.swing.JInternalFrame {
                 for (a = 42; a < 84; a++) {
                     ps.setDouble(a, 0.0);
                 }
-                for (a = 84; a < 95; a++) {
+                for (a = 84; a < 94; a++) {
                     ps.setString(a, "");
                 }
-
-                ps.setString(95, columnas[3]);
-                ps.setString(96, columnas[5]);
+                ps.setString(94, columnas[2]);
+                ps.setString(95, columnas[6]);
+                ps.setString(96, columnas[7]);
                 ps.setDate(97, fechaSQL);
 
                 ps.executeUpdate();
@@ -151,7 +156,7 @@ public class Carga_chess extends javax.swing.JInternalFrame {
             }
             JOptionPane loadingService = new JOptionPane("Connecting to service. Please wait.");
             loadingService.setVisible(true);
-            v.tranfiere_factores(v.txtSqlFecha(fechaSQL));
+//            v.tranfiere_factores(v.txtSqlFecha(fechaSQL));
             v.carga_totales_chess(v.txtSqlFecha(fechaSQL));
             
             jTextPane1.setText("Proceso concluido......");
@@ -161,4 +166,9 @@ public class Carga_chess extends javax.swing.JInternalFrame {
         }
 
     }
+
+    
+   
+
+    
 }

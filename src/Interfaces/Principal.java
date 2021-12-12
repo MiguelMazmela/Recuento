@@ -51,12 +51,14 @@ public class Principal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        Rex = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        LOTES = new javax.swing.JButton();
+        Chess = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -172,15 +174,15 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel2.setBackground(java.awt.SystemColor.activeCaption);
 
-        jButton1.setBackground(java.awt.SystemColor.activeCaption);
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cerrarb.png"))); // NOI18N
-        jButton1.setText("Cargar Rex");
-        jButton1.setBorderPainted(false);
-        jButton1.setOpaque(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Rex.setBackground(java.awt.SystemColor.activeCaption);
+        Rex.setForeground(new java.awt.Color(255, 255, 255));
+        Rex.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cerrarb.png"))); // NOI18N
+        Rex.setText("Cargar Rex");
+        Rex.setBorderPainted(false);
+        Rex.setOpaque(false);
+        Rex.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                RexActionPerformed(evt);
             }
         });
 
@@ -203,15 +205,27 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(java.awt.SystemColor.activeCaption);
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cerrarb.png"))); // NOI18N
-        jButton3.setText("Cargar Chess");
-        jButton3.setBorderPainted(false);
-        jButton3.setOpaque(false);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        LOTES.setBackground(java.awt.SystemColor.activeCaption);
+        LOTES.setForeground(new java.awt.Color(255, 255, 255));
+        LOTES.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/lista.png"))); // NOI18N
+        LOTES.setText("mantenimiento de lotes");
+        LOTES.setBorderPainted(false);
+        LOTES.setOpaque(false);
+        LOTES.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                LOTESActionPerformed(evt);
+            }
+        });
+
+        Chess.setBackground(java.awt.SystemColor.activeCaption);
+        Chess.setForeground(new java.awt.Color(255, 255, 255));
+        Chess.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cerrarb.png"))); // NOI18N
+        Chess.setText("Cargar Chess");
+        Chess.setBorderPainted(false);
+        Chess.setOpaque(false);
+        Chess.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ChessActionPerformed(evt);
             }
         });
 
@@ -223,8 +237,9 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(66, 66, 66)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3)
-                    .addComponent(jButton1))
+                    .addComponent(LOTES)
+                    .addComponent(Rex)
+                    .addComponent(Chess))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -239,30 +254,45 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Rex, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Chess, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(88, 88, 88)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2))))
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addComponent(LOTES, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Almacenes", jPanel2);
 
         jPanel3.setBackground(java.awt.SystemColor.activeCaption);
 
+        jButton1.setText("Temporal codigos");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 925, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(723, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(43, 43, 43))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 521, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(469, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(27, 27, 27))
         );
 
         jTabbedPane1.addTab("tab2", jPanel3);
@@ -1209,7 +1239,7 @@ public class Principal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem35ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void RexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RexActionPerformed
         // TODO add your handling code here:
 
         Ingreso_de_Stock_fecha isf;
@@ -1217,16 +1247,17 @@ public class Principal extends javax.swing.JFrame {
         this.Principal.add(isf);
         isf.setVisible(true);
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_RexActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void LOTESActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LOTESActionPerformed
         // TODO add your handling code here:
-        Carga_chess pp = new Carga_chess(v);
-        this.Principal.add(pp);
-        pp.setVisible(true);
+        
+        lotes lt=new lotes(v);
+        this.Principal.add(lt);
+        lt.setVisible(true);
 
 
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_LOTESActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -1236,17 +1267,37 @@ public class Principal extends javax.swing.JFrame {
         rcf.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void ChessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChessActionPerformed
+        // TODO add your handling code here:
+        
+        Carga_chess pp = new Carga_chess(v);
+        this.Principal.add(pp);
+        pp.setVisible(true);
+        
+    }//GEN-LAST:event_ChessActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        tempral_codigos tc=new tempral_codigos(v);
+        this.Principal.add(tc);
+        tc.setVisible(true);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Analisis_Cred_resumen_general;
     private javax.swing.JMenuItem Analisis_Cred_resumen_por_vendedor;
+    private javax.swing.JButton Chess;
     private javax.swing.JMenuItem Crea_tablas;
     private javax.swing.JMenu Informes;
+    private javax.swing.JButton LOTES;
     private javax.swing.JDesktopPane Principal;
     private javax.swing.JMenu Recepciones;
+    private javax.swing.JButton Rex;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
