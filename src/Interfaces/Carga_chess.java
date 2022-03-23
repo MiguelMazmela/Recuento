@@ -7,7 +7,6 @@ package Interfaces;
 
 import Variables.Var;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.logging.Level;
@@ -54,6 +53,11 @@ public class Carga_chess extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTextPane1);
 
         jButton1.setText("Limpiar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cargar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -92,6 +96,11 @@ public class Carga_chess extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         lee_pantalla();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        jTextPane1.setText("");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -140,10 +149,17 @@ public class Carga_chess extends javax.swing.JInternalFrame {
                 for (a = 18; a < 42; a++) {
                     ps.setString(a, "");
                 }
-                for (a = 42; a < 84; a++) {
+                ps.setDouble(42, v.Calcula_NC_ALMA(codigo, Integer.parseInt(columnas[6].trim()),Integer.parseInt(columnas[7].trim())));
+                for (a = 43; a < 84; a++) {
                     ps.setDouble(a, 0.0);
                 }
-                for (a = 84; a < 94; a++) {
+                for (a = 84; a < 87; a++) {
+                    ps.setString(a, "");
+                }//87,88 implementar
+                ps.setString(87, v.BuscaGrupo_1(codigo));
+                ps.setString(88, v.BuscaGrupo_2(codigo));
+                
+                for (a = 89; a < 94; a++) {
                     ps.setString(a, "");
                 }
                 ps.setString(94, columnas[2]);
@@ -157,7 +173,7 @@ public class Carga_chess extends javax.swing.JInternalFrame {
             JOptionPane loadingService = new JOptionPane("Connecting to service. Please wait.");
             loadingService.setVisible(true);
 //            v.tranfiere_factores(v.txtSqlFecha(fechaSQL));
-            v.carga_totales_chess(v.txtSqlFecha(fechaSQL));
+//            v.carga_totales_chess(v.txtSqlFecha(fechaSQL));
             
             jTextPane1.setText("Proceso concluido......");
             loadingService.setVisible(false);
