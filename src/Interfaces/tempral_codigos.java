@@ -112,7 +112,7 @@ public class tempral_codigos extends javax.swing.JInternalFrame {
         int tf = filas.length;
         java.sql.Date fechaSQL = new java.sql.Date(fecha.getTime());
         String sql = "UPDATE factores "
-                    + "SET CART_ID_CHESS =? "
+                    + "SET CART_ID_CHESS =?, NFACTOR_DE_VENTA=?, NFACTOR_DE_CONSUMO=? "
                     + "WHERE Cart_Id = ?";
         try {
             PreparedStatement ps = v.getCon().prepareStatement(sql);
@@ -120,7 +120,10 @@ public class tempral_codigos extends javax.swing.JInternalFrame {
                 String columnas[] = filas[z].split("\\t");
 //                int a = 0;
                 ps.setString(1, columnas[1].trim());
-                ps.setString(2, columnas[0].trim());
+                ps.setString(2,columnas[2].trim());
+                ps.setString(3,columnas[3].trim());
+                ps.setString(4, columnas[0].trim());
+                
                 ps.executeUpdate();
             }
         } catch (SQLException ex) {

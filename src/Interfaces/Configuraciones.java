@@ -46,7 +46,9 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         comprobantes();
         cargas();
         proveedores();
-        
+        consultas();
+        filtros();
+
     }
 
     /**
@@ -159,6 +161,24 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         jPanel19 = new javax.swing.JPanel();
         jPanel20 = new javax.swing.JPanel();
         jButton16 = new javax.swing.JButton();
+        jButton18 = new javax.swing.JButton();
+        jPanel21 = new javax.swing.JPanel();
+        jPanel22 = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTable6 = new javax.swing.JTable();
+        Btn_operacion = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        jButton17 = new javax.swing.JButton();
+        jPanel23 = new javax.swing.JPanel();
+        jcb_prov_filtro = new javax.swing.JComboBox<>();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jTF_filtro = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jTable7 = new javax.swing.JTable();
+        jB_filtro_guardar = new javax.swing.JButton();
+        jB_filtro_borrar = new javax.swing.JButton();
 
         jCheckBox1.setText("jCheckBox1");
 
@@ -216,7 +236,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
                     .addComponent(jButton6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 342, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 479, Short.MAX_VALUE)
                 .addComponent(guarda_impuestos)
                 .addContainerGap())
         );
@@ -412,7 +432,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -460,9 +480,9 @@ public class Configuraciones extends javax.swing.JInternalFrame {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jTable2AncestorAdded(evt);
             }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jTable2.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -585,7 +605,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addComponent(jCheckBox2)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
@@ -811,7 +831,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 599, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Cargas", jPanel11);
@@ -949,7 +969,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 599, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Proveedores", jPanel14);
@@ -1029,7 +1049,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
                         .addComponent(crea_tabla_sistema)
                         .addComponent(borra_tabla_sistema))
                     .addComponent(jLabel20))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 331, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 468, Short.MAX_VALUE)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(existe_lotes)
@@ -1054,10 +1074,17 @@ public class Configuraciones extends javax.swing.JInternalFrame {
 
         jPanel20.setBackground(new java.awt.Color(0, 255, 51));
 
-        jButton16.setText("Modi estru factores");
+        jButton16.setText("Modi estru factores 1");
         jButton16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton16ActionPerformed(evt);
+            }
+        });
+
+        jButton18.setText("Modi estru factores 2");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
             }
         });
 
@@ -1067,15 +1094,19 @@ public class Configuraciones extends javax.swing.JInternalFrame {
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel20Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton16)
-                .addContainerGap(1010, Short.MAX_VALUE))
+                .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton16)
+                    .addComponent(jButton18))
+                .addContainerGap(1028, Short.MAX_VALUE))
         );
         jPanel20Layout.setVerticalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel20Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton16)
-                .addContainerGap(409, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton18)
+                .addContainerGap(518, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
@@ -1090,6 +1121,157 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         );
 
         jTabbedPane1.addTab("Actualizaciones", jPanel19);
+
+        jPanel22.setBackground(java.awt.Color.green);
+        jPanel22.setBorder(javax.swing.BorderFactory.createTitledBorder("||"));
+
+        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane7.setViewportView(jTable6);
+
+        Btn_operacion.setText("jTextField9");
+
+        jLabel21.setText("OPERACION  :");
+
+        jButton17.setText("jButton17");
+
+        javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
+        jPanel22.setLayout(jPanel22Layout);
+        jPanel22Layout.setHorizontalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane7)
+            .addGroup(jPanel22Layout.createSequentialGroup()
+                .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Btn_operacion, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel22Layout.setVerticalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel22Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Btn_operacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21)
+                    .addComponent(jButton17))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jPanel23.setBackground(java.awt.Color.cyan);
+        jPanel23.setBorder(javax.swing.BorderFactory.createTitledBorder("[]"));
+
+        jcb_prov_filtro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcb_prov_filtro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcb_prov_filtroActionPerformed(evt);
+            }
+        });
+
+        jLabel22.setBackground(java.awt.Color.magenta);
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel22.setText("FILTROS");
+
+        jLabel23.setText("PROVEEDOR  :");
+
+        jTF_filtro.setText("jTextField9");
+
+        jLabel24.setText("FILTRO   :");
+
+        jTable7.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane8.setViewportView(jTable7);
+
+        jB_filtro_guardar.setText("Guardar");
+        jB_filtro_guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_filtro_guardarActionPerformed(evt);
+            }
+        });
+
+        jB_filtro_borrar.setText("Borrar");
+        jB_filtro_borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_filtro_borrarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
+        jPanel23.setLayout(jPanel23Layout);
+        jPanel23Layout.setHorizontalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel23Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
+                    .addGroup(jPanel23Layout.createSequentialGroup()
+                        .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                            .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTF_filtro)
+                            .addComponent(jcb_prov_filtro, 0, 207, Short.MAX_VALUE))
+                        .addGap(42, 42, 42)
+                        .addComponent(jB_filtro_guardar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jB_filtro_borrar)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        jPanel23Layout.setVerticalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel23Layout.createSequentialGroup()
+                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcb_prov_filtro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTF_filtro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel24)
+                    .addComponent(jB_filtro_guardar)
+                    .addComponent(jB_filtro_borrar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
+        jPanel21.setLayout(jPanel21Layout);
+        jPanel21Layout.setHorizontalGroup(
+            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel21Layout.createSequentialGroup()
+                .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel21Layout.setVerticalGroup(
+            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Consultas", jPanel21);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1243,20 +1425,19 @@ public class Configuraciones extends javax.swing.JInternalFrame {
 
     private void crea_tabla_lotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crea_tabla_lotesActionPerformed
         // TODO add your handling code here:
-        
+
         creaBLotes();
 
     }//GEN-LAST:event_crea_tabla_lotesActionPerformed
 
     private void borra_tabla_lotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borra_tabla_lotesActionPerformed
         // TODO add your handling code here:
-        String sqlb="DROP TABLE IF EXISTS lotes;";
-        
+        String sqlb = "DROP TABLE IF EXISTS lotes;";
+
         try {
             PreparedStatement ps1 = v.conectar().prepareStatement(sqlb);
             ps1.executeUpdate();
-            
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1273,28 +1454,90 @@ public class Configuraciones extends javax.swing.JInternalFrame {
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
-        String sql1="alter table  FACTORES add Cart_Id_Chess nvarchar(8)";
-        String sql2="alter table  FACTORES add Cart_Id_Barras nvarchar(50)";
-        String sql3="alter table  FACTORES add Cart_Id_Barras_uni nvarchar(50)";
+        String sql1 = "alter table  FACTORES add Cart_Id_Chess nvarchar(8)";
+        String sql2 = "alter table  FACTORES add Cart_Id_Barras nvarchar(50)";
+        String sql3 = "alter table  FACTORES add Cart_Id_Barras_uni nvarchar(50)";
         try {
             PreparedStatement ps1 = v.conectar().prepareStatement(sql1);
             ps1.executeUpdate();
             PreparedStatement ps2 = v.conectar().prepareStatement(sql2);
-            ps1.executeUpdate();
+            ps2.executeUpdate();
             PreparedStatement ps3 = v.conectar().prepareStatement(sql3);
-            ps1.executeUpdate();
-            
-            
+            ps3.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jcb_prov_filtroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcb_prov_filtroActionPerformed
+        // TODO add your handling code here:
+                if (jcb_prov_filtro.getSelectedItem() == null) {
+
+        } else {
+            Carga_data_filtro();
+        }
+
+
+    }//GEN-LAST:event_jcb_prov_filtroActionPerformed
+
+    private void jB_filtro_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_filtro_guardarActionPerformed
+        // TODO add your handling code here:
+        graba_filtro();
+        
+    }//GEN-LAST:event_jB_filtro_guardarActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        // TODO add your handling code here:
+        String sql1 = "alter table  FACTORES add grupo1 nvarchar(50)";
+        String sql2 = "alter table  FACTORES add grupo2 nvarchar(50)";
+        String sql3 = "alter table  FACTORES add Cart_Id_Barras_disp nvarchar(50)";
+        try {
+//            PreparedStatement ps1 = v.conectar().prepareStatement(sql1);
+//            ps1.executeUpdate();
+            PreparedStatement ps2 = v.conectar().prepareStatement(sql2);
+            ps2.executeUpdate();
+            PreparedStatement ps3 = v.conectar().prepareStatement(sql3);
+            ps3.executeUpdate();
+
         } catch (SQLException ex) {
             Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jB_filtro_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_filtro_borrarActionPerformed
+        // TODO add your handling code here:
         
-        
-    }//GEN-LAST:event_jButton16ActionPerformed
+        int fila;
+        PreparedStatement ps;
+
+        fila = jTable7.getSelectedRow();
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna fila.");
+        } else {
+            //aca toma el numero de fila seleccionada
+            String numero = (String) jTable7.getValueAt(fila, 0);
+            String codigo = (String) jTable7.getValueAt(fila, 1);
+            String sql = "DELETE FROM CONFIG WHERE CLAVE='" + numero
+                    + "' and VALOR='" +codigo  + "'";
+            try {
+                ps = v.conectar().prepareStatement(sql);
+                ps.executeUpdate();
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+        Carga_data_filtro();
+    }//GEN-LAST:event_jB_filtro_borrarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Btn_operacion;
     private javax.swing.JCheckBox Guias;
     private javax.swing.JCheckBox Piso;
     private javax.swing.JCheckBox Vencidos;
@@ -1307,6 +1550,8 @@ public class Configuraciones extends javax.swing.JInternalFrame {
     private javax.swing.JCheckBox existe_lotes;
     private javax.swing.JCheckBox existe_sistema;
     private javax.swing.JButton guarda_impuestos;
+    private javax.swing.JButton jB_filtro_borrar;
+    private javax.swing.JButton jB_filtro_guardar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -1315,6 +1560,8 @@ public class Configuraciones extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1348,6 +1595,10 @@ public class Configuraciones extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1368,6 +1619,9 @@ public class Configuraciones extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -1381,12 +1635,17 @@ public class Configuraciones extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JTextField jTF_filtro;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;
+    private javax.swing.JTable jTable6;
+    private javax.swing.JTable jTable7;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
@@ -1395,6 +1654,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
+    private javax.swing.JComboBox<String> jcb_prov_filtro;
     private javax.swing.JRadioButton sin_fechas;
     // End of variables declaration//GEN-END:variables
 
@@ -2030,6 +2290,8 @@ public class Configuraciones extends javax.swing.JInternalFrame {
                 ResultSet rs = ps.executeQuery();
 
                 while (rs.next()) {
+                    borra_vencidos(rs.getString("CART_ID"));
+
                     String sql1 = "SELECT sum(TOTAL) suma "
                             + "FROM VENCIDOS "
                             + "where CPROV_NOM ='" + v.getLina_seleccionada() + "' "
@@ -2044,6 +2306,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
                     ResultSet rs1 = ps1.executeQuery();
                     rs1.next();
                     Double suma;
+
                     String sSQL = "UPDATE sistema_fecha SET "
                             + "Nc_Alma1=?,Nc_Alma2=?,NC_ALMA16=?"
                             + " WHERE Cart_Id=? and Fecha_recuento='" + v.getFecha_recuento_selecionada() + "'";
@@ -2093,9 +2356,10 @@ public class Configuraciones extends javax.swing.JInternalFrame {
                             + "and CART_ID ='" + rs.getNString("CART_ID") + "' "
                             //                        + "and desc='"+desc+"' "
                             + "and TIPO_OP ='" + TIPO_OP + "' ";
-
+                    
                     String codigo = rs.getNString("CART_ID");
                     Double Almacen = rs.getDouble("NC_ALMA");
+                    borra_piso(codigo);
                     PreparedStatement ps1 = v.conectar().prepareStatement(sql1);
                     ResultSet rs1 = ps1.executeQuery();
                     rs1.next();
@@ -2130,7 +2394,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
                 Logger.getLogger(Ingreso_vencidos.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
+
         if (Guias.isSelected()) {
             String sql = "SELECT CART_ID,NC_ALMA,Nc_Alma1 FROM SISTEMA_FECHA  where CPROV_NOM ='"
                     + v.getLina_seleccionada() + "' and FECHA_RECUENTO ='" + v.getFecha_recuento_selecionada() + "'";
@@ -2152,7 +2416,8 @@ public class Configuraciones extends javax.swing.JInternalFrame {
 
                     String codigo = rs.getNString("CART_ID");
                     Double Almacen = rs.getDouble("NC_ALMA");
-                    Double saldo_inicial=rs.getDouble("Nc_Alma1");
+                    borra_devuelto(codigo);
+                    Double saldo_inicial = rs.getDouble("Nc_Alma1");
                     PreparedStatement ps1 = v.conectar().prepareStatement(sql1);
                     ResultSet rs1 = ps1.executeQuery();
                     rs1.next();
@@ -2167,9 +2432,9 @@ public class Configuraciones extends javax.swing.JInternalFrame {
                     } else {
                         suma = rs1.getDouble("suma");
                     }
-                    
-                    saldo = Almacen - suma-saldo_inicial;
-                    ps2.setDouble(1, suma+saldo_inicial);
+
+                    saldo = Almacen - suma - saldo_inicial;
+                    ps2.setDouble(1, suma + saldo_inicial);
                     ps2.setDouble(2, saldo);
                     ps2.setDouble(3, suma);// agrega los vencidos en la columna NC_ALMA16
                     ps2.setString(4, codigo);
@@ -2188,7 +2453,6 @@ public class Configuraciones extends javax.swing.JInternalFrame {
                 Logger.getLogger(Ingreso_vencidos.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
 
     }
 
@@ -2205,11 +2469,10 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         jButton15.setEnabled(false);
         jButton14.setText("EDIT");
         jButton15.setText("BORRAR");
-      carga_tabla5();
-        
-        
-        
+        carga_tabla5();
+
     }
+
     private void carga_cabezeras_tabla5() {
         String[] colu = {"CODIGO", "DESCRIPCION"};
         DefaultTableModel modelo;
@@ -2243,6 +2506,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
 //        jTable1.getColumnModel().getColumn(8).setCellRenderer(tcr);
         jTable5.setModel(modelo);
     }
+
     private void carga_tabla5() {
 //        DecimalFormat formatea = v.MyFormatter();
 //        carga_cabezeras_tabla5();
@@ -2250,8 +2514,6 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         modelo = (DefaultTableModel) jTable5.getModel();
 //        v.borratabla(modelo);
         carga_cabezeras_tabla5();
-        
-        
 
         try {
 
@@ -2275,24 +2537,24 @@ public class Configuraciones extends javax.swing.JInternalFrame {
 
     private void guarda_proveedores() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        String sql="INSERT INTO proveedores VALUES(?, ?);";
-        
+        String sql = "INSERT INTO proveedores VALUES(?, ?);";
+
         try {
             PreparedStatement ps = v.conectar().prepareStatement(sql);
             ps.setString(1, jTextField7.getText().toUpperCase().trim());
             ps.setString(2, jTextField8.getText().toUpperCase().trim());
             ps.executeUpdate();
             carga_tabla5();
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     private void borra_tabla5() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                int fila;
+        int fila;
         PreparedStatement ps;
 
         fila = jTable5.getSelectedRow();
@@ -2308,7 +2570,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
 //            Recu = Recu.replace(",", "");
 //            double recu = Double.parseDouble(Recu);
 //            double contado = 0, saldo = 0;
-            String sql = "DELETE FROM proveedores WHERE id='" + numero+"'";
+            String sql = "DELETE FROM proveedores WHERE id='" + numero + "'";
 //                    + "' and Fecha_recuento='" + var.getFecha_recuento_selecionada() + "'";
 //            String sql1 = "select Nc_Alma,Nc_Alma1,Nc_Alma2 from sistema_fecha WHERE Fecha_recuento='"
 //                    + var.getFecha_recuento_selecionada() + "' and Cprov_Nom='"
@@ -2319,7 +2581,6 @@ public class Configuraciones extends javax.swing.JInternalFrame {
                 ps.executeUpdate();
                 // hasta aca borró el registro de recuento
                 // busca en sistemas el producto para restarle lo borrado
-
 
                 if (ps.executeUpdate() > 0) {
 
@@ -2342,52 +2603,48 @@ public class Configuraciones extends javax.swing.JInternalFrame {
 
         }
 
-
-    
-        
-        
     }
 
     private void creaBLotes() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        
-        String sql="CREATE TABLE lotes(lote varchar(50) primary key, "
+
+        String sql = "CREATE TABLE lotes(lote varchar(50) primary key, "
                 + "Cart_Id nvarchar (8),"
                 + "Cart_Nom nvarchar (100),"
                 + "dfecha_vencimiento Date,"
                 + "Cubicacion nvarchar(30))";
-        String sqlb="DROP TABLE IF EXISTS lotes;";
-        
+        String sqlb = "DROP TABLE IF EXISTS lotes;";
+
         try {
             PreparedStatement ps1 = v.conectar().prepareStatement(sqlb);
             ps1.executeUpdate();
-            ps1=v.conectar().prepareStatement(sql);
+            ps1 = v.conectar().prepareStatement(sql);
             ps1.executeUpdate();
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         inicia();
-        
+
     }
-    boolean existe_tabla(String tabla){
-        boolean respuesta=false;
-        String sql="SELECT * FROM INFORMATION_SCHEMA.TABLES";
+
+    boolean existe_tabla(String tabla) {
+        boolean respuesta = false;
+        String sql = "SELECT * FROM INFORMATION_SCHEMA.TABLES";
         try {
             PreparedStatement ps1 = v.conectar().prepareStatement(sql);
-            ResultSet rs=ps1.executeQuery();
-            while(rs.next()){
-                if(rs.getString("TABLE_NAME").equals(tabla.toUpperCase())){
-                    respuesta=true;
+            ResultSet rs = ps1.executeQuery();
+            while (rs.next()) {
+                if (rs.getString("TABLE_NAME").equals(tabla.toUpperCase())) {
+                    respuesta = true;
                 }
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
         return respuesta;
     }
 
@@ -2397,10 +2654,180 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         existe_lotes.setSelected(existe_tabla("LOTES"));
         crea_tabla_lotes.setEnabled(!existe_tabla("LOTES"));
         borra_tabla_lotes.setEnabled(existe_tabla("LOTES"));
-        
+
         existe_sistema.setSelected(existe_tabla("SISTEMA"));
         crea_tabla_sistema.setEnabled(!existe_tabla("SISTEMA"));
         borra_tabla_sistema.setEnabled(existe_tabla("SISTEMA"));
+
+    }
+
+    private void borra_vencidos(String codigo) {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sSQL = "UPDATE sistema_fecha SET "
+                + "NC_ALMA16=0"
+                + " WHERE Cart_Id=? and Fecha_recuento='" + v.getFecha_recuento_selecionada() + "'";
+
+        try {
+            PreparedStatement ps2 = v.conectar().prepareStatement(sSQL);
+            ps2.setString(1, codigo);
+            ps2.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void borra_piso(String codigo) {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sSQL = "UPDATE sistema_fecha SET "
+                + "NC_ALMA15=0"
+                + " WHERE Cart_Id=? and Fecha_recuento='" + v.getFecha_recuento_selecionada() + "'";
+
+        try {
+            PreparedStatement ps2 = v.conectar().prepareStatement(sSQL);
+            ps2.setString(1, codigo);
+            ps2.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void borra_devuelto(String codigo) {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sSQL = "UPDATE sistema_fecha SET "
+                + "NC_ALMA17=0"
+                + " WHERE Cart_Id=? and Fecha_recuento='" + v.getFecha_recuento_selecionada() + "'";
+
+        try {
+            PreparedStatement ps2 = v.conectar().prepareStatement(sSQL);
+            ps2.setString(1, codigo);
+            ps2.executeUpdate();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void consultas() {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Btn_operacion.setText("");
+        jButton17.setText("OK");
+        String[] colu = {"OPERACION"};
+        DefaultTableModel modelo;
+        modelo = (DefaultTableModel) jTable6.getModel();
+        modelo.setColumnIdentifiers(colu);
+
+        v.borratabla(modelo);
+        DefaultTableCellRenderer tcr;
+        TableColumnModel columnModel = jTable6.getColumnModel();
+        columnModel.getColumn(0).setPreferredWidth(80);
+        
         
     }
+
+    private void filtros() {
+////        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
+        String sql;
+        jcb_prov_filtro.removeAllItems();
+        jTF_filtro.setText("");
+        try{
+    sql = "SELECT DISTINCT nombre FROM proveedores";
+            PreparedStatement ps = v.getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                jcb_prov_filtro.addItem(rs.getNString(1));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Borrar_por_fecha.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        carga_cabez_filtro();
+    }
+
+    private void Carga_data_filtro() {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
+        String sql="select * from config where clave='"+jcb_prov_filtro.getSelectedItem().toString().trim()+"'";
+            
+        try {
+            PreparedStatement ps = v.getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            DefaultTableModel modelo;
+            modelo = (DefaultTableModel) jTable7.getModel();
+            v.borratabla(modelo);
+            int coluf = 2;
+
+            Object[] fila = new Object[coluf]; // Hay tres columnas en la tabla
+//            DecimalFormat formatea = var.MyFormatter();
+            while (rs.next()) {
+                fila[0] = rs.getString("CLAVE");
+                fila[1] = rs.getString("VALOR");
+                modelo.addRow(fila);
+            }
+            jTable7.setModel(modelo);
+        } catch (SQLException ex) {
+            Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+
+    private void graba_filtro() {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String sql="INSERT INTO config VALUES(?, ?)";
+        
+        try {
+            PreparedStatement ps = v.conectar().prepareStatement(sql);
+            ps.setString(1, jcb_prov_filtro.getSelectedItem().toString().trim());
+            ps.setString(2, jTF_filtro.getText().toUpperCase().trim());
+            ps.executeUpdate();
+            Carga_data_filtro();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+
+    private void carga_cabez_filtro() {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            String[] colu = {"PROVEEDOR", "DESCRIPCION"};
+        DefaultTableModel modelo;
+        modelo = (DefaultTableModel) jTable7.getModel();
+        modelo.setColumnIdentifiers(colu);
+
+        v.borratabla(modelo);
+
+        DefaultTableCellRenderer tcr;
+        TableColumnModel columnModel = jTable7.getColumnModel();
+        columnModel.getColumn(1).setPreferredWidth(230);
+//        columnModel.getColumn(2).setPreferredWidth(230);
+//        columnModel.getColumn(3).setPreferredWidth(60);
+//        columnModel.getColumn(4).setPreferredWidth(60);
+//        columnModel.getColumn(5).setPreferredWidth(60);
+//        columnModel.getColumn(6).setPreferredWidth(60);
+//        columnModel.getColumn(7).setPreferredWidth(75);
+//
+//        columnModel.getColumn(0).setPreferredWidth(0);
+//        columnModel.getColumn(7).setPreferredWidth(60);
+//        columnModel.getColumn(8).setPreferredWidth(90);
+//        columnModel.getColumn(9).setPreferredWidth(90);
+//        columnModel.getColumn(10).setPreferredWidth(90);
+//        columnModel.getColumn(11).setPreferredWidth(90);
+//        columnModel.getColumn(12).setPreferredWidth(90);
+//        columnModel.getColumn(13).setPreferredWidth(90);
+//
+//        tcr = new DefaultTableCellRenderer();
+//        tcr.setHorizontalAlignment(SwingConstants.RIGHT); //CENTER o LEFT
+//        jTable1.getColumnModel().getColumn(3).setCellRenderer(tcr);
+//        jTable1.getColumnModel().getColumn(4).setCellRenderer(tcr);
+//        jTable1.getColumnModel().getColumn(5).setCellRenderer(tcr);
+//        jTable1.getColumnModel().getColumn(6).setCellRenderer(tcr);
+//        jTable1.getColumnModel().getColumn(8).setCellRenderer(tcr);
+        jTable7.setModel(modelo);
+
+    
+    }
+    
 }

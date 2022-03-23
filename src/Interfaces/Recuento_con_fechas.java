@@ -57,6 +57,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -88,6 +89,9 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        Chess = new javax.swing.JRadioButton();
+        Rex = new javax.swing.JRadioButton();
+        jComboBox5 = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -284,7 +288,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
                         .addComponent(jtdia, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
                         .addComponent(jtmes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 40, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jtaño, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(53, 53, 53))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -296,7 +300,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(94, 94, 94)
                         .addComponent(jButton2))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -435,23 +439,50 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
             }
         });
 
+        buttonGroup1.add(Chess);
+        Chess.setText("Chess");
+        Chess.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ChessMouseClicked(evt);
+            }
+        });
+
+        buttonGroup1.add(Rex);
+        Rex.setText("Rex");
+        Rex.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RexMouseClicked(evt);
+            }
+        });
+
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(54, 54, 54)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(jButton5)
-                .addGap(98, 98, 98)
-                .addComponent(jButton3)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Chess, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(Rex)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -459,16 +490,27 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(Chess)
+                        .addGap(8, 8, 8)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton5))
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(Rex)
+                            .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton5))
+                                .addGap(10, 10, 10))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel5)
+                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -495,8 +537,8 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
         );
 
         jPanel5.setBackground(new java.awt.Color(102, 255, 102));
@@ -729,9 +771,9 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -743,9 +785,9 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -759,16 +801,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        DecimalFormat formatea = var.MyFormatter();
-        Componentes_SetEnable(true);
-        var.setFecha_recuento_selecionada(var.deTextoFechaUtilATextoFechaSql(jComboBox1.getSelectedItem().toString()));
-        var.setLina_seleccionada(jComboBox2.getSelectedItem().toString());
-        var.setSecuencia(0);
-        carga_tabla_lista();
-        carga_tabla_cuenta();
-        jTextField5.setText(String.valueOf(formatea.format(var.getTotalXlinea())));
-        jTextField6.setText(String.valueOf(formatea.format(var.getTotal_contado())));
-        jTextField7.setText(String.valueOf(formatea.format(var.getTotal_diferencia())));
+        ok_carga();
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -1374,17 +1407,33 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         recorre();
 //        var.tranfiere_factores(Fecha_seleccionada_txt);
-        var.carga_totales_chess(var.getFecha_recuento_selecionada());
+//        var.carga_totales_chess(var.getFecha_recuento_selecionada());
 
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void ChessMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ChessMouseClicked
+        // TODO add your handling code here:
+        var.setEs_chess(Chess.isSelected());
+        carga_cabeceras2(Chess.isSelected());
+
+    }//GEN-LAST:event_ChessMouseClicked
+
+    private void RexMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RexMouseClicked
+        // TODO add your handling code here:
+        carga_cabeceras2(Chess.isSelected());
+
+    }//GEN-LAST:event_RexMouseClicked
 //>>>>>>> revision
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton Chess;
     private javax.swing.JToggleButton Filra_los_que_cuaadran;
     private javax.swing.JCheckBox Igv;
     private javax.swing.JTextField JTFCodigo;
     private javax.swing.JTextField JTFTotal;
+    private javax.swing.JRadioButton Rex;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JToggleButton consulta;
     private javax.swing.JToggleButton filtra_sin_saldo;
     private javax.swing.JButton jBEditar;
@@ -1397,6 +1446,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1475,7 +1525,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
             Logger.getLogger(Borrar_por_fecha.class.getName()).log(Level.SEVERE, null, ex);
         }
 //        Carga_lineas();
-        carga_cabeceras2();
+        carga_cabeceras2(Chess.isSelected());
         carga_cabeceras1();
 
         jLabel9.setText("");
@@ -1483,23 +1533,24 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
 
     }
 
-    private void carga_cabeceras2() {
+    private void carga_cabeceras2(Boolean chess) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //        TableModel modelo =jTable2.getModel();
-        String[] colu = {"CODIGO", "DESCRIPCION", "CANTIDAD", "RECUENTO", "DIFERENCIA", "PISO", "VENCIDO", "GUIA"};
-        DefaultTableModel modelo;
-        modelo = (DefaultTableModel) jTable2.getModel();
-        modelo.setColumnIdentifiers(colu);
+        if (chess) {
+            String[] colu = {"CODIGO", "DESCRIPCION", "BULTOS", "UNIDADES", "BULTOS", "UNIDADES", "BULTOS", "UNIDADES"};
+            DefaultTableModel modelo;
+            modelo = (DefaultTableModel) jTable2.getModel();
+            modelo.setColumnIdentifiers(colu);
 
-        borratabla(modelo);
-        jTable2.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
-        DefaultTableCellRenderer tcr;
-        TableColumnModel columnModel = jTable2.getColumnModel();
-        columnModel.getColumn(0).setPreferredWidth(85);
-        columnModel.getColumn(1).setPreferredWidth(230);
-        columnModel.getColumn(2).setPreferredWidth(80);
-        columnModel.getColumn(3).setPreferredWidth(80);
-        columnModel.getColumn(4).setPreferredWidth(80);
+            borratabla(modelo);
+            jTable2.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+            DefaultTableCellRenderer tcr;
+            TableColumnModel columnModel = jTable2.getColumnModel();
+            columnModel.getColumn(0).setPreferredWidth(85);
+            columnModel.getColumn(1).setPreferredWidth(230);
+            columnModel.getColumn(2).setPreferredWidth(80);
+            columnModel.getColumn(3).setPreferredWidth(80);
+            columnModel.getColumn(4).setPreferredWidth(80);
 //        columnModel.getColumn(5).setPreferredWidth(90);
 //        columnModel.getColumn(6).setPreferredWidth(90);
 //        columnModel.getColumn(7).setPreferredWidth(60);
@@ -1510,16 +1561,50 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
 //        columnModel.getColumn(12).setPreferredWidth(90);
 //        columnModel.getColumn(13).setPreferredWidth(90);
 
-        tcr = new DefaultTableCellRenderer();
-        tcr.setHorizontalAlignment(SwingConstants.RIGHT); //CENTER o LEFT
-        jTable2.getColumnModel().getColumn(2).setCellRenderer(tcr);
-        jTable2.getColumnModel().getColumn(3).setCellRenderer(tcr);
-        jTable2.getColumnModel().getColumn(4).setCellRenderer(tcr);
-        jTable2.getColumnModel().getColumn(5).setCellRenderer(tcr);
-        jTable2.getColumnModel().getColumn(6).setCellRenderer(tcr);
-        jTable2.getColumnModel().getColumn(7).setCellRenderer(tcr);
-        jTable2.setModel(modelo);
+            tcr = new DefaultTableCellRenderer();
+            tcr.setHorizontalAlignment(SwingConstants.RIGHT); //CENTER o LEFT
+            jTable2.getColumnModel().getColumn(2).setCellRenderer(tcr);
+            jTable2.getColumnModel().getColumn(3).setCellRenderer(tcr);
+            jTable2.getColumnModel().getColumn(4).setCellRenderer(tcr);
+            jTable2.getColumnModel().getColumn(5).setCellRenderer(tcr);
+            jTable2.getColumnModel().getColumn(6).setCellRenderer(tcr);
+            jTable2.getColumnModel().getColumn(7).setCellRenderer(tcr);
+            jTable2.setModel(modelo);
+        } else {
+            String[] colu = {"CODIGO", "DESCRIPCION", "CANTIDAD", "RECUENTO", "DIFERENCIA", "PISO", "VENCIDO", "GUIA"};
+            DefaultTableModel modelo;
+            modelo = (DefaultTableModel) jTable2.getModel();
+            modelo.setColumnIdentifiers(colu);
 
+            borratabla(modelo);
+            jTable2.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+            DefaultTableCellRenderer tcr;
+            TableColumnModel columnModel = jTable2.getColumnModel();
+            columnModel.getColumn(0).setPreferredWidth(85);
+            columnModel.getColumn(1).setPreferredWidth(230);
+            columnModel.getColumn(2).setPreferredWidth(80);
+            columnModel.getColumn(3).setPreferredWidth(80);
+            columnModel.getColumn(4).setPreferredWidth(80);
+//        columnModel.getColumn(5).setPreferredWidth(90);
+//        columnModel.getColumn(6).setPreferredWidth(90);
+//        columnModel.getColumn(7).setPreferredWidth(60);
+//        columnModel.getColumn(8).setPreferredWidth(90);
+//        columnModel.getColumn(9).setPreferredWidth(90);
+//        columnModel.getColumn(10).setPreferredWidth(90);
+//        columnModel.getColumn(11).setPreferredWidth(90);
+//        columnModel.getColumn(12).setPreferredWidth(90);
+//        columnModel.getColumn(13).setPreferredWidth(90);
+
+            tcr = new DefaultTableCellRenderer();
+            tcr.setHorizontalAlignment(SwingConstants.RIGHT); //CENTER o LEFT
+            jTable2.getColumnModel().getColumn(2).setCellRenderer(tcr);
+            jTable2.getColumnModel().getColumn(3).setCellRenderer(tcr);
+            jTable2.getColumnModel().getColumn(4).setCellRenderer(tcr);
+            jTable2.getColumnModel().getColumn(5).setCellRenderer(tcr);
+            jTable2.getColumnModel().getColumn(6).setCellRenderer(tcr);
+            jTable2.getColumnModel().getColumn(7).setCellRenderer(tcr);
+            jTable2.setModel(modelo);
+        }
     }
 
     private void borratabla(DefaultTableModel modelo) {
@@ -1633,7 +1718,7 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
                 tiene_datos = true;
                 codigos.add(rs.getNString("Cart_Id"));
                 jComboBox3.addItem(rs.getString("Cart_Nom"));
-                var.setFiltro_carga_tabla(rs.getString("Cart_Nom").substring(0, 10));
+                var.setFiltro_carga_tabla(rs.getString("Cart_Nom").substring(0, 8));
             }
 //<<<<<<< HEAD
 
@@ -2164,18 +2249,33 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
 
     private void recorre() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        String sql = "SELECT CDESCRIPCION_CAT_3,CART_ID FROM SISTEMA_FECHA WHERE FECHA_RECUENTO='"+var.getFecha_recuento_selecionada()+"' AND CDESCRIPCION_CAT_3=CART_ID";
+        String sql = "SELECT CDESCRIPCION_CAT_3,CDESCRIPCION_CAT_4,CDESCRIPCION_CAT_5 FROM SISTEMA_FECHA WHERE FECHA_RECUENTO='" + var.getFecha_recuento_selecionada() + "'";
         String rex = "";
         String chess = "";
         PreparedStatement ps;
+        PreparedStatement ps1;
         try {
             ps = var.conectar().prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-                rex=var.codigo(rs.getString("CART_ID"));
-                chess=rs.getString("CDESCRIPCION_CAT_3");
-                Graba_codigo(rex, chess);
-                
+            while (rs.next()) {
+                String sSQL = "UPDATE sistema_fecha SET "
+                        + "Cart_Id=?,CPROV_ID=?,CPROV_NOM=?,NFACTOR_DE_VENTA=?,NFACTOR_DE_CONSUMO=?,NC_ALMA=?,CCATEGORIA_1=?,CCATEGORIA_2=?"
+                        + " WHERE CDESCRIPCION_CAT_3=? and Fecha_recuento='" + var.getFecha_recuento_selecionada() + "'";
+
+                chess = rs.getString("CDESCRIPCION_CAT_3");
+                String codigo = var.codigo(chess);
+                ps1 = var.conectar().prepareStatement(sSQL);
+                ps1.setString(1, codigo);
+                ps1.setString(2, var.CPROV_ID(codigo));
+                ps1.setString(3, var.CPROV_NOM(codigo));
+                ps1.setInt(4, var.busca_NFACTOR_DE_VENTA(codigo));
+                ps1.setInt(5, var.busca_NFACTOR_DE_CONSUMO(codigo));
+                ps1.setDouble(6, var.Calcula_NC_ALMA(codigo, rs.getInt("CDESCRIPCION_CAT_4"), rs.getInt("CDESCRIPCION_CAT_5")));
+                ps1.setString(7, var.BuscaGrupo_1(codigo));
+                ps1.setString(8, var.BuscaGrupo_2(codigo));
+                ps1.setString(9, chess);
+
+                ps1.executeUpdate();
 
             }
 
@@ -2183,27 +2283,39 @@ public class Recuento_con_fechas extends javax.swing.JInternalFrame {
             Logger.getLogger(Recuento_con_fechas.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        
     }
 
-    private void Graba_codigo(String rex, String chess) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        String sSQL = "UPDATE sistema_fecha SET "
-                + "Cart_Id=?,CPROV_ID=?,CPROV_NOM=?,NFACTOR_DE_VENTA=?,NFACTOR_DE_CONSUMO=?"
-                + " WHERE CDESCRIPCION_CAT_3=? and Fecha_recuento='" + var.getFecha_recuento_selecionada() + "'";
+    private void ok_carga() {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        DecimalFormat formatea = var.MyFormatter();
+        Componentes_SetEnable(true);
+        var.setFecha_recuento_selecionada(var.deTextoFechaUtilATextoFechaSql(jComboBox1.getSelectedItem().toString()));
+        var.setLina_seleccionada(jComboBox2.getSelectedItem().toString());
+        var.setSecuencia(0);
+        carga_tabla_lista();
+        carga_tabla_cuenta();
+        jTextField5.setText(String.valueOf(formatea.format(var.getTotalXlinea())));
+        jTextField6.setText(String.valueOf(formatea.format(var.getTotal_contado())));
+        jTextField7.setText(String.valueOf(formatea.format(var.getTotal_diferencia())));
+        carga_grupo_1();
 
+    }
+
+    private void carga_grupo_1() {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        jComboBox5.removeAllItems();
+        String ittem="";
         try {
-            PreparedStatement ps = var.conectar().prepareStatement(sSQL);
-            ps.setString(1, rex);
-            ps.setString(2, var.CPROV_ID(rex));
-            ps.setString(3, var.CPROV_NOM(rex));
-            ps.setInt(4, var.busca_NFACTOR_DE_VENTA(rex));
-            ps.setInt(5, var.busca_NFACTOR_DE_CONSUMO(rex));
-            ps.setString(6, chess);
-            ps.executeUpdate();
 
+            String sql = "select DISTINCT CCATEGORIA_1 from sistema_fecha";
+            PreparedStatement ps = var.getCon().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+//                ittem=
+                jComboBox5.addItem(rs.getString("CCATEGORIA_1"));
+            }
         } catch (SQLException ex) {
-            Logger.getLogger(Recuento_con_fechas.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Borrar_por_fecha.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

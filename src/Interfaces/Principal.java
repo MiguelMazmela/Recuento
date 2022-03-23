@@ -179,7 +179,6 @@ public class Principal extends javax.swing.JFrame {
         Rex.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cerrarb.png"))); // NOI18N
         Rex.setText("Cargar Rex");
         Rex.setBorderPainted(false);
-        Rex.setOpaque(false);
         Rex.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RexActionPerformed(evt);
@@ -198,7 +197,6 @@ public class Principal extends javax.swing.JFrame {
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/agencia-de-viajesblanco.png"))); // NOI18N
         jButton2.setText("Recuento");
         jButton2.setBorderPainted(false);
-        jButton2.setOpaque(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -210,7 +208,6 @@ public class Principal extends javax.swing.JFrame {
         LOTES.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/lista.png"))); // NOI18N
         LOTES.setText("mantenimiento de lotes");
         LOTES.setBorderPainted(false);
-        LOTES.setOpaque(false);
         LOTES.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LOTESActionPerformed(evt);
@@ -222,7 +219,6 @@ public class Principal extends javax.swing.JFrame {
         Chess.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconos/cerrarb.png"))); // NOI18N
         Chess.setText("Cargar Chess");
         Chess.setBorderPainted(false);
-        Chess.setOpaque(false);
         Chess.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ChessActionPerformed(evt);
@@ -433,6 +429,11 @@ public class Principal extends javax.swing.JFrame {
         jMenu37.setText("Analisis");
 
         jMenuItem37.setText("Diferencias");
+        jMenuItem37.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem37ActionPerformed(evt);
+            }
+        });
         jMenu37.add(jMenuItem37);
 
         jMenuItem39.setText("Semáforo");
@@ -1284,6 +1285,14 @@ public class Principal extends javax.swing.JFrame {
         tc.setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenuItem37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem37ActionPerformed
+        // TODO add your handling code here:
+        Analisis_diferencias ad=new Analisis_diferencias(v);
+        this.Principal.add(ad);
+        ad.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem37ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

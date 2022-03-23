@@ -199,6 +199,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Diferencias"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem37ActionPerformed"/>
+                      </Events>
                     </MenuItem>
                     <MenuItem class="javax.swing.JMenuItem" name="jMenuItem39">
                       <Properties>
@@ -858,7 +861,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Cargar Rex"/>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RexActionPerformed"/>
@@ -896,7 +898,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Recuento"/>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
@@ -915,7 +916,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="mantenimiento de lotes"/>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LOTESActionPerformed"/>
@@ -934,7 +934,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Cargar Chess"/>
                         <Property name="borderPainted" type="boolean" value="false"/>
-                        <Property name="opaque" type="boolean" value="false"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ChessActionPerformed"/>

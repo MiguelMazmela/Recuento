@@ -112,6 +112,7 @@ public final class Var {
     private Boolean Conceros;
     private String op_seleccionada;
     private String sSistemaOperativo;
+    private Boolean es_chess;
 //    private String currentDir;
 
     public Connection getCon() {
@@ -139,7 +140,7 @@ public final class Var {
         String sDirectorio = "src" + File.separator + "Data";
 
         String sPath = getCurrentDir() + File.separator + sDirectorio + File.separator + sFichero;
-//        System.out.println(sPath);
+        System.out.println(sPath);
 
         try {
 
@@ -170,6 +171,8 @@ public final class Var {
         this.totalXlinea = 0.0;
         this.con = conectar();
         this.confecha = true;
+        this.es_chess=false;
+        this.Lina_seleccionada="";
 //        this.Hoy=new Date();
 //        fechaSQL = new java.sql.Date(fecha.getTime());
 
@@ -1860,7 +1863,7 @@ public final class Var {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         String sql01="select DISTINCT CPROV_ID  from FACTORES  where CART_ID ='"+codigo+"'";
                 PreparedStatement ps1;
-                String cod=codigo;
+                String cod="";
         try {
             ps1 = getCon().prepareStatement(sql01);
             ResultSet rs1=ps1.executeQuery();
@@ -1877,7 +1880,7 @@ public final class Var {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         String sql01="select DISTINCT CPROV_NOM  from FACTORES  where CART_ID ='"+codigo+"'";
                 PreparedStatement ps1;
-                String cod=codigo;
+                String cod="";
         try {
             ps1 = getCon().prepareStatement(sql01);
             ResultSet rs1=ps1.executeQuery();
@@ -1908,14 +1911,14 @@ public final class Var {
     }
     
     public int busca_NFACTOR_DE_CONSUMO(String codigo){
-        String sql01="select DISTINCT NFACTOR_DE_VENTA  from FACTORES  where CART_ID ='"+codigo+"'";
+        String sql01="select DISTINCT NFACTOR_DE_CONSUMO  from FACTORES  where CART_ID ='"+codigo+"'";
                 PreparedStatement ps1;
                 int cod=0;
         try {
             ps1 = getCon().prepareStatement(sql01);
             ResultSet rs1=ps1.executeQuery();
                 if(rs1.next()){
-                    cod=rs1.getInt("NFACTOR_DE_VENTA");
+                    cod=rs1.getInt("NFACTOR_DE_CONSUMO");
                 }
         } catch (SQLException ex) {
             Logger.getLogger(Carga_chess.class.getName()).log(Level.SEVERE, null, ex);
@@ -1923,5 +1926,73 @@ public final class Var {
           return cod;
         
     }
+    
+    public double Calcula_NC_ALMA(String codigo, double bultos,double unid){
+        Double total=0.0;
+        Double b,u=0.0;
+        String ssq = "select DISTINCT NFACTOR_DE_VENTA,NFACTOR_DE_CONSUMO from FACTORES  where CART_ID  ='"+codigo+"'";
+        
+        try {
+            PreparedStatement ps = this.conectar().prepareStatement(ssq);
+            ResultSet rsc = ps.executeQuery();
+            
+            while (rsc.next()){
+                
+               total=(bultos*rsc.getDouble("NFACTOR_DE_CONSUMO"))+unid;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Var.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+//    ps1.setDouble(1, (rsc.getDouble("CDESCRIPCION_CAT_4") * rsc.getDouble("Nfactor_De_Venta")) + rsc.getDouble("CDESCRIPCION_CAT_5"));
+     
+    return total;
+    }
 
+    public Boolean getEs_chess() {
+        return es_chess;
+    }
+
+    public void setEs_chess(Boolean es_chess) {
+        this.es_chess = es_chess;
+    }
+    public String BuscaGrupo_1(String codigo){
+        String resultado="";
+        String ssq = "select DISTINCT GRUPO1 from FACTORES  where CART_ID  ='"+codigo+"'";
+        
+        try {
+            PreparedStatement ps = this.conectar().prepareStatement(ssq);
+            ResultSet rsc = ps.executeQuery();
+            
+            while (rsc.next()){
+                
+               resultado=rsc.getNString("GRUPO1");
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Var.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return resultado;
+    }
+    public String BuscaGrupo_2(String codigo){
+        String resultado="";
+        String ssq = "select DISTINCT GRUPO2 from FACTORES  where CART_ID  ='"+codigo+"'";
+        
+        try {
+            PreparedStatement ps = this.conectar().prepareStatement(ssq);
+            ResultSet rsc = ps.executeQuery();
+            
+            while (rsc.next()){
+                
+               resultado=rsc.getNString("GRUPO2");
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Var.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return resultado;
+    }
 }
