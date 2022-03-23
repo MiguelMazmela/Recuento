@@ -6,6 +6,7 @@
 package Variables;
 
 import Clases.pordia;
+import Interfaces.Carga_chess;
 import Interfaces.Configuracion_factores;
 import Interfaces.CreditosXClientes;
 import Interfaces.StockALaFecha;
@@ -132,13 +133,13 @@ public final class Var {
     public Connection conectar() {
         Connection coco = null;
         this.sSistemaOperativo = System.getProperty("os.name");
-        System.out.println(sSistemaOperativo);
+//        System.out.println(sSistemaOperativo);
 
         String sFichero = "recuento";
         String sDirectorio = "src" + File.separator + "Data";
 
         String sPath = getCurrentDir() + File.separator + sDirectorio + File.separator + sFichero;
-        System.out.println(sPath);
+//        System.out.println(sPath);
 
         try {
 
@@ -652,7 +653,11 @@ public final class Var {
                 + "Cart_Nom nvarchar (100),"
                 + "Nfactor_De_Venta numeric(18,4),"
                 + "Nfactor_De_Consumo numeric(18,4),"
-                + "Nfactor_A_Reporte numeric(18,4))";
+                + "Nfactor_A_Reporte numeric(18,4)),"
+                + "Cart_Id_Chess nvarchar(8),"
+                + "Cart_Id_Barras nvarchar(50),"
+                + "Cart_Id_Barras_uni nvarchar(50)";
+        
 
         this.sql_consulta_temporal = "insert into temporal "
                 + "(CPROV_ID ,CPROV_NOM ,"
@@ -812,7 +817,7 @@ public final class Var {
             SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd", new Locale("es", "ES"));
             java.sql.Date fecFormatoDate = new java.sql.Date(sdf.parse(fe).getTime());
 
-            System.out.println("Fecha con el formato java.sql.Date: " + fecFormatoDate);
+//            System.out.println("Fecha con el formato java.sql.Date: " + fecFormatoDate);
             return fecFormatoDate;
         } catch (ParseException ex) {
             System.out.println("Error al obtener el formato de la fecha/hora: " + ex.getMessage());
@@ -1728,13 +1733,13 @@ public final class Var {
 //    }
     public int tranfiere_factores(String txt_fecha_sql) {
         int error = 0;
-        String ssq = "SELECT CPROV_ID,CPROV_NOM,Cart_Id,Nfactor_De_Venta,Nfactor_De_Consumo,Nfactor_A_Reporte FROM FACTORES";
+        String ssq = "SELECT CPROV_ID,CPROV_NOM,Cart_Id,Nfactor_De_Venta,Nfactor_De_Consumo,Nfactor_A_Reporte,CART_ID_CHESS FROM FACTORES";
         String sql;
         try {
             PreparedStatement psc = this.conectar().prepareStatement(ssq);
             ResultSet rsc = psc.executeQuery();
             while (rsc.next()) {
-                sql = "UPDATE sistema_fecha SET CPROV_ID=?,CPROV_NOM=?,Nfactor_De_Venta = ?,Nfactor_De_Consumo=?,Nfactor_A_Reporte=? "
+                sql = "UPDATE sistema_fecha SET CPROV_ID=?,CPROV_NOM=?,Nfactor_De_Venta = ?,Nfactor_De_Consumo=?,Nfactor_A_Reporte=?"
                         + "WHERE  Cart_Id =? and Fecha_recuento=?";
                 PreparedStatement ps = this.conectar().prepareStatement(sql);
                 ps.setString(1, rsc.getNString("CPROV_ID"));
@@ -1742,8 +1747,10 @@ public final class Var {
                 ps.setString(3, rsc.getNString("Nfactor_De_Venta"));
                 ps.setString(4, rsc.getNString("Nfactor_De_Consumo"));
                 ps.setString(5, rsc.getNString("Nfactor_A_Reporte"));
+//                ps.setString(6, rsc.getString("Cart_Id"));
                 ps.setString(6, rsc.getNString("Cart_Id"));
                 ps.setString(7, txt_fecha_sql);
+//                if()
                 ps.executeUpdate();
             }
         } catch (SQLException ex) {
@@ -1828,6 +1835,93 @@ public final class Var {
         }
 
         return texto_fecha_sql;
+    }
+    
+    public String codigo(String columna) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        
+        String sql01="select DISTINCT CART_ID  from FACTORES  where CART_ID_CHESS ='"+columna+"'";
+                PreparedStatement ps1;
+                String cod=columna;
+        try {
+            ps1 = getCon().prepareStatement(sql01);
+            ResultSet rs1=ps1.executeQuery();
+                if(rs1.next()){
+                    cod=rs1.getString("CART_ID");
+                }
+        } catch (SQLException ex) {
+            Logger.getLogger(Carga_chess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          return cod;      
+    }
+    
+    public String CPROV_ID(String codigo) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql01="select DISTINCT CPROV_ID  from FACTORES  where CART_ID ='"+codigo+"'";
+                PreparedStatement ps1;
+                String cod=codigo;
+        try {
+            ps1 = getCon().prepareStatement(sql01);
+            ResultSet rs1=ps1.executeQuery();
+                if(rs1.next()){
+                    cod=rs1.getString("CPROV_ID");
+                }
+        } catch (SQLException ex) {
+            Logger.getLogger(Carga_chess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          return cod;      
+    }
+    
+    public String CPROV_NOM(String codigo) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql01="select DISTINCT CPROV_NOM  from FACTORES  where CART_ID ='"+codigo+"'";
+                PreparedStatement ps1;
+                String cod=codigo;
+        try {
+            ps1 = getCon().prepareStatement(sql01);
+            ResultSet rs1=ps1.executeQuery();
+                if(rs1.next()){
+                    cod=rs1.getString("CPROV_NOM");
+                }
+        } catch (SQLException ex) {
+            Logger.getLogger(Carga_chess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          return cod;      
+    }
+    
+    public int busca_NFACTOR_DE_VENTA(String codigo){
+        String sql01="select DISTINCT NFACTOR_DE_VENTA  from FACTORES  where CART_ID ='"+codigo+"'";
+                PreparedStatement ps1;
+                int cod=0;
+        try {
+            ps1 = getCon().prepareStatement(sql01);
+            ResultSet rs1=ps1.executeQuery();
+                if(rs1.next()){
+                    cod=rs1.getInt("NFACTOR_DE_VENTA");
+                }
+        } catch (SQLException ex) {
+            Logger.getLogger(Carga_chess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          return cod;
+        
+    }
+    
+    public int busca_NFACTOR_DE_CONSUMO(String codigo){
+        String sql01="select DISTINCT NFACTOR_DE_VENTA  from FACTORES  where CART_ID ='"+codigo+"'";
+                PreparedStatement ps1;
+                int cod=0;
+        try {
+            ps1 = getCon().prepareStatement(sql01);
+            ResultSet rs1=ps1.executeQuery();
+                if(rs1.next()){
+                    cod=rs1.getInt("NFACTOR_DE_VENTA");
+                }
+        } catch (SQLException ex) {
+            Logger.getLogger(Carga_chess.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          return cod;
+        
     }
 
 }

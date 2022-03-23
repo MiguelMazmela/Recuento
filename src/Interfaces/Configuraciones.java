@@ -38,6 +38,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
     public Configuraciones(Var v) {
         initComponents();
         this.v = v;
+        inicia();
         inicia_comprobaantes();
         cambia_proveedor();
         carga_impuestos();
@@ -45,6 +46,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         comprobantes();
         cargas();
         proveedores();
+        
     }
 
     /**
@@ -144,6 +146,19 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         jButton15 = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable5 = new javax.swing.JTable();
+        jPanel17 = new javax.swing.JPanel();
+        jPanel18 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        existe_lotes = new javax.swing.JCheckBox();
+        crea_tabla_lotes = new javax.swing.JButton();
+        borra_tabla_lotes = new javax.swing.JButton();
+        jLabel20 = new javax.swing.JLabel();
+        existe_sistema = new javax.swing.JCheckBox();
+        crea_tabla_sistema = new javax.swing.JButton();
+        borra_tabla_sistema = new javax.swing.JButton();
+        jPanel19 = new javax.swing.JPanel();
+        jPanel20 = new javax.swing.JPanel();
+        jButton16 = new javax.swing.JButton();
 
         jCheckBox1.setText("jCheckBox1");
 
@@ -442,12 +457,12 @@ public class Configuraciones extends javax.swing.JInternalFrame {
             }
         ));
         jTable2.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jTable2AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         jTable2.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -939,6 +954,143 @@ public class Configuraciones extends javax.swing.JInternalFrame {
 
         jTabbedPane1.addTab("Proveedores", jPanel14);
 
+        jPanel18.setBackground(new java.awt.Color(0, 204, 0));
+
+        jLabel19.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel19.setText("TABLA LOTES :");
+
+        existe_lotes.setText("Existe");
+
+        crea_tabla_lotes.setText("Crear");
+        crea_tabla_lotes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crea_tabla_lotesActionPerformed(evt);
+            }
+        });
+
+        borra_tabla_lotes.setText("borrar");
+        borra_tabla_lotes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                borra_tabla_lotesActionPerformed(evt);
+            }
+        });
+
+        jLabel20.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel20.setText("TABLA SISTEMA  :");
+
+        existe_sistema.setText("Existe");
+
+        crea_tabla_sistema.setText("Crear");
+        crea_tabla_sistema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crea_tabla_sistemaActionPerformed(evt);
+            }
+        });
+
+        borra_tabla_sistema.setText("borrar");
+        borra_tabla_sistema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                borra_tabla_sistemaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
+        jPanel18.setLayout(jPanel18Layout);
+        jPanel18Layout.setHorizontalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(existe_lotes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(crea_tabla_lotes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(borra_tabla_lotes))
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(existe_sistema)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(crea_tabla_sistema)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(borra_tabla_sistema)))
+                .addContainerGap(791, Short.MAX_VALUE))
+        );
+        jPanel18Layout.setVerticalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(existe_sistema)
+                        .addComponent(crea_tabla_sistema)
+                        .addComponent(borra_tabla_sistema))
+                    .addComponent(jLabel20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 331, Short.MAX_VALUE)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(existe_lotes)
+                        .addComponent(crea_tabla_lotes)
+                        .addComponent(borra_tabla_lotes))
+                    .addComponent(jLabel19))
+                .addGap(53, 53, 53))
+        );
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Tablas", jPanel17);
+
+        jPanel20.setBackground(new java.awt.Color(0, 255, 51));
+
+        jButton16.setText("Modi estru factores");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
+        jPanel20.setLayout(jPanel20Layout);
+        jPanel20Layout.setHorizontalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel20Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton16)
+                .addContainerGap(1010, Short.MAX_VALUE))
+        );
+        jPanel20Layout.setVerticalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel20Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton16)
+                .addContainerGap(409, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
+        jPanel19.setLayout(jPanel19Layout);
+        jPanel19Layout.setHorizontalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel19Layout.setVerticalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Actualizaciones", jPanel19);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1089,13 +1241,71 @@ public class Configuraciones extends javax.swing.JInternalFrame {
         borra_tabla5();
     }//GEN-LAST:event_jButton15ActionPerformed
 
+    private void crea_tabla_lotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crea_tabla_lotesActionPerformed
+        // TODO add your handling code here:
+        
+        creaBLotes();
+
+    }//GEN-LAST:event_crea_tabla_lotesActionPerformed
+
+    private void borra_tabla_lotesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borra_tabla_lotesActionPerformed
+        // TODO add your handling code here:
+        String sqlb="DROP TABLE IF EXISTS lotes;";
+        
+        try {
+            PreparedStatement ps1 = v.conectar().prepareStatement(sqlb);
+            ps1.executeUpdate();
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        inicia();
+    }//GEN-LAST:event_borra_tabla_lotesActionPerformed
+
+    private void crea_tabla_sistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crea_tabla_sistemaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_crea_tabla_sistemaActionPerformed
+
+    private void borra_tabla_sistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borra_tabla_sistemaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_borra_tabla_sistemaActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        // TODO add your handling code here:
+        String sql1="alter table  FACTORES add Cart_Id_Chess nvarchar(8)";
+        String sql2="alter table  FACTORES add Cart_Id_Barras nvarchar(50)";
+        String sql3="alter table  FACTORES add Cart_Id_Barras_uni nvarchar(50)";
+        try {
+            PreparedStatement ps1 = v.conectar().prepareStatement(sql1);
+            ps1.executeUpdate();
+            PreparedStatement ps2 = v.conectar().prepareStatement(sql2);
+            ps1.executeUpdate();
+            PreparedStatement ps3 = v.conectar().prepareStatement(sql3);
+            ps1.executeUpdate();
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+    }//GEN-LAST:event_jButton16ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox Guias;
     private javax.swing.JCheckBox Piso;
     private javax.swing.JCheckBox Vencidos;
+    private javax.swing.JButton borra_tabla_lotes;
+    private javax.swing.JButton borra_tabla_sistema;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JRadioButton con_fechas;
+    private javax.swing.JButton crea_tabla_lotes;
+    private javax.swing.JButton crea_tabla_sistema;
+    private javax.swing.JCheckBox existe_lotes;
+    private javax.swing.JCheckBox existe_sistema;
     private javax.swing.JButton guarda_impuestos;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -1104,6 +1314,7 @@ public class Configuraciones extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1134,7 +1345,9 @@ public class Configuraciones extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1150,7 +1363,11 @@ public class Configuraciones extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
+    private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -2128,6 +2345,62 @@ public class Configuraciones extends javax.swing.JInternalFrame {
 
     
         
+        
+    }
+
+    private void creaBLotes() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        String sql="CREATE TABLE lotes(lote varchar(50) primary key, "
+                + "Cart_Id nvarchar (8),"
+                + "Cart_Nom nvarchar (100),"
+                + "dfecha_vencimiento Date,"
+                + "Cubicacion nvarchar(30))";
+        String sqlb="DROP TABLE IF EXISTS lotes;";
+        
+        try {
+            PreparedStatement ps1 = v.conectar().prepareStatement(sqlb);
+            ps1.executeUpdate();
+            ps1=v.conectar().prepareStatement(sql);
+            ps1.executeUpdate();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        inicia();
+        
+    }
+    boolean existe_tabla(String tabla){
+        boolean respuesta=false;
+        String sql="SELECT * FROM INFORMATION_SCHEMA.TABLES";
+        try {
+            PreparedStatement ps1 = v.conectar().prepareStatement(sql);
+            ResultSet rs=ps1.executeQuery();
+            while(rs.next()){
+                if(rs.getString("TABLE_NAME").equals(tabla.toUpperCase())){
+                    respuesta=true;
+                }
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Configuraciones.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return respuesta;
+    }
+
+    private void inicia() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        existe_lotes.setr
+        existe_lotes.setSelected(existe_tabla("LOTES"));
+        crea_tabla_lotes.setEnabled(!existe_tabla("LOTES"));
+        borra_tabla_lotes.setEnabled(existe_tabla("LOTES"));
+        
+        existe_sistema.setSelected(existe_tabla("SISTEMA"));
+        crea_tabla_sistema.setEnabled(!existe_tabla("SISTEMA"));
+        borra_tabla_sistema.setEnabled(existe_tabla("SISTEMA"));
         
     }
 }
